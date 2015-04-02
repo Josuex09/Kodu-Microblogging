@@ -1,0 +1,128 @@
+body{
+    background: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+#barraNavegacion{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 7%;
+    background-color: #f58214;
+}
+
+.itemBarraNavegacion{
+    float: left;
+    display: inline-block;
+    height: 100%;
+    
+}
+#aplicacion{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin: 0% 5% 0% 10%;
+    width: 100%;
+}
+ 
+#barraBusqueda{
+    outline: none;
+    display: inline-block;
+    margin: 7% 0% 0% 290%;
+    height: 50%;
+    width: 130%;
+    border-radius: 15px;
+    font-size: 120%;
+    text-align: left;
+}
+
+#notificaciones{
+    display: inline-block;
+    height: 50%;
+    width: 2%;
+    color: white;
+    margin: 0.5% 0% 0% 70%;
+}
+
+#referenciaPerfil{
+    display: inline-block;
+    margin: 10% 0% 0% 60%;
+}
+
+#infoFeed{
+    display: inline-block;
+    background-color: #f9f8f8;
+    float: left;
+    height: 60%;
+    width: 20%;
+    margin: 2% 0 0% 2%;
+}
+
+#feed{
+    display: inline-block;
+    height: 100%;
+    width: 50%;
+    margin: 2% 0 0 2%;
+    
+}
+
+#usuario{
+    margin-left:23%;
+    margin-top: 51%;
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+    height: 6%;
+    width: 52%;
+}
+
+
+#foto{
+    float: left;
+    width: 100%;
+    height: 30%;
+    margin-top: 2%;
+}
+
+
+#foto img{
+    width: 50%;
+    height: 100%;
+    margin-left: 24%;
+     
+}
+img.expand{
+    display: inline-block;
+    float: left;
+    margin: 0% 0% 0% 0%;
+    width: 10em;
+}
+
+#relaciones{
+    height: 15%;
+    width: 80%;
+    margin-left: 10%;
+    text-align:center;
+    font-size: 25;
+}
+
+
+#seguidos{
+    float:left; 
+    height: 100%;
+    width: 47%;
+    border: solid;
+    border-color: #e7e4e4;
+}
+
+#seguidores{
+    float: right;
+    height:100%;
+    width:47%;
+    border: solid;
+    border-color: #e7e4e4;
+}
