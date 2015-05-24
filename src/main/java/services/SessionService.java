@@ -1,9 +1,12 @@
 package Services;
 
 public interface SessionService {
-	public void signUp(String username,String password);
-	public void logIn(String username,String password);
-	public void logOut(String username);
-	public boolean validateEmail(String email);
-
+	User signUp(String username,String password);
+	void logIn(String username,String password);
+	User getCurrentUser(String current_username);
+	void logOut(String username);
+	boolean validateEmail(String email);
+	User getUser(String username);
 }
+
+
