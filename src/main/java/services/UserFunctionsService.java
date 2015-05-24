@@ -1,4 +1,9 @@
-package Services;
+package services;
+
+import java.util.List;
+
+import model.Post;
+import model.User;
 
 public interface UserFunctionsService {
 	public List<Post> searchPost(String value);

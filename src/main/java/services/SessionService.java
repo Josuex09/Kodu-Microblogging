@@ -1,4 +1,6 @@
-package Services;
+package services;
+
+import model.User;
 
 public interface SessionService {
 	User signUp(String username,String email,String password);

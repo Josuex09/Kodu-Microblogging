@@ -1,4 +1,9 @@
-package Services;
+package services;
+
+import java.util.List;
+
+import model.Post;
+import model.User;
 
 public interface VisualizationService {
 	public List<User> showFollowers(String userId);
