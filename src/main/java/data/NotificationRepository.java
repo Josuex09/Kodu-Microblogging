@@ -1,11 +1,11 @@
-package data;
+package main.java.data;
 
 import java.util.List;
 
-import model.Notification;
-import model.User;
+import main.java.model.Notification;
+import main.java.model.User;
 
 
-public interface NotificationRepository extends BaseRepository{
+public interface NotificationRepository extends BaseRepository<Notification, String>{
 	public List<Notification> findNotification(User user);
 }

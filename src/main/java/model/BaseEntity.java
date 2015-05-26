@@ -1,23 +1,17 @@
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+package main.java.model;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@MappedSuperclass
 public abstract class BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	
     protected Long id;
 
-    @CreatedDate
+
     protected Date createdDate;
 
-    @LastModifiedDate
     protected Date lastModifiedDate;
 
-    @Version
     protected Integer version;
 
     public Long getId() {

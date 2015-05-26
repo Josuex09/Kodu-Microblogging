@@ -1,6 +1,6 @@
-package services;
+package main.java.services;
 
-import model.User;
+import main.java.model.User;
 
 public interface SessionService {
 	User signUp(String username,String email,String password);

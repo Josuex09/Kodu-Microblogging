@@ -1,4 +1,4 @@
-package model;
+package main.java.model;
 
 import java.io.InputStream;
 
@@ -16,27 +16,18 @@ public class Medal {
 	public InputStream getImage() {
 		return image; }
 
-	public void setImage(InputStream image) {
-		this.image = image; }
-
 	public String getType() {
 		return type; }
-
-	public void setType(String type) {
-		this.type = type; }
 
 	public String getLanguage() {
 		return language; }
 
-	public void setLanguage(String language) {
-		this.language = language; }
-
-	@Override
+	
 	public String toString() {
 		return "Medal [image=" + image + ", type=" + type + ", language="
 				+ language + "]"; }
 
-	@Override
+	
 	public int hashCode() {
 		int prime = 31;
 		int result = 1;
@@ -45,7 +36,7 @@ public class Medal {
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result; }
 
-	@Override
+	
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true; }

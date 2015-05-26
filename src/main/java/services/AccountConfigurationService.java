@@ -1,4 +1,4 @@
-package services;
+package main.java.services;
 
 import java.io.InputStream;
 import java.util.List;

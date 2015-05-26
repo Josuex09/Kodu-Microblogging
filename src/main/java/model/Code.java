@@ -1,4 +1,4 @@
-package model;
+package main.java.model;
 
 public class Code {
 	
@@ -12,20 +12,15 @@ public class Code {
 	public String getCode() {
 		return code; }
 
-	public void setCode(String code) {
-		this.code = code; }
 
 	public String getLanguage() {
 		return language; }
 
-	public void setLanguage(String language) {
-		this.language = language; }
-
-	@Override
+	
 	public String toString() {
 		return "Code [code=" + code + ", language=" + language + "]"; }
 
-	@Override
+	
 	public int hashCode() {
 	    int prime = 31;
 		int result = 1;
@@ -34,7 +29,7 @@ public class Code {
 				+ ((language == null) ? 0 : language.hashCode());
 		return result; }
 
-	@Override
+	
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true; }

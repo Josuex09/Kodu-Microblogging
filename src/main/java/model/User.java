@@ -1,10 +1,10 @@
-package model;
+package main.java.model;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class User {
+public class User extends BaseEntity{
 	
 	private String username;
 	private String email;
@@ -34,14 +34,8 @@ public class User {
 	public String getUsername() {
 		return username; }
 
-	public void setUsername(String username) {
-		this.username = username; }
-
 	public String getEmail() {
 		return email; }
-
-	public void setEmail(String email) {
-		this.email = email; }
 
 	public String getLocatedOn() {
 		return locatedOn; }
@@ -57,47 +51,56 @@ public class User {
 
 	public ArrayList<String> getLanguages() {
 		return languages; }
-
-	public void setLanguages(ArrayList<String> languages) {
-		this.languages = languages; }
-
+	
+	public void addLanguage(String language){
+		languages.add(language);
+	}
+	
 	public ArrayList<Post> getPosts() {
 		return posts; }
 
-	public void setPosts(ArrayList<Post> posts) {
-		this.posts = posts; }
-
+	public void addPost(Post post){
+		posts.add(post);
+	}
+	
+	public void deletePost(Post post){
+		posts.remove(post);
+	}
+	
 	public ArrayList<Medal> getMedals() {
 		return medals; }
 
-	public void setMedals(ArrayList<Medal> medals) {
-		this.medals = medals; }
-
+	public void addMedal(Medal medal){
+		medals.add(medal);
+	}
+	
 	public ArrayList<Notification> getNotifications() {
 		return notifications; }
-
-	public void setNotifications(ArrayList<Notification> notifications) {
-		this.notifications = notifications; }
-
+	
+	public void addNotification(Notification notification){
+		notifications.add(notification);
+	}
+	
 	public ArrayList<User> getFollowers() {
 		return followers; }
-
-	public void setFollowers(ArrayList<User> followers) {
-		this.followers = followers; }
+	
+	public void addFollower(User follower){
+		followers.add(follower);
+	}
 
 	public ArrayList<User> getFollows() {
 		return follows; }
-
-	public void setFollows(ArrayList<User> follows) {
-		this.follows = follows; }
-
+	
+	public void addFollow(User follow){
+		follows.add(follow);
+	}
+	public void deleteFollow(User follow){
+		follows.remove(follow);
+	}
 	public HashMap<String, Long> getScores() {
 		return scores; }
-
-	public void setScores(HashMap<String, Long> scores) {
-		this.scores = scores; }
 	
-	@Override
+	
 	public String toString() {
 		return "User [username=" + username + ", email=" + email
 				+ ", locatedOn=" + locatedOn + ", profileImage=" + profileImage
@@ -106,7 +109,7 @@ public class User {
 				+ followers + ", follows=" + follows + ", scores=" + scores
 				+ "]"; }
 
-	@Override
+	
 	public int hashCode() {
 		int prime = 31;
 		int result = 1;
@@ -115,7 +118,6 @@ public class User {
 				+ ((username == null) ? 0 : username.hashCode());
 		return result; }
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true; }

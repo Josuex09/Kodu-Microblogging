@@ -1,4 +1,4 @@
-package model;
+package main.java.model;
 public class Rating {
 	
 	private User user;
@@ -10,21 +10,18 @@ public class Rating {
 
 	public User getUser() {
 		return user; }
-
-	public void setUser(User user) {
-		this.user = user; }
-
+	
 	public int getScore() {
 		return score; }
 
 	public void setScore(int score) {
 		this.score = score; }
 
-	@Override
+	
 	public String toString() {
 		return "Rating [user=" + user + ", score=" + score + "]"; }
 
-	@Override
+	
 	public int hashCode() {
 	 int prime = 31;
 		int result = 1;
@@ -32,7 +29,7 @@ public class Rating {
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result; }
 
-	@Override
+	
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true; }

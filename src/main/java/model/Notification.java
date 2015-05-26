@@ -1,6 +1,6 @@
-package model;
+package main.java.model;
 
-public class Notification {
+public class Notification extends BaseEntity {
 	
 	private String content;
 	private boolean seen;
@@ -12,20 +12,17 @@ public class Notification {
 	public String getContent() {
 		return content; }
 
-	public void setContent(String content) {
-		this.content = content; }
-
 	public boolean isSeen() {
 		return seen; }
 
 	public void setSeen(boolean seen) {
 		this.seen = seen; }
 
-	@Override
+	
 	public String toString() {
 		return "Notification [content=" + content + ", seen=" + seen + "]"; }
 
-	@Override
+	
 	public int hashCode() {
 		int prime = 31;
 		int result = 1;
@@ -33,7 +30,6 @@ public class Notification {
 		result = prime * result + (seen ? 1231 : 1237);
 		return result; }
 
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true; }

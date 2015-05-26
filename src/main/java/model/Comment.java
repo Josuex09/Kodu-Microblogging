@@ -1,4 +1,4 @@
-package model;
+package main.java.model;
 
 public class Comment {
 	
@@ -12,20 +12,14 @@ public class Comment {
 	public User getUser() {
 		return user; }
 
-	public void setUser(User user) {
-		this.user = user; }
-
 	public String getContent() {
 		return content; }
 
-	public void setContent(String content) {
-		this.content = content; }
-
-	@Override
+	
 	public String toString() {
 		return "Comment [user=" + user + ", content=" + content + "]"; }
 
-	@Override
+	
 	public int hashCode() {
 		int prime = 31;
 		int result = 1;
@@ -33,7 +27,7 @@ public class Comment {
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result; }
 
-	@Override
+	
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true; }

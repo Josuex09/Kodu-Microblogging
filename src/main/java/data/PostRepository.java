@@ -1,12 +1,13 @@
-package data;
+package main.java.data;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.List;
 
-import model.Post;
-import model.User;
+import main.java.model.Post;
+import main.java.model.User;
 
-public interface PostRepository extends BaseRepository{
+public interface PostRepository extends BaseRepository<Post, String>{
 	public List<Post> findByPublishedOn(Date from, Date to);
 	public List<Post> findByUser(User user);
 	public List<Post> findPosts(List<User> users);

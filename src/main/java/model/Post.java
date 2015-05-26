@@ -1,59 +1,56 @@
-package model;
+package main.java.model;
 
 import java.util.ArrayList;
 
-public final class Post {
+public final class Post extends BaseEntity {
 	
 	private String description;
 	private Code code;
-	private ArrayList<Rating> rating;
+	private ArrayList<Rating> ratings;
 	private ArrayList<User> shared;
 	private ArrayList<Comment> comments;
 	
 	public Post(String description, Code code) {
 		this.description = description;
 		this.code = code;
-		this.rating = new ArrayList<Rating>();
+		this.ratings = new ArrayList<Rating>();
 		this.shared = new ArrayList<User>();
 		this.comments = new ArrayList<Comment>(); }
 
-	public final String getDescription() {
+	public String getDescription() {
 		return description; }
 
-	public final void setDescription(String description) {
-		this.description = description; }
-
-	public final Code getCode() {
+	public Code getCode() {
 		return code; }
 
-	public final void setCode(Code code) {
-		this.code = code; }
+	public ArrayList<Rating> getRating() {
+		return ratings; }
+	
+	public void addRating(Rating rating){
+		ratings.add(rating);
+	}
 
-	public final ArrayList<Rating> getRating() {
-		return rating; }
-
-	public final void setRating(ArrayList<Rating> rating) {
-		this.rating = rating; }
-
-	public final ArrayList<User> getShared() {
+	public ArrayList<User> getShared() {
 		return shared; }
 
-	public final void setShared(ArrayList<User> shared) {
-		this.shared = shared; }
-
-	public final ArrayList<Comment> getComments() {
+	public void addShared(User user){
+		shared.add(user);
+	}
+	
+	public  ArrayList<Comment> getComments() {
 		return comments; }
 
-	public final void setComments(ArrayList<Comment> comments) {
-		this.comments = comments; }
-
-	@Override
+	public void addComment(Comment comment){
+		comments.add(comment);
+	}
+	
+	
 	public String toString() {
 		return "Post [description=" + description + ", code=" + code
-				+ ", rating=" + rating + ", shared=" + shared + ", comments="
+				+ ", rating=" + ratings + ", shared=" + shared + ", comments="
 				+ comments + "]"; }
 
-	@Override
+	
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -62,7 +59,7 @@ public final class Post {
 				+ ((description == null) ? 0 : description.hashCode());
 		return result; }
 
-	@Override
+	
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true; }
