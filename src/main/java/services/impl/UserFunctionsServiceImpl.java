@@ -15,15 +15,9 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 	
 	
 	@Override
-	public List<Post> searchPost(String value){
-
+	public List<Object> search(String value){
+		
 	}
-
-	@Override
-	public List<User> searchUser(String username){
-
-	}
-
 	
 	@Override
 	public void commentPublication(Long postId,String username,String comment){
