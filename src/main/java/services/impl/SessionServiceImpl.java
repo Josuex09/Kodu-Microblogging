@@ -1,43 +1,46 @@
-package services;
+package main.java.services.impl;
 
-import data.UserRepository;
-import model.User;
+import main.java.data.UserRepository;
+import main.java.model.User;
+import main.java.services.SessionService;
 
 //@Service
 public class SessionServiceImpl implements SessionService {
+	UserRepository userRepository;
+	
 	
 	@Override
     public User signUp(String username, String password, String passwordConfirm) {
 
-
+		return userRepository.findByUserName(username); // INCOMPLETE....
     }	
 
     @Override
-    void logIn(String username,String password){
-
+	public void logIn(String username,String password){
+    	
     }
 
     // *****************
     @Override
-    User getCurrentUser(String current_username){
+	public  User getCurrentUser(String username){
     	/*
     	String username = ((UserDetails) ((UsernamePasswordAuthenticationToken) 
     		principal).getPrincipal()).getUsername();*/
-        return UserRepository.findByUsername(username);
+        return userRepository.findByUserName(username);
     }
 	
     @Override
-	void logOut(String username){
+	public	void logOut(String username){
 
 	}
 	
 	@Override
-	boolean validateEmail(String email){
-
+	public boolean validateEmail(String email){
+			return true; // INCOMPLETE.
 	}
 	
 	@Override
-	User getUser(String username){
-		return UserRepository.findByUsername(username);
+	public User getUser(String username){
+		return userRepository.findByUserName(username);
 	}
 }

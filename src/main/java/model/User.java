@@ -46,6 +46,10 @@ public class User extends BaseEntity{
 	public InputStream getProfileImage() {
 		return profileImage; }
 
+	public void setLanguages(ArrayList<String> languages) {
+		this.languages = languages;
+	}
+
 	public void setProfileImage(InputStream profileImage) {
 		this.profileImage = profileImage; }
 

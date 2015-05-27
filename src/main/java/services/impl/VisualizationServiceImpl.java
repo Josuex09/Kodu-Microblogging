@@ -1,31 +1,34 @@
-package services;
+package main.java.services.impl;
 
 import java.util.List;
 
-import model.Post;
-import model.User;
+import main.java.data.UserRepository;
+import main.java.model.Medal;
+import main.java.model.Post;
+import main.java.model.User;
+import main.java.services.VisualizationService;
 
 //@Service
 public class VisualizationServiceImpl implements VisualizationService {
 
 	//modifique userId por username
-
+	UserRepository userRepository;
 
 	@Override
 	public List<User> showFollowers(String username){
-		User user = UserRepository.findByUserName(username);
+		User user = userRepository.findByUserName(username);
 		return user.getFollowers();
 	}
 	
 	@Override
 	public List<User> showFollowing(String username){
-		User user = UserRepository.findByUserName(username);
+		User user = userRepository.findByUserName(username);
 		return user.getFollows();
 	}
 
 	@Override
-	public List<User> showMedals(String username){
-		User user = UserRepository.findByUserName(username);
+	public List<Medal> showMedals(String username){
+		User user = userRepository.findByUserName(username);
 		return user.getMedals();
 	}
 
@@ -40,8 +43,8 @@ public class VisualizationServiceImpl implements VisualizationService {
 	
 	@Override
 	public List<Post> showUserPost(String username){
-		User user = UserRepository.findByUserName(username);
-		return getPosts();
+		User user = userRepository.findByUserName(username);
+		return user.getPosts();
 	}
 
 

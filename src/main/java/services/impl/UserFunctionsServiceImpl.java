@@ -1,9 +1,10 @@
-package services;
+package main.java.services.impl;
 
 import java.util.List;
 
-import model.Post;
-import model.User;
+import main.java.model.Post;
+import main.java.model.User;
+import main.java.services.UserFunctionsService;
 
 //@Service
 public class UserFunctionsServiceImpl implements UserFunctionsService {

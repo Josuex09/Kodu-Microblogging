@@ -1,31 +1,35 @@
-package services;
+package main.java.services.impl;
 
 import java.io.InputStream;
-import java.util.List;
+import java.util.ArrayList;
 
-import data.UserRepository;
+import main.java.data.UserRepository;
+import main.java.model.User;
+import main.java.services.AccountConfigurationService;
 
 //@Service
 public class AccountConfigurationServiceImpl implements AccountConfigurationService {
 
+	private UserRepository userRepository;
+	
+	
 	//modifique userId por username
-
 
 	@Override
 	public void deleteAccount(String username){
-		User user = UserRepository.findByUserName(username);
+		User user = userRepository.findByUserName(username);
 		//Eliminar Usuario
 	}
 
 	
 	@Override
-	public void editAccount(String username,List<String> languages,
+	public void editAccount(String username,ArrayList<String> languages,
 		String password,String location,InputStream picture){
 
-		User user = UserRepository.findByUserName(username);
-		user.setLenguages(languages);
-		user.setLocationOn(location);
-		user.setProfileImagen(picture);
+		User user = userRepository.findByUserName(username);
+		user.setLanguages(languages);
+		user.setLocatedOn(location);
+		user.setProfileImage(picture);
 	}
 
 
