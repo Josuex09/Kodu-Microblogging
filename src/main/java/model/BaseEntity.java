@@ -7,7 +7,6 @@ public abstract class BaseEntity {
 	
     protected Long id;
 
-
     protected Date createdDate;
 
     protected Date lastModifiedDate;

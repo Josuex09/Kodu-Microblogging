@@ -12,22 +12,20 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
 
 	private UserRepository userRepository;
 	
-	
-	//modifique userId por username
 
-	@Override
-	public void deleteAccount(String username){
-		User user = userRepository.findByUserName(username);
-		//Eliminar Usuario
+
+	@Override 
+	public void deleteAccount(String username){ // delete user.
+		userRepository.delete(username);
 	}
 
 	
 	@Override
 	public void editAccount(String username,ArrayList<String> languages,
 		String password,String location,InputStream picture){
-
 		User user = userRepository.findByUserName(username);
 		user.setLanguages(languages);
+		user.setPassword(password);
 		user.setLocatedOn(location);
 		user.setProfileImage(picture);
 	}

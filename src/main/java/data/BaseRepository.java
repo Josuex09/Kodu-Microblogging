@@ -7,7 +7,7 @@ public interface BaseRepository <T,K> {
 
 	public K findOne(K k);
 
-	public void save(T t);
+	public K save(T t);
 
 	public boolean exists(K k);
 

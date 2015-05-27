@@ -5,17 +5,25 @@ import java.util.ArrayList;
 public final class Post extends BaseEntity {
 	
 	private String description;
+	//private String postId;
 	private Code code;
 	private ArrayList<Rating> ratings;
 	private ArrayList<User> shared;
 	private ArrayList<Comment> comments;
 	
-	public Post(String description, Code code) {
+	public Post(/*String postId,*/String description, Code code) {
 		this.description = description;
 		this.code = code;
+		//this.postId=postId;
 		this.ratings = new ArrayList<Rating>();
 		this.shared = new ArrayList<User>();
 		this.comments = new ArrayList<Comment>(); }
+
+/*
+	public String getPostId() {
+		return postId;
+	}
+*/
 
 	public String getDescription() {
 		return description; }

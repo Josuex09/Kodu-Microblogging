@@ -8,17 +8,7 @@ import main.java.services.SessionService;
 public class SessionServiceImpl implements SessionService {
 	UserRepository userRepository;
 	
-	
-	@Override
-    public User signUp(String username, String password, String passwordConfirm) {
 
-		return userRepository.findByUserName(username); // INCOMPLETE....
-    }	
-
-    @Override
-	public void logIn(String username,String password){
-    	
-    }
 
     // *****************
     @Override
@@ -29,18 +19,35 @@ public class SessionServiceImpl implements SessionService {
         return userRepository.findByUserName(username);
     }
 	
-    @Override
-	public	void logOut(String username){
-
-	}
-	
 	@Override
 	public boolean validateEmail(String email){
-			return true; // INCOMPLETE.
+		// validate email syntax
+		if(userRepository.findUserByEmail(email)==null){ // must send email...
+			return true;
+		}
+		return false;
+		
 	}
 	
 	@Override
 	public User getUser(String username){
 		return userRepository.findByUserName(username);
+	}
+
+	@Override
+	public User signUp(String username, String email, String password,
+			String passwordConfirm) {
+	       if (password.equals(passwordConfirm)) {
+	            User existingUser = userRepository.findByUserName(username);
+	            if (existingUser == null) {
+	                User user = new User(username,password,email); // encode password .
+	                String id = userRepository.save(user);
+	                return userRepository.findByUserName(id);
+	            } else {
+	                return null;
+	            }
+	        }
+
+	        return null;
 	}
 }

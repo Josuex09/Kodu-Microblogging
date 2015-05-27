@@ -9,6 +9,15 @@ public class User extends BaseEntity{
 	private String username;
 	private String email;
 	private String locatedOn;
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	private String password;
 	private InputStream profileImage;
 	private ArrayList<String> languages;
 	private ArrayList<Post> posts;
@@ -18,10 +27,10 @@ public class User extends BaseEntity{
 	private ArrayList<User> follows;
 	private HashMap<String, Long> scores;
 	
-	public User(String username, String email, String locatedOn) {
+	public User(String username,String password, String email) {
 		this.username = username;
 		this.email = email;
-		this.locatedOn = locatedOn;
+		this.password=password;
 		this.profileImage = null;
 		this.languages = new ArrayList<String>();
 		this.posts = new ArrayList<Post>();
