@@ -11,16 +11,16 @@ import main.java.data.UserRepository;
 import main.java.model.User;
 
 public class OrientUserRepository extends AbstractBaseRepository<User, String> implements UserRepository {
-	OrientDBConnection conn = new OrientDBConnection();
+	private OrientDBConnection conn = new OrientDBConnection();
 	
 	
 	@Override
 	public List<User> findAll() {
 		OObjectDatabaseTx db = conn.openConnection();
 		db.getEntityManager().registerEntityClass(User.class);
-		List<User> a = db.query(new OSQLSynchQuery<User>("select from User"));
+		List<User> queryResult = db.query(new OSQLSynchQuery<User>("select from User"));
 		conn.closeConnection();		
-		return a;
+		return queryResult;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class OrientUserRepository extends AbstractBaseRepository<User, String> i
 		u.setPassword(t.getPassword());
 		db.save(u);
 		conn.closeConnection();
-		return null;
+		return u.getUsername();
 	}
 
 

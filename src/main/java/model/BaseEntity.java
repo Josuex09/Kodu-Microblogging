@@ -2,9 +2,9 @@ package main.java.model;
 
 import java.util.Date;
 
+
 public abstract class BaseEntity {
 
-	
     protected Long id;
 
     protected Date createdDate;
