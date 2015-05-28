@@ -16,7 +16,8 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 	
 	@Override
 	public List<Object> search(String value){
-		
+		 // must know if user is searching for a post or a user, and return a list...
+		return null;
 	}
 	
 	@Override
@@ -28,7 +29,7 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 	public void follow(String currentUser, String username) {
 		User current = userRepository.findByUserName(currentUser);
 		User user = userRepository.findByUserName(username);
-		current.addFollow(user);
+		//current.addFollow(user);
 	}
 
 	@Override
@@ -45,7 +46,7 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 		User publisherUser = userRepository.findByUserName(publisher);
 		Code postCode = new Code(code, language);
 		Post newPost = new Post(description, postCode);
-		publisherUser.addPost(newPost);
+		//publisherUser.addPost(newPost);
 	}
 	
 

@@ -16,8 +16,12 @@ public class Rating {
 
 	public void setScore(int score) {
 		this.score = score; }
-
 	
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public String toString() {
 		return "Rating [user=" + user + ", score=" + score + "]"; }
 

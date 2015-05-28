@@ -1,5 +1,6 @@
 package main.java.data;
 
+import main.java.data.support.BaseRepository;
 import main.java.model.User;
 
 

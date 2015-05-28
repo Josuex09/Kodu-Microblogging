@@ -1,11 +1,11 @@
-package main.java.data;
+package main.java.data.support;
 import java.util.List;
 
 public interface BaseRepository <T,K> {
 	
 	public List<T> findAll();
 
-	public K findOne(K k);
+	public T findOne(K k);
 
 	public K save(T t);
 

@@ -9,14 +9,6 @@ public class User extends BaseEntity{
 	private String username;
 	private String email;
 	private String locatedOn;
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	private String password;
 	private InputStream profileImage;
 	private ArrayList<String> languages;
@@ -27,6 +19,9 @@ public class User extends BaseEntity{
 	private ArrayList<User> follows;
 	private HashMap<String, Long> scores;
 	
+	public User(){
+		
+	}
 	public User(String username,String password, String email) {
 		this.username = username;
 		this.email = email;
@@ -45,7 +40,14 @@ public class User extends BaseEntity{
 
 	public String getEmail() {
 		return email; }
+	
+	public String getPassword() {
+		return password;
+	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getLocatedOn() {
 		return locatedOn; }
 
@@ -65,16 +67,10 @@ public class User extends BaseEntity{
 	public ArrayList<String> getLanguages() {
 		return languages; }
 	
-	public void addLanguage(String language){
-		languages.add(language);
-	}
 	
 	public ArrayList<Post> getPosts() {
 		return posts; }
 
-	public void addPost(Post post){
-		posts.add(post);
-	}
 	
 	public void deletePost(Post post){
 		posts.remove(post);
@@ -83,30 +79,17 @@ public class User extends BaseEntity{
 	public ArrayList<Medal> getMedals() {
 		return medals; }
 
-	public void addMedal(Medal medal){
-		medals.add(medal);
-	}
-	
 	public ArrayList<Notification> getNotifications() {
 		return notifications; }
 	
-	public void addNotification(Notification notification){
-		notifications.add(notification);
-	}
 	
 	public ArrayList<User> getFollowers() {
 		return followers; }
-	
-	public void addFollower(User follower){
-		followers.add(follower);
-	}
+
 
 	public ArrayList<User> getFollows() {
 		return follows; }
 	
-	public void addFollow(User follow){
-		follows.add(follow);
-	}
 	public void deleteFollow(User follow){
 		follows.remove(follow);
 	}
@@ -150,4 +133,28 @@ public class User extends BaseEntity{
 		else if (!username.equals(other.username)) {
 			return false; }
 		return true; }
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setPosts(ArrayList<Post> posts) {
+		this.posts = posts;
+	}
+	public void setMedals(ArrayList<Medal> medals) {
+		this.medals = medals;
+	}
+	public void setNotifications(ArrayList<Notification> notifications) {
+		this.notifications = notifications;
+	}
+	public void setFollowers(ArrayList<User> followers) {
+		this.followers = followers;
+	}
+	public void setFollows(ArrayList<User> follows) {
+		this.follows = follows;
+	}
+	public void setScores(HashMap<String, Long> scores) {
+		this.scores = scores;
+	}
 }

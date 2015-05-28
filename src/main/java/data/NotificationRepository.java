@@ -2,6 +2,7 @@ package main.java.data;
 
 import java.util.List;
 
+import main.java.data.support.BaseRepository;
 import main.java.model.Notification;
 import main.java.model.User;
 

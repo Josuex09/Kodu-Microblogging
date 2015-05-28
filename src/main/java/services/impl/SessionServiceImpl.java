@@ -1,12 +1,14 @@
 package main.java.services.impl;
 
 import main.java.data.UserRepository;
+import main.java.data.impl.OrientUserRepository;
 import main.java.model.User;
 import main.java.services.SessionService;
 
 //@Service
 public class SessionServiceImpl implements SessionService {
-	UserRepository userRepository;
+	//UserRepository userRepository;
+	UserRepository userRepository = new OrientUserRepository();
 	
 
 
@@ -40,10 +42,12 @@ public class SessionServiceImpl implements SessionService {
 	       if (password.equals(passwordConfirm)) {
 	            User existingUser = userRepository.findByUserName(username);
 	            if (existingUser == null) {
+	            	System.out.println("Se creeara un usuario");
 	                User user = new User(username,password,email); // encode password .
 	                String id = userRepository.save(user);
 	                return userRepository.findByUserName(id);
 	            } else {
+	            	System.out.println("El usuario ya existe");
 	                return null;
 	            }
 	        }
