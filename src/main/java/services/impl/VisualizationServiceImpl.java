@@ -18,40 +18,40 @@ public class VisualizationServiceImpl implements VisualizationService {
 	PostRepository postRepository;
 	
 	@Override
-	public List<User> showFollowers(String username){
-		User user = userRepository.findByUserName(username);
+	public List<User> showFollowers(String userId){
+		User user = userRepository.findById(userId);
 		return user.getFollowers();
 	}
 	
 	@Override
-	public List<User> showFollowing(String username){
-		User user = userRepository.findByUserName(username);
+	public List<User> showFollowing(String userId){
+		User user = userRepository.findById(userId);
 		return user.getFollows();
 	}
 
 	@Override
-	public List<Medal> showMedals(String username){
-		User user = userRepository.findByUserName(username);
+	public List<Medal> showMedals(String userId){
+		User user = userRepository.findById(userId);
 		return user.getMedals();
 	}
 
 	@Override
-	public List<Post> showFeed(String username){
-		User user = userRepository.findByUserName(username);
+	public List<Post> showFeed(String userId){
+		User user = userRepository.findById(userId);
 		List<User> follows =  user.getFollows();
 		List<Post> feed = postRepository.findPosts(follows); 
 		return feed;    // need to filter the results by date.
 	}
 	
 	@Override
-	public List<Post> showUserPost(String username){
-		User user = userRepository.findByUserName(username);
+	public List<Post> showUserPost(String userId){
+		User user = userRepository.findById(userId);
 		return user.getPosts();
 	}
 
 	@Override
-	public List<Notification> showUserNotifications(String username) {
-		User user = userRepository.findByUserName(username);
+	public List<Notification> showUserNotifications(String userId) {
+		User user = userRepository.findById(userId);
 		return user.getNotifications();
 	}
 

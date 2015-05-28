@@ -5,6 +5,9 @@ public class Code {
 	private String code;
 	private String language;
 	
+	public Code(){
+		
+	}
 	public Code(String code, String language) {
 		this.code = code;
 		this.language = language; }

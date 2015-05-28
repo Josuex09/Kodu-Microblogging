@@ -5,7 +5,7 @@ import java.util.Date;
 
 public abstract class BaseEntity {
 
-    protected Long id;
+    protected String id;
 
     protected Date createdDate;
 
@@ -13,11 +13,11 @@ public abstract class BaseEntity {
 
     protected Integer version;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

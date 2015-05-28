@@ -3,15 +3,16 @@ package main.java.services.impl;
 import java.util.List;
 
 import main.java.data.UserRepository;
+import main.java.data.impl.OrientUserRepository;
 import main.java.model.Code;
 import main.java.model.Post;
 import main.java.model.User;
 import main.java.services.UserFunctionsService;
 
-//@Service
+
 public class UserFunctionsServiceImpl implements UserFunctionsService {
 	
-	private UserRepository userRepository;
+	private UserRepository userRepository = new OrientUserRepository();
 	
 	
 	@Override
@@ -20,33 +21,36 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 		return null;
 	}
 	
-	@Override
-	public void commentPublication(Long postId,String username,String comment){
-
-	}
 
 	@Override
-	public void follow(String currentUser, String username) {
-		User current = userRepository.findByUserName(currentUser);
-		User user = userRepository.findByUserName(username);
+	public void follow(String currentUserId, String usernameId) {
+		User current = userRepository.findById(currentUserId);
+		User user = userRepository.findById(usernameId);
 		//current.addFollow(user);
 	}
 
 	@Override
-	public void stopFollowing(String currentUser, String username) {
-		User current = userRepository.findByUserName(currentUser);
-		User user = userRepository.findByUserName(username);
+	public void stopFollowing(String currentUserId, String usernameId) {
+		User current = userRepository.findById(currentUserId);
+		User user = userRepository.findById(usernameId);
 		current.deleteFollow(user);
 		
 	}
 
 	@Override
-	public void publish(String publisher, String description, String code,
+	public void publish(String publisherId, String description, String code,
 			String language) {
-		User publisherUser = userRepository.findByUserName(publisher);
+		User publisherUser = userRepository.findById(publisherId);
 		Code postCode = new Code(code, language);
-		Post newPost = new Post(description, postCode);
+		Post newPost = new Post(description, postCode,publisherUser);
 		//publisherUser.addPost(newPost);
+	}
+
+
+	@Override
+	public void commentPublication(String postId, String userId, String comment) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

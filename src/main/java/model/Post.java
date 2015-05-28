@@ -2,8 +2,10 @@ package main.java.model;
 
 import java.util.ArrayList;
 
-public final class Post extends BaseEntity {
+public  class Post extends BaseEntity {
 	
+	
+	private User user;
 	private String description;
 	//private String postId;
 	private Code code;
@@ -11,7 +13,13 @@ public final class Post extends BaseEntity {
 	private ArrayList<User> shared;
 	private ArrayList<Comment> comments;
 	
-	public Post(/*String postId,*/String description, Code code) {
+	
+	
+	public Post(){
+		
+	}
+	public Post(String description, Code code,User user) {
+		this.user = user;
 		this.description = description;
 		this.code = code;
 		//this.postId=postId;
@@ -25,6 +33,9 @@ public final class Post extends BaseEntity {
 	}
 */
 
+	public User getUser() {
+		return user;
+	}
 	public String getDescription() {
 		return description; }
 

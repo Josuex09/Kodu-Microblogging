@@ -13,13 +13,6 @@ public class SessionServiceImpl implements SessionService {
 
 
     // *****************
-    @Override
-	public  User getCurrentUser(String username){
-    	/*
-    	String username = ((UserDetails) ((UsernamePasswordAuthenticationToken) 
-    		principal).getPrincipal()).getUsername();*/
-        return userRepository.findByUserName(username);
-    }
 	
 	@Override
 	public boolean validateEmail(String email){
@@ -32,8 +25,8 @@ public class SessionServiceImpl implements SessionService {
 	}
 	
 	@Override
-	public User getUser(String username){
-		return userRepository.findByUserName(username);
+	public User getUser(String userId){
+		return userRepository.findById(userId);
 	}
 
 	@Override
@@ -42,12 +35,11 @@ public class SessionServiceImpl implements SessionService {
 	       if (password.equals(passwordConfirm)) {
 	            User existingUser = userRepository.findByUserName(username);
 	            if (existingUser == null) {
-	            	System.out.println("Se creeara un usuario");
 	                User user = new User(username,password,email); // encode password .
 	                String id = userRepository.save(user);
-	                return userRepository.findByUserName(id);
+	                return userRepository.findById(id);
 	            } else {
-	            	System.out.println("El usuario ya existe");
+	            	System.out.println("User already exists");
 	                return null;
 	            }
 	        }

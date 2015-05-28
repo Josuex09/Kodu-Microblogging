@@ -15,15 +15,15 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
 
 
 	@Override 
-	public void deleteAccount(String username){ // delete user.
-		userRepository.delete(username);
+	public void deleteAccount(String userId){ // delete user.
+		userRepository.delete(userId);
 	}
 
 	
 	@Override
-	public void editAccount(String username,ArrayList<String> languages,
+	public void editAccount(String userId,ArrayList<String> languages,
 		String password,String location,InputStream picture){
-		User user = userRepository.findByUserName(username);
+		User user = userRepository.findById(userId);
 		user.setLanguages(languages);
 		user.setPassword(password);
 		user.setLocatedOn(location);
