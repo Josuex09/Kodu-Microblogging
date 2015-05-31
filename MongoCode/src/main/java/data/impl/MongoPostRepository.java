@@ -3,125 +3,95 @@ package data.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import data.AbstractBaseRepository;
 import data.PostRepository;
 import model.Post;
-import model.User;
-
 
 public class MongoPostRepository extends AbstractBaseRepository<Post, String> implements PostRepository  {
 
-	@Override
-	public <S extends Post> List<S> save(Iterable<S> entites) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Post> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Post> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Post> S insert(S entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Post> List<S> insert(Iterable<S> entities) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Page<Post> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+	@Autowired
+	PostRepository post;
+	
+	
 	@Override
 	public <S extends Post> S save(S entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return post.save(entity);
+	}
+
+	@Override
+	public <S extends Post> List<S> save(Iterable<S> entities) {
+		return (List<S>) post.save(entities);
 	}
 
 	@Override
 	public Post findOne(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return post.findOne(id);
 	}
 
 	@Override
 	public boolean exists(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		return post.exists(id);
 	}
 
 	@Override
-	public Iterable<Post> findAll(Iterable<String> ids) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Post> findAll() {
+		return (List<Post>) post.findAll();
+	}
+
+	@Override
+	public List<Post> findAll(Iterable<String> ids) {
+		return (List<Post>) post.findAll(ids);
 	}
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return post.count();
 	}
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
+		post.delete(id);
 		
 	}
 
 	@Override
 	public void delete(Post entity) {
-		// TODO Auto-generated method stub
+		post.delete(entity);
 		
 	}
 
 	@Override
 	public void delete(Iterable<? extends Post> entities) {
-		// TODO Auto-generated method stub
+		post.delete(entities);
 		
 	}
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
+		post.deleteAll();
 	}
 
 	@Override
 	public List<Post> findByPublishedOn(Date from, Date to) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Post> findByUser(String username) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Post> findByUser(Iterable<String> username) {
+		
+		return (List<Post>) post.findAll(username);
 	}
 
 	@Override
-	public List<Post> findPosts(List<User> users) {
-		// TODO Auto-generated method stub
-		return null;
-	}	
+	public List<Post> findPosts(Iterable<String> usersname) {
+		return (List<Post>) post.findAll(usersname);
+	}
 
+
+
+	
 
 }
