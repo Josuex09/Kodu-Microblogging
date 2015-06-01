@@ -1,11 +1,9 @@
-package model;
+package kodu.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
 public  class Post extends BaseEntity {
 	
 	
@@ -13,20 +11,15 @@ public  class Post extends BaseEntity {
 	private String description;
 	//private String postId;
 	private Code code;
-	private List<Rating> ratings;
-	private List<User> shared;
-	private List<Comment> comments;
+	private ArrayList<Rating> ratings;
+	private ArrayList<User> shared;
+	private ArrayList<Comment> comments;
 	
-	
-	
-	public Post(){
-		
-	}
+
 	public Post(String description, Code code,User user) {
 		this.user = user;
 		this.description = description;
 		this.code = code;
-		//this.postId=postId;
 		this.ratings = new ArrayList<Rating>();
 		this.shared = new ArrayList<User>();
 		this.comments = new ArrayList<Comment>(); }
@@ -46,21 +39,21 @@ public  class Post extends BaseEntity {
 	public Code getCode() {
 		return code; }
 
-	public List<Rating> getRating() {
+	public ArrayList<Rating> getRating() {
 		return ratings; }
 	
 	public void addRating(Rating rating){
 		ratings.add(rating);
 	}
 
-	public List<User> getShared() {
+	public ArrayList<User> getShared() {
 		return shared; }
 
 	public void addShared(User user){
 		shared.add(user);
 	}
 	
-	public  List<Comment> getComments() {
+	public  ArrayList<Comment> getComments() {
 		return comments; }
 
 	public void addComment(Comment comment){

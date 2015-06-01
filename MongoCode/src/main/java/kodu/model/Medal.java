@@ -1,16 +1,20 @@
-package model;
+package kodu.model;
 
 import java.io.InputStream;
 
 public class Medal {
 	
+	private InputStream image;
 	private String type;
 	private String language;
 	
 	public Medal(InputStream image, String type, String language) {
+		this.image = image;
 		this.type = type;
 		this.language = language; }
 
+	public InputStream getImage() {
+		return image; }
 
 	public String getType() {
 		return type; }
@@ -20,7 +24,7 @@ public class Medal {
 
 	
 	public String toString() {
-		return "Medal [type=" + type + ", language="
+		return "Medal [image=" + image + ", type=" + type + ", language="
 				+ language + "]"; }
 
 	

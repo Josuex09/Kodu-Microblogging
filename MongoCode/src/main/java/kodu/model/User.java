@@ -1,9 +1,16 @@
-package model;
+package kodu.model;
 
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document
 public class User extends BaseEntity{
 	
 	private String username;
@@ -33,7 +40,9 @@ public class User extends BaseEntity{
 		this.notifications = new ArrayList<Notification>();
 		this.followers = new ArrayList<User>();
 		this.follows = new ArrayList<User>();
-		this.scores = new HashMap<String, Long>(); }
+		this.scores = new HashMap<String, Long>(); 
+		//this.createdDate =  new Date();
+		}
 
 	public String getUsername() {
 		return username; }

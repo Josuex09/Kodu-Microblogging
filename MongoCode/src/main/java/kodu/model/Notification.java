@@ -1,8 +1,5 @@
-package model;
+package kodu.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
 public class Notification extends BaseEntity {
 	
 	private String content;

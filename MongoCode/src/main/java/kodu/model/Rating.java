@@ -1,4 +1,4 @@
-package model;
+package kodu.model;
 public class Rating {
 	
 	private User user;
