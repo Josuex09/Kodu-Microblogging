@@ -1,12 +1,14 @@
 package kodu;
 
+import kodu.data.impl.MongoUserRepository;
+import kodu.model.User;
+import kodu.services.AccountConfigurationService;
+import kodu.services.SessionService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import kodu.data.impl.MongoUserRepository;
-import kodu.model.User;
 
 @SpringBootApplication
 public class Application  implements CommandLineRunner{
@@ -14,10 +16,14 @@ public class Application  implements CommandLineRunner{
 	@Autowired
 	private MongoUserRepository repository;
 	
+	@Autowired
+	private SessionService service;
+	
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-    
+
+
     @Override
 	public void run(String... args) throws Exception {
 
@@ -42,7 +48,11 @@ public class Application  implements CommandLineRunner{
 		User usuario = new User("josuea","josu","a");	
 		repository.save(usuario);
 		System.out.println("date "+ usuario.getCreatedDate());
-
+		
+		
+		System.out.println(service.getUser(repository.findByUsername("josue").getId()));
+		
+		
 	}
 
 }

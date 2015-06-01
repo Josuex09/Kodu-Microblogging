@@ -6,8 +6,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 
 public abstract class BaseEntity {
@@ -22,6 +20,7 @@ public abstract class BaseEntity {
     @Version
     protected Integer version;
 
+    
     public String getId() {
         return id;
     }

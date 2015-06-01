@@ -1,8 +1,7 @@
 package kodu.model;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 public  class Post extends BaseEntity {
 	
@@ -11,9 +10,9 @@ public  class Post extends BaseEntity {
 	private String description;
 	//private String postId;
 	private Code code;
-	private ArrayList<Rating> ratings;
-	private ArrayList<User> shared;
-	private ArrayList<Comment> comments;
+	private List<Rating> ratings;
+	private List<User> shared;
+	private List<Comment> comments;
 	
 
 	public Post(String description, Code code,User user) {
@@ -39,21 +38,21 @@ public  class Post extends BaseEntity {
 	public Code getCode() {
 		return code; }
 
-	public ArrayList<Rating> getRating() {
+	public List<Rating> getRating() {
 		return ratings; }
 	
 	public void addRating(Rating rating){
 		ratings.add(rating);
 	}
 
-	public ArrayList<User> getShared() {
+	public List<User> getShared() {
 		return shared; }
 
 	public void addShared(User user){
 		shared.add(user);
 	}
 	
-	public  ArrayList<Comment> getComments() {
+	public  List<Comment> getComments() {
 		return comments; }
 
 	public void addComment(Comment comment){

@@ -1,11 +1,9 @@
 package kodu.model;
 
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,17 +16,17 @@ public class User extends BaseEntity{
 	private String locatedOn;
 	private String password;
 	private InputStream profileImage;
-	private ArrayList<String> languages;
-	private ArrayList<Post> posts;
-	private ArrayList<Medal> medals;
-	private ArrayList<Notification> notifications;
-	private ArrayList<User> followers;
-	private ArrayList<User> follows;
+	private List<String> languages;
+	private List<Post> posts;
+	private List<Medal> medals;
+	private List<Notification> notifications;
+	private List<User> followers;
+	private List<User> follows;
 	private HashMap<String, Long> scores;
 	
 	public User(){
-		
 	}
+	
 	public User(String username,String password, String email) {
 		this.username = username;
 		this.email = email;
@@ -62,22 +60,23 @@ public class User extends BaseEntity{
 
 	public void setLocatedOn(String locatedOn) {
 		this.locatedOn = locatedOn; }
+	
 
 	public InputStream getProfileImage() {
 		return profileImage; }
 
-	public void setLanguages(ArrayList<String> languages) {
+	public void setLanguages(List<String> languages) {
 		this.languages = languages;
 	}
 
 	public void setProfileImage(InputStream profileImage) {
 		this.profileImage = profileImage; }
 
-	public ArrayList<String> getLanguages() {
+	public List<String> getLanguages() {
 		return languages; }
 	
 	
-	public ArrayList<Post> getPosts() {
+	public List<Post> getPosts() {
 		return posts; }
 
 	
@@ -85,23 +84,28 @@ public class User extends BaseEntity{
 		posts.remove(post);
 	}
 	
-	public ArrayList<Medal> getMedals() {
+	public List<Medal> getMedals() {
 		return medals; }
 
-	public ArrayList<Notification> getNotifications() {
+	public List<Notification> getNotifications() {
 		return notifications; }
 	
 	
-	public ArrayList<User> getFollowers() {
+	public List<User> getFollowers() {
 		return followers; }
 
 
-	public ArrayList<User> getFollows() {
+	public List<User> getFollows() {
 		return follows; }
 	
 	public void deleteFollow(User follow){
 		follows.remove(follow);
 	}
+	
+	public void deleteFollower(User follower){
+		followers.remove(follower);
+	}
+	
 	public HashMap<String, Long> getScores() {
 		return scores; }
 	
@@ -148,19 +152,29 @@ public class User extends BaseEntity{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public void setPosts(ArrayList<Post> posts) {
+	public void setPosts(List<Post> posts) {
 		this.posts = posts;
 	}
-	public void setMedals(ArrayList<Medal> medals) {
+	
+	public void setPost(Post post) {
+		this.posts.add(post);
+	}
+	
+	public void setMedals(List<Medal> medals) {
 		this.medals = medals;
 	}
-	public void setNotifications(ArrayList<Notification> notifications) {
+	public void setNotifications(List<Notification> notifications) {
 		this.notifications = notifications;
 	}
-	public void setFollowers(ArrayList<User> followers) {
+	public void setFollowers(List<User> followers) {
 		this.followers = followers;
 	}
-	public void setFollows(ArrayList<User> follows) {
+	
+	public void setFollower(User follower) {
+		this.followers.add(follower);
+	}
+
+	public void setFollows(List<User> follows) {
 		this.follows = follows;
 	}
 	public void setScores(HashMap<String, Long> scores) {
