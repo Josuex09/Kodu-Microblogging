@@ -1,15 +1,16 @@
 package kodu.model;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 public class Comment {
-	
-	private User user;
+	private String user;
 	private String content;
 	
-	public Comment(User user, String content) {
+	public Comment(String user, String content) {
 		this.user = user;
 		this.content = content; }
 
-	public User getUser() {
+	public String getUser() {
 		return user; }
 
 	public String getContent() {

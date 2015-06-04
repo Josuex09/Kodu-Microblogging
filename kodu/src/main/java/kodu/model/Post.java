@@ -1,31 +1,33 @@
 package kodu.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document
 public  class Post extends BaseEntity {
 	
-	
-	private User user;
+	private String user;
 	private String description;
-	//private String postId;
 	private Code code;
-	private ArrayList<Rating> ratings;
-	private ArrayList<User> shared;
-	private ArrayList<Comment> comments;
+	private List<Rating> ratings;
+	private List<String> shared;
+	private List<Comment> comments;
 	
-	
-	
-	public Post(){
-		
-	}
-	public Post(String description, Code code,User user) {
+
+	public Post(String description, Code code,String user) {
 		this.user = user;
 		this.description = description;
 		this.code = code;
-		//this.postId=postId;
 		this.ratings = new ArrayList<Rating>();
-		this.shared = new ArrayList<User>();
-		this.comments = new ArrayList<Comment>(); }
+		this.shared = new ArrayList<String>();
+		this.comments = new ArrayList<Comment>(); 
+		this.createdDate = Calendar.getInstance().getTime();
+		
+	}
 
 /*
 	public String getPostId() {
@@ -33,7 +35,7 @@ public  class Post extends BaseEntity {
 	}
 */
 
-	public User getUser() {
+	public String getUser() {
 		return user;
 	}
 	public String getDescription() {
@@ -42,21 +44,21 @@ public  class Post extends BaseEntity {
 	public Code getCode() {
 		return code; }
 
-	public ArrayList<Rating> getRating() {
+	public List<Rating> getRating() {
 		return ratings; }
 	
 	public void addRating(Rating rating){
 		ratings.add(rating);
 	}
 
-	public ArrayList<User> getShared() {
+	public List<String> getShared() {
 		return shared; }
 
-	public void addShared(User user){
+	public void addShared(String user){
 		shared.add(user);
 	}
 	
-	public  ArrayList<Comment> getComments() {
+	public  List<Comment> getComments() {
 		return comments; }
 
 	public void addComment(Comment comment){

@@ -9,5 +9,6 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface NotificationRepository extends CrudRepository<Notification, String>{
-	//public List<Notification> findNotification(User user);
+	public List<Notification> findByUser(User user);
+	public Notification findById(String id);
 }

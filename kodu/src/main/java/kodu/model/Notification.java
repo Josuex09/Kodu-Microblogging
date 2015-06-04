@@ -1,21 +1,24 @@
 package kodu.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Notification extends BaseEntity {
 	
 	private String content;
 	private boolean seen;
-	private User user;
+	private String user;
 	
-	public Notification(String content,User user) {
+	public Notification(String content,String user) {
 		this.content = content;
 		this.user = user;
 		this.seen = false; }
 
-	public User getUser() {
+	public String getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
 
