@@ -6,12 +6,12 @@ import kodu.data.impl.MongoUserRepository;
 import kodu.model.User;
 import kodu.services.SessionService;
 
-import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -22,14 +22,14 @@ public class SessionServiceImpl implements SessionService,UserDetailsService {
 	private MongoUserRepository userRepository;
 
 
-  //  @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 	
     // *****************
 	
 	@Override
 	public boolean validateEmail(String email){
-		
+/*		
 	    boolean valid = EmailValidator.getInstance().isValid(email);
 	    if(valid){
 			if(userRepository.findByEmail(email) != null){ // must send email...
@@ -37,7 +37,7 @@ public class SessionServiceImpl implements SessionService,UserDetailsService {
 			}
 			return false;
 	    }
-	    
+	*/    
 	    return true;
 
 		

@@ -4,15 +4,18 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import kodu.data.FileRepository;
 import kodu.data.NotificationRepository;
 import kodu.data.PostRepository;
 import kodu.data.UserRepository;
 import kodu.model.Medal;
 import kodu.model.Notification;
+import kodu.model.PersistedFile;
 import kodu.model.Post;
 import kodu.model.User;
 import kodu.services.VisualizationService;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +31,10 @@ public class VisualizationServiceImpl implements VisualizationService {
 	
 	@Autowired
 	private NotificationRepository notificationRepository;
+	
+	@Autowired
+	private FileRepository fileRepository;
+	
 	
 	@Override
 	public List<User> showFollowers(String userId){
@@ -97,7 +104,15 @@ public class VisualizationServiceImpl implements VisualizationService {
 
 	@Override
 	public InputStream showUserProfilePhoto(String userId) {
-		return userRepository.findById(userId).getProfileImage();
+		User user = userRepository.findById(userId);
+		String filename = user.getProfilePhoto();
+		if(StringUtils.isNotBlank(filename)){
+			PersistedFile profilePhoto = fileRepository.findOne(filename);
+			if(profilePhoto != null){
+				return profilePhoto.getInputStream();
+			}
+		}
+		return null;
 	}
 
 

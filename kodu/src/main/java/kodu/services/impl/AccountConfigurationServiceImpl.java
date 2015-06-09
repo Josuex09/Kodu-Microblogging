@@ -3,10 +3,13 @@ package kodu.services.impl;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import kodu.data.FileRepository;
 import kodu.data.UserRepository;
+import kodu.model.PersistedFile;
 import kodu.model.User;
 import kodu.services.AccountConfigurationService;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +21,9 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private FileRepository fileRepository;
+	
 	@Override 
 	public User deleteAccount(String userId){ // delete user.
 		User user = userRepository.findById(userId);
@@ -27,14 +33,30 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
 	
 	@Override
 	public User editAccount(String userId,ArrayList<String> languages,
-		String password,String location,InputStream picture){
+		String password,String location){
 		User user = userRepository.findById(userId);
 		user.setLanguages(languages);
 		user.setPassword(password);
 		user.setLocatedOn(location);
-		user.setProfileImage(picture);
 		userRepository.save(user);
 		return user;
+	}
+
+	@Override
+	public String updateProfilePhoto(String userId, String photoFilename,InputStream photo) {
+        User user = userRepository.findByUsername(userId);
+
+        String currentPhoto = user.getProfilePhoto();
+        if (StringUtils.isNotBlank(currentPhoto)) {
+            fileRepository.delete(currentPhoto);
+        }
+
+        String newPhotoFilename = user.getId() + "_" + photoFilename.replace(' ', '_');
+        fileRepository.save(new PersistedFile(newPhotoFilename, photo));
+        user.setProfilePhoto(newPhotoFilename);
+        userRepository.save(user);
+        return newPhotoFilename;
+
 	}
 
 

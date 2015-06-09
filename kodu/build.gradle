@@ -35,8 +35,10 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-    compile("org.springframework.boot:spring-boot-starter-data-elasticsearch")
     
+    compile("org.apache.commons:commons-lang3:3.3.2")
+    compile("commons-io:commons-io:2.4")
+    compile("commons-codec:commons-codec:1.9")
   
     testCompile("org.springframework.boot:spring-boot-starter-test") 
 }

@@ -1,6 +1,5 @@
 package kodu.model;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -20,7 +19,7 @@ public class User extends BaseEntity implements UserDetails{
 	private String email;
 	private String locatedOn;
 	private String password;
-	private InputStream profileImage;
+	private String profilePhoto;
 	private List<String> languages;
 	private List<String> posts;
 	private List<Medal> medals;
@@ -33,7 +32,7 @@ public class User extends BaseEntity implements UserDetails{
 		this.username = username;
 		this.email = email;
 		this.password=password;
-		this.profileImage = null;
+		this.profilePhoto = null;
 		this.languages = new ArrayList<String>();
 		this.posts = new ArrayList<String>();
 		this.medals = new ArrayList<Medal>();
@@ -64,15 +63,15 @@ public class User extends BaseEntity implements UserDetails{
 		this.locatedOn = locatedOn; }
 	
 
-	public InputStream getProfileImage() {
-		return profileImage; }
+	public String getProfilePhoto() {
+		return profilePhoto; }
 
 	public void setLanguages(List<String> languages) {
 		this.languages = languages;
 	}
 
-	public void setProfileImage(InputStream profileImage) {
-		this.profileImage = profileImage; }
+	public void setProfilePhoto(String profilePhoto) {
+		this.profilePhoto = profilePhoto; }
 
 	public List<String> getLanguages() {
 		return languages; }
@@ -154,7 +153,7 @@ public class User extends BaseEntity implements UserDetails{
 	
 	public String toString() {
 		return "User [username=" + username + ", email=" + email
-				+ ", locatedOn=" + locatedOn + ", profileImage=" + profileImage
+				+ ", locatedOn=" + locatedOn + ", profilePhoto=" + profilePhoto
 				+ ", languages=" + languages + ", posts=" + posts + ", medals="
 				+ medals + ", notifications=" + notifications + ", followers="
 				+ followers + ", follows=" + follows + ", scores=" + scores
