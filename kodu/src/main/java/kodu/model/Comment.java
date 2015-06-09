@@ -1,6 +1,5 @@
 package kodu.model;
 
-import org.springframework.data.mongodb.core.mapping.DBRef;
 
 public class Comment {
 	private String user;

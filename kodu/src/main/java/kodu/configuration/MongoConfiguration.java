@@ -8,7 +8,7 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
  
 @Configuration
-public class SpringMongoConfiguration extends AbstractMongoConfiguration {
+public class MongoConfiguration extends AbstractMongoConfiguration {
  
 	@Override
 	public String getDatabaseName() {

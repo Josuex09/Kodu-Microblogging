@@ -2,15 +2,19 @@ package kodu.model;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 
 @Document
-public class User extends BaseEntity{
+public class User extends BaseEntity implements UserDetails{
 	
 	private String username;
 	private String email;
@@ -184,4 +188,38 @@ public class User extends BaseEntity{
 		else if (!username.equals(other.username)) {
 			return false; }
 		return true; }
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Arrays.asList(new GrantedAuthority() {
+			@Override
+            public String getAuthority() {
+                return "ROLE_USER";
+            }
+        });
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

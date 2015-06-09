@@ -30,14 +30,12 @@ repositories {
 
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-    compile("org.springframework.boot:spring-boot-starter-web")
+	
+	compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    compile("org.apache.commons:commons-lang3:3.3.2")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
     compile("org.springframework.boot:spring-boot-starter-data-elasticsearch")
-    compile("commons-io:commons-io:2.4")
-    compile("commons-codec:commons-codec:1.9")
-    compile("org.apache.commons:commons-email:1.1")
     
   
     testCompile("org.springframework.boot:spring-boot-starter-test") 

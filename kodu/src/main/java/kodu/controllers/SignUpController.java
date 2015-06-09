@@ -11,32 +11,39 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/signup")
+@RequestMapping("/index")
 public class SignUpController {
+	
+	 @Autowired
+	    private SessionService sessionService ;
+	
+	
+	 @RequestMapping(method = RequestMethod.GET)
+	    public String show() {
+	        return "index";
+	    }
+	    
 
-    @Autowired
-    private SessionService sessionService ;
+	    
+	    @RequestMapping(method = RequestMethod.POST)
+	    public String doSignup(@RequestParam String username,
+	    					   @RequestParam String email,
+	                           @RequestParam String password,
+	                           @RequestParam String confirm) {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String show() {
-        return "signup";
-    }
+	        if (!password.equals(confirm)) {
+	        	System.out.println("contraseña diferente");
+	            return "redirect:/index?passwordMismatch";
 
-    @RequestMapping(method = RequestMethod.POST)
-    public String doSignup(@RequestParam String username,
-                           @RequestParam String password,
-                           @RequestParam String confirm) {
+	        }
+	        User newUser = sessionService.signUp(username, email, password, confirm);
 
-        if (!password.equals(confirm)) {
-            return "redirect:/signup?passwordMismatch";
+	        if (newUser == null) {
+	            return "redirect:/index?usernameAlreadyExists";
+	        } else { 
+	            return "forward:/feed";
+	            
+	        }
+	    }
 
-        }
-        User newUser = sessionService.signUp(username, null, password, confirm);
-
-        if (newUser == null) {
-            return "redirect:/signup?usernameAlreadyExists";
-        } else {
-            return "forward:/greeting";
-        }
-    }
 }

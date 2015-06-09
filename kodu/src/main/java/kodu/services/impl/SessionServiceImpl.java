@@ -1,22 +1,30 @@
 package kodu.services.impl;
 
-import kodu.data.UserRepository;
+import java.security.Principal;
+
+import kodu.data.impl.MongoUserRepository;
 import kodu.model.User;
 import kodu.services.SessionService;
 
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class SessionServiceImpl implements SessionService {
+public class SessionServiceImpl implements SessionService,UserDetailsService {
 
 	@Autowired
-	UserRepository userRepository;
+	private MongoUserRepository userRepository;
+
+
+  //  @Autowired
+//    private PasswordEncoder passwordEncoder;
 	
-
-
     // *****************
 	
 	@Override
@@ -55,5 +63,26 @@ public class SessionServiceImpl implements SessionService {
 	        }
 
 	        return null;
+	}
+
+	@Override
+	public User getCurrentUser(Principal principal) {
+        String username = ((UserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUsername();
+        return userRepository.findByUsername(username);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username)
+			throws UsernameNotFoundException {
+        /*Here add user data layer fetching from the MongoDB.
+        I have used userRepository*/
+		System.out.println("SE DESEA LOGUEAR CON EL USERNAME: "+username);
+      User user = userRepository.findByUsername(username);
+      if(user == null){
+          throw new UsernameNotFoundException(username);
+      }else{
+          UserDetails details = user;
+          return details;
+      }
 	}
 }

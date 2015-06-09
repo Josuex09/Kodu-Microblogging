@@ -1,0 +1,284 @@
+#usuario{
+    font-size: 150%;
+    text-align: center;
+}
+
+
+#busqueda{
+    margin: 0.5% 0 0 18%;
+    width: 20%;
+}
+
+
+#notificacion{ 
+    margin-top: 0.5%;
+    float: right;
+    display:  inline-block;
+}
+
+#imgPeq{ 
+    width: 29%;
+}
+
+#campana{
+    width: 100%;
+}
+#lista-notificaciones li {W
+    display: inline;
+    
+}
+#seguidores{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.thumbnail{
+    background-color: #f9f8f8;
+}
+
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Usage as a mixin
+.element {
+  .center-block();
+}
+
+.navbar-header{
+}
+
+.navbar-default{
+    background-color: #f58214;
+}
+
+#boton{
+    float: right;
+}
+
+textarea{
+    resize: none;
+}
+
+#form-post{
+    width: 100%;
+}
+
+#descripcion{
+    width: 100%;
+    height: 5em;
+}
+#codigo{
+    width:  100%;
+    height: 7em;
+}
+
+#descripcionDiv{
+    margin-top: 5%;
+}
+
+#nuevo-post{
+    display: inline-block;
+    text-align: center;
+    background-color: #f9f8f8;
+}
+    
+#nuevoPostDiv{
+    
+}
+#nuevo-post form{
+    display: inline-block;
+}   
+
+#publicacion{
+    text-align: left;
+}
+
+#info-publicacion{
+    text-align: left;
+    margin-top: 12%;
+}
+
+#nombre-usuario{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+#pub{
+    display: inline-block;
+}
+
+#rating{
+    font-size: 2em;
+    text-align: left;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
+#rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+#rating > span:hover:before,
+#rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   color: #f58214;
+}
+
+#veces-compartida-icono {
+    display: inline-block;
+    float: left;
+}
+
+#veces-compartida{
+    float: left;
+}
+
+#comentarios-icono{
+    float: left;
+}
+
+#veces-compartida-texto {
+    float: left;
+    display: inline-block;
+}
+
+#post{
+    margin-bottom: 15%;
+    margin-top: 10%;
+    border: 10px solid white;
+}
+
+#comentar{
+    margin-top: 4em;
+}
+#enviar-comentario,#boton-publicar{
+    width: 5em;
+    margin-bottom: 1%;
+    background-color: #f58214;
+    float: right;
+    color: #fff;
+    line-height:normal;
+}
+
+{
+    background-color: #f58214;
+    width: 5em;
+    float: right;
+    color: #fff;
+    line-height:normal;
+
+}
+#contenido-comentario{
+    width: 90%;
+    float: right;
+}
+
+#ver-comentarios{
+    float: left;
+}
+
+#comentarios-compartir{
+    display: inline;
+    width: 100%;
+}
+
+#comentarios-compartir div{
+    margin-left: 1em;   
+}
+#comentarios{
+    float: left;
+}
+
+#comentarios-compartir img{
+    margin-top: -5%;
+}
+
+#not{
+    width: 100%;
+    background-color: #f9f8f8;
+}
+
+.media-body{
+    margin-left: 6em;
+    margin-top: 1em;
+}
+#not-image{
+    float: left;
+    display: inline-block;
+}
+
+#comentarios-usuarios{
+    float: left;
+    width: 100%;
+    margin-top: 1%
+   
+}
+
+#comentarios-usuarios input{
+    float: right;
+    width: 90%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#comentario-usuario{
+    width: 100%;
+    float: left;
+    
+}
+
+#imagen-usuario{
+    margin-top: 1%;
+    width: 1%;
+    margin-bottom:1%;
+    display: inline-block;
+    float: left;
+}
+
+#medallas{
+    margin: 0 auto;
+    width: 92%;
+}
+label{
+    font-weight: normal;
+}
+
+.caracteres{
+    text-align: right;
+    color: #f58214 ;
+}
+
+.creador{
+    float: right;
+    
+}
+
+.ver-completo{
+    float: right;
+    margin-top: 1.5em;
+    margin-bottom: -10em;
+    background-color: #f58214;
+    color: #fff;
+    line-height:normal;
+}
+
+.ver-completo:hover{
+    background-color: #f58214;
+    color: white;
+}
+.ver-completo-comentarios{
+    
+    float: right;
+}
+
+#myModal{
+    margin-left: 20em;
+}

@@ -1,0 +1,17 @@
+$(document).ready(function(){
+    $("#not-perf").click(function(){
+        window.location="perfilAlguien.html";
+    });
+    $("#not-perf2").click(function(){
+        window.location="perfilAlguien.html";
+    });
+    $("#ver-perfil").click(function(){
+        window.location="perfil.html";
+    });
+    $("#config-cuenta").click(function(){
+        window.location="configurarPerfil.html";
+    });
+    $("#cerrar-sesion").click(function(){
+        window.location="Inicio2.html";
+    });
+});

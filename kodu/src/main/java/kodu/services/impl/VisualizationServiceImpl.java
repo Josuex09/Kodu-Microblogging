@@ -20,10 +20,10 @@ public class VisualizationServiceImpl implements VisualizationService {
 
 	//modifique userId por username
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 	
 	@Autowired
-	PostRepository postRepository;
+	private PostRepository postRepository;
 	
 	@Autowired
 	private NotificationRepository notificationRepository;
