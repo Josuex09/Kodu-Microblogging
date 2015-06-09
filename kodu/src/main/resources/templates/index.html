@@ -28,12 +28,6 @@
     <body>
         
         
-      	<tr th:each='user : ${users}'>
-      		<td th:text="${user.username}"></td>
-      	
-      	
-      	</tr>
-        
         <p th:if="${param.usernameAlreadyExists}" class="alert alert-error">El nombre de usuario ya existe.</p>
         
         <div class="container">

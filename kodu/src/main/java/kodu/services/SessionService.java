@@ -12,6 +12,7 @@ public interface SessionService {
 	boolean validateEmail(String email);
 	User getUser(String userId);
 	User getCurrentUser(Principal principal);
+	
 }
 
 

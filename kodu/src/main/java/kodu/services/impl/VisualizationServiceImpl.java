@@ -1,5 +1,6 @@
 package kodu.services.impl;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,6 +93,11 @@ public class VisualizationServiceImpl implements VisualizationService {
 		List<Notification> notifications = new ArrayList<Notification>();
 		for(int i=0;i<notificationsIds.size();i++)notifications.add(notificationRepository.findById(notificationsIds.get(i)));
 		return notifications;
+	}
+
+	@Override
+	public InputStream showUserProfilePhoto(String userId) {
+		return userRepository.findById(userId).getProfileImage();
 	}
 
 

@@ -1,5 +1,6 @@
 package kodu.services;
 
+import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +19,6 @@ public interface VisualizationService {
 	public List<Post> showFeed(String userId);
 	public List<Post> showUserPost(String userId);
 	public List<Notification> showUserNotifications(String userId);
-	
+	public InputStream showUserProfilePhoto(String userId);
 	
 }

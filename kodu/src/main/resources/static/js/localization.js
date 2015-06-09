@@ -1,1 +1,0 @@
-$("[data-localize]").localize("leng",{ language: "es", pathPrefix: "../../Idiomas"});
