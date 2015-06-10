@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
         <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet"/>
         <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" rel="stylesheet"/>
         
@@ -9,9 +6,10 @@
     
         <link rel="stylesheet" th:href="@{/css/navigationBar.css}"
           href="../../css/navigationBar.css" />
-    </head>
-    
-    <body>
+          
+        <link rel="stylesheet" th:href="@{/css/profilePhotoSizes.css}"
+          href="../../css/profilePhotoSizes.css" />
+
         <nav id="nav" class="navbar navbar-default">
         <div class="container-fluid" >
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,27 +33,38 @@
               <span id="notification_count" th:text="${notificationCount}">
               </span>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  <img id="campana" class="img-responsive" src="../../imagenes/Campana2.png"  alt="Responsive image"/>
+                  <img id="campana" class="img-responsive img-peq" src="../../imagenes/Campana.png"  alt="Responsive image"/>
               </a>
-              <ul class="dropdown-menu" role="menu">
+              <ul class="dropdown-menu" role="menu"> 
+             
+             <span id="notification_count" th:text="${notificationCount}">
+              </span>	 
+          		
+          		<!-- notifications -->
+          		<tr th:each="notification : ${notifications}">
+          			<li id="notificationContent">
+          				<td th:text="${notification.content}">
+          				</td>
+          			</li>
+          			<li class="divider"></li>
+          		</tr>
+          		<td th:text="${noNotifications}"></td>
+          		
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Perfil <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              	<img id="profileOptions" class="img-med" th:attr="src=@{/feed/photo(id=${user.id})}"/>
+              </a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Ver perfil</a></li>
                 <li><a href="#">Configuracion</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Cerrar sesion</a></li>
+                <li><a href="/logout">Cerrar sesion</a></li>
               </ul>
             </li>
           </ul>
-        </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
+        </div><!-- /.navbar-collapse -->
     </nav>
-        
-    
-    
-    </body>
-
-</html>
+  

@@ -20,5 +20,6 @@ public interface VisualizationService {
 	public List<Post> showUserPost(String userId);
 	public List<Notification> showUserNotifications(String userId);
 	public InputStream showUserProfilePhoto(String userId);
+    public Integer newNotifications(String userId);
 	
 }

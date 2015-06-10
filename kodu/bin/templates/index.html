@@ -1,107 +1,115 @@
 <!DOCTYPE html>
-
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Inicio</title>
         <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet"></link> 
         <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" rel="stylesheet"></link> 
 
         <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-        
-        
-      
- 		<link rel="stylesheet" th:href="@{/css/Inicio2.css}"
-          href="../../css/Inicio2.css" />
-        <link rel="stylesheet" th:href="@{/css/recortar-imagen.css}"
-          href="../../css/recortar-imagen.css" />
+             
+        <link rel="stylesheet" th:href="@{/css/index.css}"
+          href="../../css/index.css" />
         <link rel="stylesheet" th:href="@{/css/seleccionar-idioma.css}"
           href="../../css/seleccionar-idioma.css" />
-        <script th:src="@{/js/inicio.js}"
-          src="../../js/inicio.js" />
-        <script th:src="@{/js/jquery.localize.min.js}"
-          src="../../js/jquery.localize.min.js" />
-        <script th:src="@{/js/seleccionar-idioma.js}"
-          src="../../js/seleccionar-idioma.js" />
-          
+
+        <script th:src="@{/js/index.js}" src="../../js/index.js" ></script>
+        <script th:src="@{/js/lang-css.js}" src="../../js/lang-css.js" ></script>
+		<script th:src="@{/js/jquery.localize.min.js}" src="../../js/jquery.localize.min.js" ></script>
+        <script th:src="@{/js/seleccionar-idioma.js}" src="../../js/seleccionar-idioma.js" ></script>
+        <script th:src="@{/js/localization.js}" src="../../js/localization.js" > </script>
     </head>
     
     <body>
-        
-        
-        <p th:if="${param.usernameAlreadyExists}" class="alert alert-error">El nombre de usuario ya existe.</p>
+<!--        <p th:if="${param.usernameAlreadyExists}" class="alert alert-error">El nombre de usuario ya existe.</p>-->
         
         <div class="container">
-            <div id="menu" class="col-md-8">       
-               <div id="pestañas" class="col-md-12">					
-                   <div id="iniciar" class="col-md-6">
-                       <label class="centrado" data-localize="IniciarSesion"></label>
-                   </div>
-                   <div id="registrarse" class="col-md-6">
-                       <label class="centrado" data-localize="Registrarse"></label>
-                   </div>
-               </div>
-               
-        		       
-                <form th:action="@{/index}" action="/index" method="POST">
-                <div id="pedir-datos-registro" class="col-md-12" >
-                    <div class="col-md-12 input">
-                    	<label class="col-md-12" for="username" data-localize="nombreDeUsuario"></label>
-                       <input rows="1" cols="25" name="username" id="username"></input>
-                   </div>
-                   <div class="col-md-12 input ">
-                   		<label class="col-md-12" for="email" data-localize="correo"></label>
-                       <input type="email" rows="1" cols="25" name="email" id="Correo"></input>
-                   </div>
-                   <div class="col-md-12 input">
-                       <label class="col-md-12" for="password" data-localize="Contraseña"></label>
-                       <input type="password" rows="1" cols="25" name="password" id="password"></input>
-                   </div>
-                   <div class="col-md-12 input ">
-                   		<label class="col-md-12" for="nombreUsuario" data-localize="Contraseña2"></label>
-                       <input type="password" rows="1" cols="25" name="confirm" id="confirm"></input> 
-                   </div>
-                   <div class="col-md-12 input">                 
-                            <input class="btn btn-default boton" type="submit" rows="1" cols="25" data-localize="Registrarse"></input>                      
-                   </div>
-            		
-                </div>
-				</form>
-				
-				
-				<form th:action="@{/index}" action="index" method="POST">
-	                <div id="pedir-datos-iniciar" class="col-md-12">
-	                    <div class="col-md-12 input">
-	                    	<label class="col-md-12" for="user" data-localize="Usuario"></label>
-	                       <input rows="1" cols="25" name="username" id="username"></input>
-	                   </div>
-	                   <div class="col-md-12 input">
-	                       <label class="col-md-12" for="password" data-localize="Contraseña"></label>
-	                       <input type="password" rows="1" cols="25" name="password" id="password"></input>
-	                   </div>
-	                   <div class="col-md-12 input">
-	                       <form action="feed.html">
-	                            <input class="btn btn-default boton" type="submit" rows="1" cols="25" data-localize="IniciarSesion"></input> 
-	                       </form>
-	                   </div>
-	            
-	                </div>
-                </form>
-		
-      
-            </div>
-            
-        </div>
-        <div style="margin-top:18em;">
-            <img id="img-mundo" class="img-peq" src="../../imagenes/mundo.png"></img>
-            <select id="seleccionar-idioma" name="Idioma">
-               <option value="Español" data-localize="Español"></option> 
-               <option value="Ingles" data-localize="Ingles"></option> 
-               <option value="Portugues" data-localize="Portugues"></option>
+            <div id="menu" class="col-md-4">       
 
-            </select>
+               <div id="pestaña" class="col-md-12">
+                   <div id="iniciar" class="col-md-6">
+                       <label data-localize="IniciarSesion"></label>
+                   </div>
+                    <div id="registrarse" class="col-md-6">
+                         <label data-localize="Registrarse"></label>    
+                   </div>
+                </div>
+                
+                <div id="cuerpo" class="col-md-12">
+                    
+                     <!-- Cuadro de registro  --> 
+                    <div id="datos-registro">
+                         <form class="form-horizontal" role="form" th:action="@{/index}" action="/index" method="POST">
+                            <fieldset>
+                            <div id="formulario" class="form-group">
+                                <label class="col-md-12"  for="username" data-localize="nombreDeUsuario"></label>
+                                <div class="col-sm-12">
+                                    <input type="text" id="username" name="username" />
+                                </div>
+                            </div>
+                            <div id="formulario" class="form-group">
+                                <label class="col-md-12" for="email" data-localize="Correo"></label>
+                                <div class="col-sm-12">
+                                    <input type="text" id="email" name="email" />
+                                </div>
+                            </div>
+                            <div id="formulario" class="form-group">
+                                <label class="col-md-12" for="password" data-localize="Contraseña"></label>
+                                <div class="col-sm-12">
+                                    <input type="password" id="password" name="password" />
+                                </div>
+                            </div>
+                            <div id="formulario" class="form-group">
+                                <label class="col-md-12" for="confirm" data-localize="Contraseña2"></label>
+                                <div class="col-sm-12">
+                                    <input type="password" id="confirm" name="confirm" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-4">
+                                     <input class="btn btn-default boton" type="submit" data-localize="Registrarse"></input>
+                                </div>
+                            </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!--  Cudro de inicio de Sesion -->
+                    <div id="datos-iniciar">
+                        <form class="form-horizontal" role="form" th:action="@{/index}" action="/index" method="POST">
+                            <fieldset>
+                            <div id="formulario" class="form-group">
+                                <label class="col-md-12"  for="username" data-localize="Usuario"></label>
+                                <div class="col-sm-12">
+                                    <input type="text" id="username" name="username" />
+                                </div>
+                            </div>
+                            <div id="formulario" class="form-group">
+                                <label class="col-md-12" for="password" data-localize="Contraseña"></label>
+                                <div class="col-sm-12">
+                                    <input type="password" id="password" name="password" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-4">
+                                     <input class="btn btn-default boton" type="submit" data-localize="IniciarSesion"></input>
+                                </div>
+                            </div>
+                            </fieldset>
+                        </form> 
+                    </div>
+                </div>        		       
+            </div>           
+        </div>  
+        
+        <div style="margin-top:4em;">
+        <img id="img-mundo" class="img-peq" src="../../imagenes/mundo.png"></img>
+        <select id="seleccionar-idioma" name="Idioma">
+           <option value="Español" data-localize="Español"></option> 
+           <option value="Ingles" data-localize="Ingles"></option> 
+           <option value="Portugues" data-localize="Portugues"></option>
+        </select>
+		
         </div>
-    <script th:src="@{/js/localization.js}"
-          src="../../js/localization.js" />
+        
+        
     </body>
-    
+
 </html>

@@ -107,12 +107,28 @@ public class VisualizationServiceImpl implements VisualizationService {
 		User user = userRepository.findById(userId);
 		String filename = user.getProfilePhoto();
 		if(StringUtils.isNotBlank(filename)){
-			PersistedFile profilePhoto = fileRepository.findOne(filename);
+			PersistedFile profilePhoto = fileRepository.findById(filename);
 			if(profilePhoto != null){
+				System.out.println(profilePhoto.getFilename());
 				return profilePhoto.getInputStream();
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public Integer newNotifications(String userId) {
+		User user = userRepository.findById(userId);
+		List<String> notificationsIds = user.getNotifications();
+		List<Notification> notifications = new ArrayList<Notification>();
+		for(int i=0;i<notificationsIds.size();i++)notifications.add(notificationRepository.findById(notificationsIds.get(i)));
+		int count =0;
+		for(int i=0;i<notifications.size();i++){
+			if(!notifications.get(i).isSeen()) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 

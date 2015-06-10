@@ -1,0 +1,62 @@
+body{
+    background-color: #f4f7f8;
+}
+
+.boton{ <div>
+            
+                </div>
+    color: white;
+    background-color: #f58214;
+    width: 8em;
+    height:  3em;
+}
+
+input{
+    border: none;
+    height: 2em;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 70%;
+    background-color: #e8eeef;
+    color: black;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+}
+
+#menu{
+    margin-top: 6em;
+    height: 28em;
+    background-color: white;
+    float: right;
+}
+
+#pestaña{
+    margin-top: 2%;
+    height: 10%;
+}
+
+#iniciar{
+    height: 100%;
+    text-align: center;  
+}
+
+#registrarse{
+    height: 100%;
+    text-align: center;  
+}
+
+#cuerpo{
+    margin-top: 4%;
+    height: 85%;
+}
+
+#formulario{
+    text-align: center;
+}
+
+.img-peq{
+    float: left;
+    max-height: 35px;
+    max-width:  35px;
+}
+

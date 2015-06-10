@@ -52,7 +52,7 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
         }
 
         String newPhotoFilename = user.getId() + "_" + photoFilename.replace(' ', '_');
-        fileRepository.save(new PersistedFile(newPhotoFilename, photo));
+        fileRepository.create(new PersistedFile(newPhotoFilename, photo));
         user.setProfilePhoto(newPhotoFilename);
         userRepository.save(user);
         return newPhotoFilename;

@@ -1,12 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
+
+<link rel="stylesheet" th:href="@{/css/tumbnail.css}"
+	href="../../css/tumbnail.css" />
+	
+	
 <title>Feed</title>
 </head>
 <body>
-    <div th:include="navigationBar">
-    </div>
+	<div th:include="navigationBar"></div>
+
+	<div class="col-md-2">
+		<div class="thumbnail">
+			<img th:attr="src=@{/feed/photo(id=${user.id})}"
+				class="center-block img-responsive img-grande"
+				alt="Responsive image" />
+			<div id="tumbnailUsername">
+				<a href="" th:text=" '@' + ${user.username}"></a>
+			</div>
+			<ul id="tumbnailRelations" class="nav">
+				<li id="tumbnailFollowers">Followers <br> <p th:text="${totalFollowers}"></p> </br>
+				</li>
+				<li id="tumbnailFollows">Follows <br> <p th:text="${totalFollows}"></p> </br>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+
 
 </body>
 </html>
