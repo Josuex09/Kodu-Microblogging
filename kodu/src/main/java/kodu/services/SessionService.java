@@ -2,7 +2,7 @@ package kodu.services;
 
 import java.security.Principal;
 
-import kodu.model.User;
+import kodu.model.mongo.User;
 
 import org.springframework.stereotype.Service;
 

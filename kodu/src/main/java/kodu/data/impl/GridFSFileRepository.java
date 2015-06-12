@@ -1,7 +1,7 @@
 package kodu.data.impl;
 
 import kodu.data.FileRepository;
-import kodu.model.PersistedFile;
+import kodu.model.mongo.PersistedFile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Query;

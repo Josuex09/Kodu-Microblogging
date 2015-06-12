@@ -2,17 +2,18 @@ package kodu.services.impl;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import kodu.data.FileRepository;
 import kodu.data.NotificationRepository;
 import kodu.data.PostRepository;
 import kodu.data.UserRepository;
-import kodu.model.Medal;
-import kodu.model.Notification;
-import kodu.model.PersistedFile;
-import kodu.model.Post;
-import kodu.model.User;
+import kodu.model.mongo.Medal;
+import kodu.model.mongo.Notification;
+import kodu.model.mongo.PersistedFile;
+import kodu.model.mongo.Post;
+import kodu.model.mongo.User;
 import kodu.services.VisualizationService;
 
 import org.apache.commons.lang3.StringUtils;
@@ -129,6 +130,11 @@ public class VisualizationServiceImpl implements VisualizationService {
 			}
 		}
 		return count;
+	}
+
+	@Override
+	public List<Post> showPostsByDateAndRegion(String region, Date from, Date to) {
+		return null;
 	}
 
 

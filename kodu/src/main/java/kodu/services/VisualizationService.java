@@ -1,14 +1,15 @@
 package kodu.services;
 
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import kodu.model.mongo.Medal;
+import kodu.model.mongo.Notification;
+import kodu.model.mongo.Post;
+import kodu.model.mongo.User;
 
-import kodu.model.Medal;
-import kodu.model.Notification;
-import kodu.model.Post;
-import kodu.model.User;
+import org.springframework.stereotype.Service;
 
 
 @Service
@@ -21,5 +22,6 @@ public interface VisualizationService {
 	public List<Notification> showUserNotifications(String userId);
 	public InputStream showUserProfilePhoto(String userId);
     public Integer newNotifications(String userId);
+    public List<Post> showPostsByDateAndRegion(String region,Date from, Date to);
 	
 }

@@ -6,8 +6,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import kodu.model.Notification;
-import kodu.model.User;
+import kodu.model.mongo.Notification;
+import kodu.model.mongo.Post;
+import kodu.model.mongo.User;
 import kodu.services.AccountConfigurationService;
 import kodu.services.SessionService;
 import kodu.services.VisualizationService;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-@RequestMapping("/feed")
+@RequestMapping(value="/feed")
 public class NaviagationBarController {
 		@Autowired
 		VisualizationService visualizationService;
@@ -36,24 +37,27 @@ public class NaviagationBarController {
 		
 
 	   @RequestMapping(method=RequestMethod.GET)
-	   public String loadNavInfo( Principal principal,Model model) {
+	   public String feed( Principal principal,Model model) {
 		   User user = sessionService.getCurrentUser(principal);
 		   String userId = user.getId();	
 		   model.addAttribute("totalFollowers",user.getFollowers().size());
 		   model.addAttribute("totalFollows",user.getFollows().size());
 		   model.addAttribute("user",user);
-		   
-
-		   
+		
 		   int newNotificationsSize = visualizationService.newNotifications(userId);
 		   if(newNotificationsSize>0) model.addAttribute("notificationCount", newNotificationsSize);
 		   
 		   List<Notification> notifications =  visualizationService.showUserNotifications(userId);
 		   if(notifications.size()>0) model.addAttribute("notifications", notifications);
 		   else model.addAttribute("noNotifications","You dont have notifications");
+		   
+		   List<Post> feed = visualizationService.showFeed(userId);
+		   model.addAttribute("feed", feed);
+		   
 		    
    	       return "feed";
 	   }
+	   
 	    @RequestMapping(value = "/photo", method = RequestMethod.GET)
 	    public void showProfilePhoto(HttpServletResponse response,@RequestParam String id) {
 	    	try {

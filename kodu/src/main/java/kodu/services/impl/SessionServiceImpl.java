@@ -3,7 +3,7 @@ package kodu.services.impl;
 import java.security.Principal;
 
 import kodu.data.impl.MongoUserRepository;
-import kodu.model.User;
+import kodu.model.mongo.User;
 import kodu.services.SessionService;
 
 import org.springframework.beans.factory.annotation.Autowired;

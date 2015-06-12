@@ -1,7 +1,12 @@
 package kodu.controllers;
 
 
-import kodu.model.User;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import kodu.data.FileRepository;
+import kodu.model.mongo.PersistedFile;
+import kodu.model.mongo.User;
 import kodu.services.SessionService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,16 +16,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/")
 public class SignUpController {
 	
 	 @Autowired
 	    private SessionService sessionService ;
-	
-	
+	 @Autowired
+	 FileRepository fr;
+	 
+	 
+	 
 	 @RequestMapping(method = RequestMethod.GET)
 	    public String show() {
-	        return "index";
+		 return "index";
 	    }
 	    
 
@@ -33,13 +41,12 @@ public class SignUpController {
 
 	        if (!password.equals(confirm)) {
 	        	System.out.println("contraseña diferente");
-	            return "redirect:/index?passwordMismatch";
-
+	            return "redirect:/?passwordMismatch";
 	        }
 	        User newUser = sessionService.signUp(username, email, password, confirm);
 
 	        if (newUser == null) {
-	            return "redirect:/index?usernameAlreadyExists";
+	            return "redirect:/?usernameAlreadyExists";
 	        } else { 
 	            return "forward:/feed";
 	            

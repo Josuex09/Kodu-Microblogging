@@ -1,70 +1,64 @@
-        <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet"/>
-        <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" rel="stylesheet"/>
-        
-        <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>    
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-        <link rel="stylesheet" th:href="@{/css/navigationBar.css}"
-          href="../../css/navigationBar.css" />
-          
-        <link rel="stylesheet" th:href="@{/css/profilePhotoSizes.css}"
-          href="../../css/profilePhotoSizes.css" />
 
-        <nav id="nav" class="navbar navbar-default">
-        <div class="container-fluid" >
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-        <ul class="nav navbar-nav" >
-            <a href="feed.html">
-            	<img class="img-responsive" id="imgn-logo" alt="Responsive image" src="../../imagenes/Logo.png"/>
-            </a>
-        </ul>
-            
-        <!-- Barra de Busqueda    -->
-          <form class="navbar-form navbar-nav" id="search" role="search">
-              <input type="text" id="barra-busqueda" class="form-control" placeholder="Search"/>
-          </form>
-            
-            
-          <ul class="nav navbar-nav navbar-right">
+<link rel="stylesheet" th:href="@{/css/navigationBar.css}"
+	href="../../css/navigationBar.css" />
 
-              <li id="notifications" class="dropdown">
-              <span id="notification_count" th:text="${notificationCount}">
-              </span>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  <img id="campana" class="img-responsive img-peq" src="../../imagenes/Campana.png"  alt="Responsive image"/>
-              </a>
-              <ul class="dropdown-menu" role="menu"> 
-             
-             <span id="notification_count" th:text="${notificationCount}">
-              </span>	 
-          		
-          		<!-- notifications -->
-          		<tr th:each="notification : ${notifications}">
-          			<li id="notificationContent">
-          				<td th:text="${notification.content}">
-          				</td>
-          			</li>
-          			<li class="divider"></li>
-          		</tr>
-          		<td th:text="${noNotifications}"></td>
-          		
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              	<img id="profileOptions" class="img-med" th:attr="src=@{/feed/photo(id=${user.id})}"/>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Ver perfil</a></li>
-                <li><a href="#">Configuracion</a></li>
-                <li class="divider"></li>
-                <li><a href="/logout">Cerrar sesion</a></li>
-              </ul>
-            </li>
-          </ul>
-      </div><!-- /.container-fluid -->
-        </div><!-- /.navbar-collapse -->
-    </nav>
-  
+<nav id="nav" class="navbar navbar-default">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<a href="feed.html"> <img class="img-responsive" id="imgn-logo"
+					alt="Responsive image" src="../../imagenes/Logo.png" />
+				</a>
+			</ul>
+
+			<!-- Barra de Busqueda    -->
+			<form class="navbar-form navbar-nav" id="search" role="search">
+				<input type="text" id="barra-busqueda" class="form-control"
+					placeholder="Search" />
+			</form>
+
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<li id="notifications" class="dropdown"><span
+					id="notification_count" th:text="${notificationCount}"> </span> <a
+					href="#" class="dropdown-toggle" data-toggle="dropdown"
+					role="button" aria-expanded="false"> <img id="campana"
+						class="img-responsive img-peq" src="../../imagenes/Campana.png"
+						alt="Responsive image" />
+				</a>
+					<ul class="dropdown-menu" role="menu">
+
+						<span id="notification_count" th:text="${notificationCount}">
+						</span>
+
+						<!-- notifications -->
+						<tr th:each="notification : ${notifications}">
+							<li id="notificationContent">
+								<td th:text="${notification.content}"></td>
+							</li>
+							<li class="divider"></li>
+						</tr>
+						<td th:text="${noNotifications}"></td>
+
+					</ul></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-expanded="false"> <img
+						id="profileOptions" class="img-med"
+						th:attr="src=@{/feed/photo(id=${user.id})}" />
+				</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Ver perfil</a></li>
+						<li><a href="#">Configuracion</a></li>
+						<li class="divider"></li>
+						<li><a href="/logout">Cerrar sesion</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<!-- /.container-fluid -->
+	</div>
+	<!-- /.navbar-collapse -->
+</nav>

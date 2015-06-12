@@ -4,10 +4,10 @@ import java.util.List;
 
 import kodu.data.impl.MongoPostRepository;
 import kodu.data.impl.MongoUserRepository;
-import kodu.model.Code;
-import kodu.model.Comment;
-import kodu.model.Post;
-import kodu.model.User;
+import kodu.model.mongo.Code;
+import kodu.model.mongo.Comment;
+import kodu.model.mongo.Post;
+import kodu.model.mongo.User;
 import kodu.services.UserFunctionsService;
 
 import org.springframework.beans.factory.annotation.Autowired;

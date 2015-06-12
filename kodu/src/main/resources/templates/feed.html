@@ -3,33 +3,129 @@
 <head>
 <meta charset="UTF-8" />
 
+<link
+	href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css"
+	rel="stylesheet" />
+<link
+	href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css"
+	rel="stylesheet" />
+<link rel="stylesheet" th:href="@{/css/jquery-linedtextarea.css}"
+	href="../../css/jquery-linedtextarea.css" />
+<link rel="stylesheet" th:href="@{/css/publish.css}"
+	href="../../css/publish.css" />
+<link rel="stylesheet" th:href="@{/css/publication.css}"
+	href="../../css/publication.css" />
+
 <link rel="stylesheet" th:href="@{/css/tumbnail.css}"
 	href="../../css/tumbnail.css" />
+<link rel="stylesheet" th:href="@{/css/profilePhotoEdit.css}"
+	href="../../css/profilePhotoEdit.css" />
+<link rel="stylesheet" th:href="@{/css/prettify.css}"
+	href="../../css/prettify.css" />
 
-	
-<title>Feed</title>
+
+<script th:src="@{/js/jquery-2.1.3.min.js}"
+	src="../../js/jquery-2.1.3.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script th:src="@{/js/publish.js}" src="../../js/publish.js"></script>
+<script th:src="@{/js/jquery.localize.min.js}"
+	src="../../js/jquery.localize.min.js"></script>
+<script th:src="@{/js/prettify.js}" src="../../js/prettify.js"></script>
+<script th:src="@{/js/jquery-linedtextarea.js}"
+	src="../../js/jquery-linedtextarea.js"></script>
+<script th:src="@{/js/feed.js}" src="../../js/feed.js"></script>
+
+<title th:text="'Kodu - '+ '@'+${user.username} "></title>
 </head>
 <body>
 	<div th:include="navigationBar"></div>
 
-	<div class="col-md-2">
-		<div class="thumbnail">
-			<img th:attr="src=@{/feed/photo(id=${user.id})}"
-				class="center-block img-responsive img-grande"
-				alt="Responsive image" />
-			<div id="tumbnailUsername">
-				<a href="" th:text=" '@' + ${user.username}"></a>
+
+	<table>
+		<tr>
+			<td colspan="2"><img id="img-tumbnail" th:attr="src=@{/feed/photo(id=${user.id})}"
+				class="img-grande"/></td>
+		</tr>
+		<tr>
+			<td id="userNameTumbnail" class="tumbnail-border" colspan="2"><a
+				id="userNameTumbnailText" th:text="'@'+${user.username}"></a></td>
+		</tr>
+		<tr>
+			<td class="relation tumbnail-border" colspan="1"><a>Followers<br/><p th:text="${totalFollowers}">
+			</p></a></td>
+
+			<td class="relation tumbnail-border" colspan="1"><a>Follows<br/><p th:text="${totalFollows}"></p>
+			</a></td>
+		</tr>
+	</table>
+
+
+	<form method="post" role="form" th:action="@{/feed}" action="/feed">
+		<div id="nueva-publicacion" class="container">
+
+			<div id="informacion" class="col-md-12 form-group">
+				<p id="descripcionCant" class="caracteres">199</p>
+				<textarea maxlength="199" id="descripcion" name="descripcion"
+					type="text" class="form-control" data-localize="Descripcion"></textarea>
 			</div>
-			<ul id="tumbnailRelations" class="nav">
-				<li id="tumbnailFollowers">Followers <br>
-					<p th:text="${totalFollowers}"></p> </br>
-				</li>
-				<li id="tumbnailFollows">Follows <br>
-					<p th:text="${totalFollows}"></p> </br>
-				</li>
-			</ul>
+			<div id="codigoDiv" class="col-md-12 form-group">
+				<textarea id="codigo" name="codigo" type="text" class="form-control"
+					data-localize="Codigo"></textarea>
+			</div>
+			<div id="publicar" class="col-md-12 form-group">
+				<button id="boton-publicar" type="submit" class="btn btn-default"
+					data-localize="Publicar">Publish</button>
+			</div>
+
 		</div>
+	</form>
+
+	<div id="feed">
+		<tr th:each="post : ${feed}">
+			<div id="post" class="container">
+				<div class="row">
+					<p id="created-by">Created by @josue</p>
+				</div>
+				<div class="row">
+					<table>
+						<tr>
+							<td><img class="img-med circle"
+								th:attr="src=@{/feed/photo(id=${user.id})}" /></td>
+							<td>
+								<p id="description" th:text="${post.description}"></p>
+							</td>
+						</tr>
+						<tr>
+							<td><a id="publisherName"> @Josue</a></td>
+						</tr>
+
+					</table>
+				</div>
+				<div class="row">
+					<pre id="code-lines" class="prettyprint linenums closed"
+						th:text="${post.code.code}"></pre>
+				</div>
+
+				<div class="row">
+					<a class="show-hide">Show</a>
+				</div>
+				<div class="row">
+					<input placeholder="Comment..." id="comment"></input>
+
+				</div>
+
+			</div>
+
+
+
+		</tr>
+
+
 	</div>
+
+
 
 
 

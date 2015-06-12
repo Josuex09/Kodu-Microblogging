@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import kodu.data.FileRepository;
 import kodu.data.UserRepository;
-import kodu.model.PersistedFile;
-import kodu.model.User;
+import kodu.model.mongo.PersistedFile;
+import kodu.model.mongo.User;
 import kodu.services.AccountConfigurationService;
 
 import org.apache.commons.lang3.StringUtils;

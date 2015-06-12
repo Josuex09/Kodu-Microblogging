@@ -2,8 +2,8 @@ package kodu.data;
 
 import java.util.List;
 
-import kodu.model.Notification;
-import kodu.model.User;
+import kodu.model.mongo.Notification;
+import kodu.model.mongo.User;
 
 import org.springframework.data.repository.CrudRepository;
 

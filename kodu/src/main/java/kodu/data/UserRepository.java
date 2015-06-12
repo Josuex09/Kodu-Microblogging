@@ -1,6 +1,6 @@
 package kodu.data;
 
-import kodu.model.User;
+import kodu.model.mongo.User;
 
 import org.springframework.data.repository.CrudRepository;
 

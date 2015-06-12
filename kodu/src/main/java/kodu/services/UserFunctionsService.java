@@ -4,9 +4,9 @@ package kodu.services;
 
 import java.util.List;
 
-import kodu.model.Comment;
-import kodu.model.Post;
-import kodu.model.User;
+import kodu.model.mongo.Comment;
+import kodu.model.mongo.Post;
+import kodu.model.mongo.User;
 
 import org.springframework.stereotype.Service;
 

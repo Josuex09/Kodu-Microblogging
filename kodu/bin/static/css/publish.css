@@ -1,0 +1,50 @@
+.caracteres{
+    text-align: right;
+    color: #f58214 ;
+}
+
+#publicar{
+    margin-top: -30px;
+    height: 0px;
+}
+
+#nueva-publicacion{
+    border: 1px solid; 
+    border-color: #c0c0c0;
+    margin-top: -330px;
+    height: 21em;
+    width: 620px;  
+    margin-left: 28.8em;
+}
+
+#informacion{
+    height: 80px;
+}
+
+textarea{
+    resize: none;
+    
+}
+
+#descripcion{
+    margin-top: -10px;
+    width: 560px;
+    height: 64px;
+}
+
+#codigo{
+    width:  560px;
+    height: 8.55em;
+}
+
+#boton-publicar{
+    max-height: 62px;
+    max-width: 70px;
+    background-color: #f58214;
+    float: right;
+    color: #fff;
+}
+
+#codigoDiv{
+    height: 160px;
+}

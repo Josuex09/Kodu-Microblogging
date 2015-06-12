@@ -1,5 +1,7 @@
-//$("[data-localize]").localize("leng",{ language: "es", pathPrefix: "/Idiomas"});
 $(document).ready(function(){
+	$("[data-localize]").localize("leng",{ language: "es", pathPrefix: "../../Idiomas"});
+	
+	
     $("#seleccionar-idioma").change(function(){
         var idioma = $(this).val();
         if(idioma== "Español"){

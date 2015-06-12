@@ -1,8 +1,8 @@
 package kodu.data;
 import java.util.List;
 
-import kodu.model.Post;
-import kodu.model.User;
+import kodu.model.mongo.Post;
+import kodu.model.mongo.User;
 
 import org.springframework.data.repository.CrudRepository;
 

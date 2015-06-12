@@ -1,0 +1,51 @@
+#post{
+width: 620px;
+border: 1px solid;
+border-color:#c0c0c0;
+padding-left: 30px;
+padding-right: 18px;
+margin-top : 20px;
+margin-left:403px;
+}
+
+#created-by{
+	margin-top: 2px;
+	margin-right: 2px;
+    float: right; 
+}
+
+#publisherPhoto{
+    margin-left: 0px;
+}
+#publisherName{
+    margin-left: -2px;
+    text-align: center;
+}
+
+#description{
+    border: 1px solid;
+    border-radius: 3px;
+    width: 450px;
+    height: 40px;
+    font-size: 15px;
+    margin-left: 66px;
+}
+
+#code-lines{
+    width: 450px;
+    margin-left: 127px;
+}
+
+#comment{
+   
+    margin-top: 3px;
+    margin-left: 127px;
+    margin-bottom: 15px;
+    width: 350px;
+}
+
+.show-hide{
+    float: right;
+    margin-right: 25px;
+    margin-top: 2em;
+}

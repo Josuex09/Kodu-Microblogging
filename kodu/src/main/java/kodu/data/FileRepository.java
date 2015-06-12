@@ -1,7 +1,7 @@
 package kodu.data;
 
 import kodu.data.support.CrudDao;
-import kodu.model.PersistedFile;
+import kodu.model.mongo.PersistedFile;
 
 import org.springframework.data.repository.CrudRepository;
 
