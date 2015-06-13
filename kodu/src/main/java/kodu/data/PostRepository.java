@@ -10,5 +10,5 @@ public interface PostRepository extends CrudRepository<Post, String>{
 	//public List<Post> findByPublishedOn(Date from, Date to);
 	public List<Post> findByUser(User user);
 	public Post findById(String id);
-	//public List<Post> findByUser(List<User> users);
+	public List<Post> findByUser(List<User> users);
 }

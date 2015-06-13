@@ -77,7 +77,11 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 
 	@Override
 	public Post share(String userId, String postId) {
-		return null;
+		Post post = postRepository.findById(postId);
+		Post newPost = new Post(post.getDescription(), post.getCode(), userId);
+		newPost.setCreatedBy(post.getCreatedBy());
+		postRepository.save(newPost);
+		return newPost;
 	}
 
 }

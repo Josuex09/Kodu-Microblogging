@@ -17,7 +17,7 @@ public  class Post extends BaseEntity {
 	private List<String> shared;
 	private List<Comment> comments;
 	private String createdBy;
-
+	
 	public Post(String description, Code code,String user) {
 		this.user = user;
 		this.description = description;
@@ -26,18 +26,22 @@ public  class Post extends BaseEntity {
 		this.shared = new ArrayList<String>();
 		this.comments = new ArrayList<Comment>(); 
 		this.createdDate = Calendar.getInstance().getTime();
+		this.createdBy = user;
 		
 	}
-
-/*
-	public String getPostId() {
-		return postId;
-	}
-*/
+	
 
 	public String getUser() {
 		return user;
 	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
 	public String getDescription() {
 		return description; }
 

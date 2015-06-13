@@ -45,18 +45,19 @@
 
 	<table>
 		<tr>
-			<td colspan="2"><img id="img-tumbnail" th:attr="src=@{/feed/photo(id=${user.id})}"
-				class="img-grande"/></td>
+			<td colspan="2"><img id="img-tumbnail"
+				th:attr="src=@{/feed/photo(id=${user.id})}" class="img-grande" /></td>
 		</tr>
 		<tr>
 			<td id="userNameTumbnail" class="tumbnail-border" colspan="2"><a
 				id="userNameTumbnailText" th:text="'@'+${user.username}"></a></td>
 		</tr>
 		<tr>
-			<td class="relation tumbnail-border" colspan="1"><a>Followers<br/><p th:text="${totalFollowers}">
-			</p></a></td>
+			<td class="relation tumbnail-border" colspan="1"><a>Followers<br />
+				<p th:text="${totalFollowers}"></p></a></td>
 
-			<td class="relation tumbnail-border" colspan="1"><a>Follows<br/><p th:text="${totalFollows}"></p>
+			<td class="relation tumbnail-border" colspan="1"><a>Follows<br />
+				<p th:text="${totalFollows}"></p>
 			</a></td>
 		</tr>
 	</table>
@@ -86,7 +87,9 @@
 		<tr th:each="post : ${feed}">
 			<div id="post" class="container">
 				<div class="row">
-					<p id="created-by">Created by @josue</p>
+
+					<p th:if="${user.id} != ${post.createdBy}" class="created-by" th:text="'Created by '+ ${post.createdBy}"></p>
+					<p th:if="${user.id} == ${post.createdBy}" class="created-by"></p>
 				</div>
 				<div class="row">
 					<table>
@@ -109,12 +112,46 @@
 				</div>
 
 				<div class="row">
-					<a class="show-hide">Show</a>
-				</div>
-				<div class="row">
-					<input placeholder="Comment..." id="comment"></input>
+					<a class="post-options show-hide">Show</a>
+					<table class="post-icons">
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td><img src="../../imagenes/shareIcon.png"/></td>
+										<td>Share</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table>
+									<tr>
+										<td><img src="../../imagenes/commentIcon.png" /></td>
+										<td>Comments</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
 
+					</table>
 				</div>
+
+
+				<!--                    comentarios                      -->
+
+
+				<!-- 				<div class="row"> -->
+				<!-- 					<input placeholder="Comment..." id="comment"></input> -->
+
+				<!-- 				</div> -->
+
+
+				<!--                 comentarios        -->
+
+
+
+
+
 
 			</div>
 
