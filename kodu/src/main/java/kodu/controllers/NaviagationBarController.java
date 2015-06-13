@@ -39,10 +39,6 @@ public class NaviagationBarController {
 	
 		@Autowired
 		AccountConfigurationService accountConfigurationService;
-<<<<<<< HEAD
-		
-=======
->>>>>>> 5e04c3931ce20bd072b5991cb3a73d3f0af8eb9f
 
 	   @RequestMapping(method=RequestMethod.GET)
 	   public String feed( Principal principal,Model model) {
@@ -63,12 +59,7 @@ public class NaviagationBarController {
 		   if(notifications.size()>0) model.addAttribute("notifications", notifications);
 		   else model.addAttribute("noNotifications","You dont have notifications");
 		   
-<<<<<<< HEAD
 		   List<Post> feed = visualizationService.showFeed(user.getUsername());
-=======
-		   
-		   List<Post> feed = visualizationService.showFeed(userId);
->>>>>>> 5e04c3931ce20bd072b5991cb3a73d3f0af8eb9f
 		   model.addAttribute("feed", feed);
 		   
 		    

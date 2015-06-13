@@ -37,7 +37,7 @@
         <table>
             <tr>
                 <td >
-                    <img id="img-tumbnail" th:attr="src=@{/feed/photo(id=${user.id})}" class="img-grande"/>
+                    <img id="img-tumbnail" th:attr="src=@{/home/photo(username=${user.username})}" class="img-grande"/>
                 </td>
             </tr>
             <tr>
@@ -52,7 +52,8 @@
             </tr>
             <tr>
                 <td >
-                    <br><strong>Languages</strong></br>Spanish, English, Russian
+                    <br><strong>Languages</strong></br><p th:each="lenguage : ${lenguage}"
+                     th:text="${lenguage}+','"></p>
                 </td>
             </tr>
 
@@ -83,7 +84,7 @@
 	    	<tr th:each="follow : ${follows}">
 				<table id="follow">
 					<tr>
-						<td><img th:attr="src=@{/feed/photo(id=${follow.id})}"
+						<td><img th:attr="src=@{/home/photo(username=${follow.username})}"
 							class="img-follow" /></td>
 					</tr>
 					<tr>
@@ -103,7 +104,7 @@
 	    	<tr th:each="follower : ${followers}">
 				<table id="follower">
 					<tr>
-						<td><img th:attr="src=@{/feed/photo(id=${follower.id})}"
+						<td><img th:attr="src=@{/feed/photo(username=${follower.username})}"
 							class="img-follow" /></td>
 					</tr>
 					<tr>

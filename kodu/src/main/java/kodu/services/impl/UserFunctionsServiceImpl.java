@@ -36,11 +36,6 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 		// if already is following dont do anything
 		currentUser.addFollows(userToFollow.getUsername());
 		userToFollow.addFollower(currentUser.getUsername());
-<<<<<<< HEAD
-		System.out.println("follows"+currentUser.getFollows().size());
-		System.out.println("follower"+currentUser.getFollows().size());
-=======
->>>>>>> 5e04c3931ce20bd072b5991cb3a73d3f0af8eb9f
 		userRepository.save(currentUser);
 		userRepository.save(userToFollow);
 		return userToFollow;

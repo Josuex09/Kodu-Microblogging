@@ -56,10 +56,10 @@ public class ProfileController {
 		return "profile";	
 	}
 	
-	@RequestMapping(value = "/photo", method = RequestMethod.GET)
-    public void showProfilePhoto(HttpServletResponse response,@RequestParam String id) {
+    @RequestMapping(value = "/photo", method = RequestMethod.GET)
+    public void showProfilePhoto(HttpServletResponse response,@RequestParam String username) {
     	try {
-            InputStream photo = visualizationService.showUserProfilePhoto(id);
+            InputStream photo = visualizationService.showUserProfilePhoto(username);
             System.out.println(photo == null);
             if (photo != null) {
                 IOUtils.copy(photo, response.getOutputStream());
@@ -68,7 +68,7 @@ public class ProfileController {
             }
         } catch(Exception e) { System.out.println("exception");
         }
-    }
+    } 
 	
 	
 }
