@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class SignUpController {
 	
 	 @Autowired
-	    private SessionService sessionService ;
+	 private SessionService sessionService ;
 	 @Autowired
 	 FileRepository fr;
 	 

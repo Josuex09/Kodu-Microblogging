@@ -1,20 +1,26 @@
 package kodu.controllers;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import kodu.data.FileRepository;
 import kodu.model.mongo.Notification;
+import kodu.model.mongo.PersistedFile;
 import kodu.model.mongo.Post;
 import kodu.model.mongo.User;
 import kodu.services.AccountConfigurationService;
 import kodu.services.SessionService;
+import kodu.services.UserFunctionsService;
 import kodu.services.VisualizationService;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.PessimisticLockingFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +39,16 @@ public class NaviagationBarController {
 	
 		@Autowired
 		AccountConfigurationService accountConfigurationService;
-
 		
 
 	   @RequestMapping(method=RequestMethod.GET)
 	   public String feed( Principal principal,Model model) {
+		   
+		   
 		   User user = sessionService.getCurrentUser(principal);
-		   String userId = user.getId();	
+		   String userId = user.getId();
+
+		   
 		   model.addAttribute("totalFollowers",user.getFollowers().size());
 		   model.addAttribute("totalFollows",user.getFollows().size());
 		   model.addAttribute("user",user);
@@ -51,7 +60,7 @@ public class NaviagationBarController {
 		   if(notifications.size()>0) model.addAttribute("notifications", notifications);
 		   else model.addAttribute("noNotifications","You dont have notifications");
 		   
-		   List<Post> feed = visualizationService.showFeed(userId);
+		   List<Post> feed = visualizationService.showFeed(user.getUsername());
 		   model.addAttribute("feed", feed);
 		   
 		    

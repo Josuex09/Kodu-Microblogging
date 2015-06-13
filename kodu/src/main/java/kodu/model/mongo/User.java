@@ -38,7 +38,7 @@ public class User extends BaseEntity implements UserDetails{
 		this.medals = new ArrayList<Medal>();
 		this.notifications = new ArrayList<String>();
 		this.followers = new ArrayList<String>();
-		this.follows = new ArrayList<String>();//ArrayList<User>();
+		this.follows = new ArrayList<String>();
 		this.scores = new HashMap<String, Long>(); 
 		this.createdDate = Calendar.getInstance().getTime();
 		}

@@ -38,20 +38,20 @@ public class VisualizationServiceImpl implements VisualizationService {
 	
 	
 	@Override
-	public List<User> showFollowers(String userId){
-		User user = userRepository.findById(userId);
+	public List<User> showFollowers(String username){
+		User user = userRepository.findByUsername(username);
 		List<String> followers = user.getFollowers();
 		List<User> followersList = new ArrayList<User>();
-		for(int i=0;i<followers.size();i++) followersList.add(userRepository.findById(followers.get(i)));
+		for(int i=0;i<followers.size();i++) followersList.add(userRepository.findByUsername(followers.get(i)));
 		return followersList;
 	}
 	
 	@Override
-	public List<User> showFollowing(String userId){
-		User user = userRepository.findById(userId);
+	public List<User> showFollowing(String username){
+		User user = userRepository.findByUsername(username);
 		List<String> following = user.getFollows();
 		List<User> followingList = new ArrayList<User>();
-		for(int i=0;i<following.size();i++) followingList.add(userRepository.findById(following.get(i)));
+		for(int i=0;i<following.size();i++) followingList.add(userRepository.findByUsername(following.get(i)));
 		return followingList;
 	}
 
@@ -62,13 +62,13 @@ public class VisualizationServiceImpl implements VisualizationService {
 	}
 
 	@Override
-	public List<Post> showFeed(String userId){
-		User user = userRepository.findById(userId);
+	public List<Post> showFeed(String username){
+		User user = userRepository.findByUsername(username);
 		List<String> follows = user.getFollows();
 		List<Post> feed = new ArrayList<Post>();
 		// add follows posts
 		for(int i=0;i<follows.size();i++){
-			User follow = userRepository.findById(follows.get(i));
+			User follow = userRepository.findByUsername(follows.get(i));
 			List<Post> followPost = new ArrayList<Post>();
 			List<String> followPostIds = follow.getPosts();
 			for(int j=0;j<followPostIds.size();j++){
@@ -86,8 +86,8 @@ public class VisualizationServiceImpl implements VisualizationService {
 	}
 	
 	@Override
-	public List<Post> showUserPost(String userId){
-		User user = userRepository.findById(userId);
+	public List<Post> showUserPost(String username){
+		User user = userRepository.findByUsername(username);
 		List <String> postsIds = user.getPosts();
 		List<Post>  posts = new ArrayList<Post>();
 		for(int i=0;i<postsIds.size();i++) posts.add(postRepository.findById(postsIds.get(i)));

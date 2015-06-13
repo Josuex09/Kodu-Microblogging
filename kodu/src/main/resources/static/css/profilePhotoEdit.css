@@ -18,3 +18,9 @@
 .circle{
 	border-radius:100%;
 }
+
+.img-follow{
+    float: left;
+    max-height: 160px;
+    max-width:  200px;
+}

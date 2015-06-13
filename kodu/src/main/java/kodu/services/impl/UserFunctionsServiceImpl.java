@@ -30,12 +30,14 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 	}
 
 	@Override
-	public User follow(String currentUserId, String usernameId) {
-		User currentUser= userRepository.findById(currentUserId);
-		User userToFollow = userRepository.findById(usernameId);
+	public User follow(String currentUsername, String usernameId) {
+		User currentUser= userRepository.findByUsername(currentUsername);
+		User userToFollow = userRepository.findByUsername(usernameId);
 		// if already is following dont do anything
-		currentUser.addFollows(userToFollow.getId());
-		userToFollow.addFollower(currentUser.getId());
+		currentUser.addFollows(userToFollow.getUsername());
+		userToFollow.addFollower(currentUser.getUsername());
+		System.out.println("follows"+currentUser.getFollows().size());
+		System.out.println("follower"+currentUser.getFollows().size());
 		userRepository.save(currentUser);
 		userRepository.save(userToFollow);
 		return userToFollow;

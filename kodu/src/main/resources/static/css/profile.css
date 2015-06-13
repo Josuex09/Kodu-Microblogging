@@ -1,0 +1,47 @@
+#option{
+    border: 1px solid;
+    border-color: #c0c0c0;
+    text-align: center;
+    display: inline-block;
+    width: 212px;
+    height: 80px;
+    float: left;
+}
+
+#options{
+    width: 850px;
+    height: 80px;
+    margin-left: 334px;
+    margin-top: 40px;
+}
+
+#profile{
+    text-align: center;
+    display: inline-block;
+    float: left;
+    margin: 20px 0 0 20px;
+}
+
+#img-tumbnail{
+    border-radius: 5px;
+}
+
+#recuadro {
+    border: 1px solid;
+    border-color: #c0c0c0;
+    width: 850px;
+    margin-left: 334px;
+    margin-top: 1em;
+}
+
+#follow, #follower{
+    margin-top: 12px;
+    margin-left: 7px;
+    border: 1px solid;
+    border-color: #c0c0c0;
+    text-align: center;
+    padding: 18px;
+    display: inline-block;
+    width: 200px;
+    height: 260px;
+}
