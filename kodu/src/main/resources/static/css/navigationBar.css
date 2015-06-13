@@ -14,9 +14,9 @@
 }
 
 #search{
-    width: 45%;
-    margin-top: 1%;
-    margin-left: 18%;
+    width: 650px;
+    margin-top: 15px;
+    margin-left: 263px;
 }
 
 #barra-busqueda{
@@ -35,7 +35,7 @@
 	text-align: center;
 }
 #profileOptions{
-	margin-top: -25%;
+	margin-top: -15px;
 	border-radius: 100%;
 }
 .navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {

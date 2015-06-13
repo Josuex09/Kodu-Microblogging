@@ -104,8 +104,8 @@ public class VisualizationServiceImpl implements VisualizationService {
 	}
 
 	@Override
-	public InputStream showUserProfilePhoto(String userId) {
-		User user = userRepository.findById(userId);
+	public InputStream showUserProfilePhoto(String userName) {
+		User user = userRepository.findByUsername(userName);
 		String filename = user.getProfilePhoto();
 		if(StringUtils.isNotBlank(filename)){
 			PersistedFile profilePhoto = fileRepository.findById(filename);
