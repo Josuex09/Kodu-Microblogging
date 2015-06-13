@@ -1,57 +1,59 @@
 body{
-    background-color: #f4f7f8;
+	background-color: #f4f7f8;
 }
 
-.boton{ <div>
-            
-                </div>
+.boton{ 
     color: white;
     background-color: #f58214;
     width: 8em;
-    height:  3em;
+    height: 2.5em;
 }
 
 input{
-    border: none;
+    border: 1px solid #c0c0c0;
     height: 2em;
-    margin: 0;
-    outline: 0;
-    padding: 15px;
-    width: 70%;
-    background-color: #e8eeef;
-    color: black;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    width: 100%;
+    color: #000;
 }
 
 #menu{
+	background: #fff;
     margin-top: 6em;
-    height: 28em;
-    background-color: white;
+    width: 25em;
     float: right;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    padding: 0;
 }
 
 #pestaña{
-    margin-top: 2%;
-    height: 10%;
+	margin: 0;
+	width: 100%;
+	height: 30px;
 }
 
 #iniciar{
-    height: 100%;
+	display: inline-block;
+	float: left;
+	width: 50%;
+	height: 30px;
+	margin: 0;
     text-align: center;  
+    border-top-left-radius: 5px;
 }
 
 #registrarse{
-    height: 100%;
-    text-align: center;  
+	display: inline-block;
+	float: left;
+	width: 50%;
+	height: 30px;
+    margin: 0;
+    text-align: center; 
+    border-top-right-radius: 5px;
 }
 
 #cuerpo{
-    margin-top: 4%;
-    height: 85%;
-}
-
-#formulario{
-    text-align: center;
+    margin-top: 15px;
 }
 
 .img-peq{
@@ -60,3 +62,16 @@ input{
     max-width:  35px;
 }
 
+#pestaña label{
+	margin-top: 5px;
+}
+
+#formulario label{
+	font-weight: normal;
+}
+
+#lenguajes{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}

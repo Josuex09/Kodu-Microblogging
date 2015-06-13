@@ -28,6 +28,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script th:src="@{/js/profile.js}" src="../../js/profile.js" ></script>
+<script th:src="@{/js/feed.js}" src="../../js/feed.js"></script> <!-- Para los posts -->
 
 
 </head>
@@ -104,7 +105,7 @@
 	    	<tr th:each="follower : ${followers}">
 				<table id="follower">
 					<tr>
-						<td><img th:attr="src=@{/feed/photo(username=${follower.username})}"
+						<td><img th:attr="src=@{/home/photo(username=${follower.username})}"
 							class="img-follow" /></td>
 					</tr>
 					<tr>
@@ -113,7 +114,7 @@
 					<tr>
 						<td><br>
 						<a class="btn btn-default" role="button"
-							data-localize="Seguir">Seguir</a></br></td>
+							data-localize="Seguir">Seguido</a></br></td>
 					</tr>
 				</table>
 	
@@ -122,9 +123,9 @@
     	 
     	 
     	 <!--  lista de los posts hechos-->
-    	 <!-- <div id="list-posts">
-    	 	<tr th:each="post : ${feed}">
-			<div id="post" class="container">
+    	<div id="list-posts">
+    	 	<tr th:each="post : ${posts}">
+			<div id="user-post" class="container">
 				<div class="row">
 
 					<p th:if="${user.username} != ${post.createdBy}" class="created-by"
@@ -177,7 +178,7 @@
 				</div>
 
 
-				                comment lists                 
+				<!--                 comment lists                  -->
 				<div class="row">
 					<div class="comment-list comments-closed">
 						<tr th:each="comment : ${post.comments}">
@@ -192,12 +193,20 @@
 											<p class="comment-content" th:text="${comment.content}"></p></td>
 									</tr>
 								</table>
+
 							</div>
+
 						</tr>
 					</div>
 				</div>
-				                comment lists end             
-				                   make new comment                     
+
+
+
+				<!--                 comment lists end              -->
+
+
+				<!--                    make new comment                      -->
+
 
 				<div class="row">
 					<table class="new-comment">
@@ -211,21 +220,24 @@
 									<input name="commentContent" placeholder="Comment..."
 										class="new-comment-input"></input>
 								</form>
+
 							</td>
 						</tr>
 					</table>
+
 				</div>
 
 
-				               make new comment  end    
+				<!--                make new comment  end     -->
 				<div class="row">
 					<a class="shared-count"
 						th:text="'Shared '+ ${#lists.size(post.shared)} +' times'"> </a>
 				</div>
 			</div>
+
 		</tr>
     	 
-    	 </div> -->
+    	 </div> 
     </div>
 
 </body>

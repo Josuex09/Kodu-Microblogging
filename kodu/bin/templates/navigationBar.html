@@ -9,7 +9,7 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<a href="feed.html"> <img class="img-responsive" id="imgn-logo"
+				<a href="/home"> <img class="img-responsive" id="imgn-logo"
 					alt="Responsive image" src="../../imagenes/Logo.png" />
 				</a>
 			</ul>
@@ -51,7 +51,7 @@
 						th:attr="src=@{/home/photo(username=${user.username})}" />
 				</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Ver perfil</a></li>
+						<li><a href="/profile">Ver perfil</a></li>
 						<li><a href="#">Configuracion</a></li>
 						<li class="divider"></li>
 						<li><a href="/logout">Cerrar sesion</a></li>

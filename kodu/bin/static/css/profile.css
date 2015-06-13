@@ -45,3 +45,13 @@
     width: 200px;
     height: 260px;
 }
+
+#user-post{
+width: 620px;
+border: 1px solid;
+border-color:#c0c0c0;
+padding-left: 30px;
+padding-right: 18px;
+margin-top : 20px;
+margin-left: 115px;
+}

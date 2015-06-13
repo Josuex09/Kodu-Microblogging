@@ -2,6 +2,7 @@ package kodu.services.impl;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -82,6 +83,7 @@ public class VisualizationServiceImpl implements VisualizationService {
 		List<Post>  posts = new ArrayList<Post>();
 		for(int i=0;i<postsIds.size();i++) posts.add(postRepository.findById(postsIds.get(i)));
 		feed.addAll(posts);
+		Collections.reverse(feed);
 		return feed;
 	}
 	
@@ -91,6 +93,7 @@ public class VisualizationServiceImpl implements VisualizationService {
 		List <String> postsIds = user.getPosts();
 		List<Post>  posts = new ArrayList<Post>();
 		for(int i=0;i<postsIds.size();i++) posts.add(postRepository.findById(postsIds.get(i)));
+		Collections.reverse(posts);
 		return posts;
 	}
 

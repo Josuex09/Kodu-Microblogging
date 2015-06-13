@@ -1,19 +1,19 @@
 $(document).ready(function(){
-    $("#datos-iniciar").hide();
-    $("#registrarse").css("background-color","#e0e1e1");
+    $("#datos-registro").hide();
+    $("#registrarse").css("background-color","#c0c0c0");
     $("#iniciar").css("background-color","#fff");
     
     
     $("#iniciar").click(function(){
-        $("#iniciar").css("background-color","#e0e1e1");
-        $("#registrarse").css("background-color","#fff");
+        $("#iniciar").css("background-color","#fff");
+        $("#registrarse").css("background-color","#c0c0c0");
         $("#datos-iniciar").show();
         $("#datos-registro").hide();
     });
     
     $("#registrarse").click(function(){
-        $(this).css("background-color","#e0e1e1");
-        $("#iniciar").css("background-color","#fff");
+        $(this).css("background-color","#fff");
+        $("#iniciar").css("background-color","#c0c0c0");
         $("#datos-iniciar").hide();
         $("#datos-registro").show();
     });

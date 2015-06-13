@@ -45,7 +45,7 @@ public class ProfileController {
 	    model.addAttribute("totalMedals",user.getMedals().size());
 	    
 	    List<Post> posts = visualizationService.showUserPost(user.getUsername());
-		   model.addAttribute("posts", posts);
+		model.addAttribute("posts", posts);
 		   
 	    List<User> followers = visualizationService.showFollowers(user.getUsername());
 		model.addAttribute("followers", followers);
