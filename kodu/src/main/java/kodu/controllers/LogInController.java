@@ -1,11 +1,6 @@
 package kodu.controllers;
 
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
-import kodu.data.FileRepository;
-import kodu.model.mongo.PersistedFile;
 import kodu.model.mongo.User;
 import kodu.services.SessionService;
 
@@ -16,19 +11,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/")
-public class SignUpController {
+@RequestMapping("/login")
+public class LogInController {
 	
 	 @Autowired
+<<<<<<< HEAD:kodu/src/main/java/kodu/controllers/SignUpController.java
 	 private SessionService sessionService ;
 	 @Autowired
 	 FileRepository fr;
 	 
 	 
 	 
+=======
+	    private SessionService sessionService ;
+>>>>>>> 5e04c3931ce20bd072b5991cb3a73d3f0af8eb9f:kodu/src/main/java/kodu/controllers/LogInController.java
 	 @RequestMapping(method = RequestMethod.GET)
 	    public String show() {
-		 return "index";
+		 
+		 return "login";
 	    }
 	    
 
@@ -48,7 +48,7 @@ public class SignUpController {
 	        if (newUser == null) {
 	            return "redirect:/?usernameAlreadyExists";
 	        } else { 
-	            return "forward:/feed";
+	            return "forward:/home";
 	            
 	        }
 	    }

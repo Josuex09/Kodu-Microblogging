@@ -1,6 +1,6 @@
 
-
 #img-tumbnail{
+	margin-left:20px;
     border-radius: 10px;
 }
 
@@ -12,11 +12,10 @@
 }
 
 .relation{
+	margin-left:20px;
     padding: 10px;
     text-align: center;
 }
 
 .tumbnail-border{
-	border: 1px solid #c0c0c0;
-	
-}
+	}

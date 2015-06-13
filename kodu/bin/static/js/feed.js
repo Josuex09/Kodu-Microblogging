@@ -19,4 +19,16 @@ $(document).ready(function(){
             $(this).text("Hide");
         }
     });
+    
+    // show/hide comments
+    $(".comment-ref").on("click",function(){
+    	if($(this).parent().closest("div").parent().closest("div").find(".comment-list").hasClass("comments-closed")){
+    		$(this).parent().closest("div").parent().closest("div").find(".comment-list").removeClass("comments-closed");
+    		$(this).parent().closest("div").parent().closest("div").find(".comment-list").addClass("comments-opened");
+    	}
+    	else{
+    		$(this).parent().closest("div").parent().closest("div").find(".comment-list").removeClass("comments-opened");
+    		$(this).parent().closest("div").parent().closest("div").find(".comment-list").addClass("comments-closed");
+    	}
+    });
 });

@@ -1,3 +1,7 @@
+a{
+	cursor: pointer;
+}
+
 #post{
 width: 620px;
 border: 1px solid;
@@ -37,14 +41,6 @@ margin-left:403px;
     margin-left: 127px;
 }
 
-#comment{
-   
-    margin-top: 3px;
-    margin-left: 127px;
-    margin-bottom: 15px;
-    width: 350px;
-}
-
 .show-hide{
     float: right;
     margin-right: 25px;
@@ -64,3 +60,55 @@ margin-left:403px;
     margin-right: 20px;
     margin-top: 1.5em;
 }
+
+
+.comment-list{
+    margin-left: 127px;
+    margin-top: 20px;
+    margin-right:60px; 
+    max-height: 170px;
+    overflow: hidden;
+}
+.comments-closed{
+	max-height: 0px;
+    overflow: hidden;
+}
+.comments-opened{
+	max-height: auto;
+}
+
+
+.comment{
+    border: 1px solid #c0c0c0;
+ 	border-radius: 5px;
+ 	padding-left: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.comment-content , .commenter{
+    font-size: 13px;
+}
+
+.commenter{
+    margin-top: 20px;
+}
+.comment-content{
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+.new-comment{
+    margin-left: 127px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.new-comment-input{ 
+    margin-left: 10px;
+    width: 308px;
+}
+
+
+
+
+
+

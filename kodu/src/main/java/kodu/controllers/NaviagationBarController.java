@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-@RequestMapping(value="/feed")
+@RequestMapping(value="/home")
 public class NaviagationBarController {
 		@Autowired
 		VisualizationService visualizationService;
@@ -39,7 +39,10 @@ public class NaviagationBarController {
 	
 		@Autowired
 		AccountConfigurationService accountConfigurationService;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 5e04c3931ce20bd072b5991cb3a73d3f0af8eb9f
 
 	   @RequestMapping(method=RequestMethod.GET)
 	   public String feed( Principal principal,Model model) {
@@ -60,17 +63,22 @@ public class NaviagationBarController {
 		   if(notifications.size()>0) model.addAttribute("notifications", notifications);
 		   else model.addAttribute("noNotifications","You dont have notifications");
 		   
+<<<<<<< HEAD
 		   List<Post> feed = visualizationService.showFeed(user.getUsername());
+=======
+		   
+		   List<Post> feed = visualizationService.showFeed(userId);
+>>>>>>> 5e04c3931ce20bd072b5991cb3a73d3f0af8eb9f
 		   model.addAttribute("feed", feed);
 		   
 		    
-   	       return "feed";
+   	       return "home";
 	   }
 	   
 	    @RequestMapping(value = "/photo", method = RequestMethod.GET)
-	    public void showProfilePhoto(HttpServletResponse response,@RequestParam String id) {
+	    public void showProfilePhoto(HttpServletResponse response,@RequestParam String username) {
 	    	try {
-	            InputStream photo = visualizationService.showUserProfilePhoto(id);
+	            InputStream photo = visualizationService.showUserProfilePhoto(username);
 	            System.out.println(photo == null);
 	            if (photo != null) {
 	                IOUtils.copy(photo, response.getOutputStream());
