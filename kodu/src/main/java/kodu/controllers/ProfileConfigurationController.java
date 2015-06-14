@@ -4,7 +4,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
-import kodu.controllers.support.ControllerUtils;
+import kodu.model.mongo.Post;
 import kodu.model.mongo.User;
 import kodu.services.AccountConfigurationService;
 import kodu.services.SessionService;
@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/profileConfiguration")
@@ -33,18 +32,6 @@ public class ProfileConfigurationController {
 		model.addAttribute("user", user);
 		return "profileConfiguration";	
 	}
-	
-	@RequestMapping(value = "photo", method = RequestMethod.POST)
-    public String doUpdateProfilePhoto(Principal principal, @RequestParam MultipartFile file) {
-        try {
-            String username = ControllerUtils.getCurrentUsername(principal);
-            accountService.updateProfilePhoto(username, file.getOriginalFilename(), file.getInputStream());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return "redirect:/profileConfiguration";
-    }
 
 	@RequestMapping(method = RequestMethod.POST, params={"localization", "languages"})
 	public String configureInformation(@RequestParam String localization, @RequestParam String languages , Principal principal) {

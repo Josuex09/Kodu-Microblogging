@@ -44,8 +44,8 @@ public class SessionServiceImpl implements SessionService,UserDetailsService {
 	}
 	
 	@Override  //working
-	public User getUser(String userId){
-		return userRepository.findById(userId);
+	public User getUser(String username){
+		return userRepository.findByUsername(username);
 	}
 
 	@Override  //working

@@ -48,13 +48,13 @@
             </tr>
             <tr>
                 <td>
-                    <br><strong>Location</strong></br><p th:text="${location}"></p>
+                    <br><strong>Location</strong></br><p th:text="${user.locatedOn}"></p>
                 </td>
             </tr>
             <tr>
                 <td >
-                    <br><strong>Languages</strong></br><p th:each="language : ${languages}"
-                     th:text="${language}+','"></p>
+                    <br><strong>Languages</strong></br><p th:each="language : ${user.languages}"
+                     th:text="${language}+' '"></p>
                 </td>
             </tr>
 
@@ -65,16 +65,16 @@
         <table>
 			<tr>
 				<td id="option"><a id="option-posts">Posts<br />
-						<p th:text="${totalPosts}"></p></a></td>
+						<p th:text="${#lists.size(user.posts)}"></p></a></td>
 
 				<td id="option"><a id="option-followers">Followers<br />
-						<p th:text="${totalFollowers}"></p></a></td>
+						<p th:text="${#lists.size(user.followers)}"></p></a></td>
 
 				<td id="option"><a id="option-follows">Follows<br />
-						<p th:text="${totalFollows}"></p>
+						<p th:text="${#lists.size(user.follows)}"></p>
 				</a></td>
 				<td id="option"><a id="option-medals">Medals<br />
-						<p th:text="${totalMedals}"></p>
+						<p th:text="${#lists.size(user.medals)}"></p>
 				</a></td>
 			</tr>
 		</table>

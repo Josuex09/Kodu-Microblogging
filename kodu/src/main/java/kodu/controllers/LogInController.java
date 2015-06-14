@@ -1,5 +1,6 @@
 package kodu.controllers;
 
+import kodu.data.impl.MongoUserRepository;
 import kodu.model.mongo.User;
 import kodu.services.SessionService;
 
@@ -15,7 +16,7 @@ public class LogInController {
 
 	@Autowired
 	private SessionService sessionService;
-
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String show() {
 		return "login";

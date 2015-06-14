@@ -22,11 +22,13 @@ body{
     float: left;
 }
 
-#update-information-button, #change-password-button, #delete-account-button, #change-photo-button{
+#update-information-button, #change-password-button, #delete-account-button{
     margin-top: 1em;
     color: white;
     text-align: center;
+    font-size: 1em;
     background-color:#f58214;
+    border-width: 1px 1px 3px;
 }
 
 @media (min-width: 1200px) {
@@ -37,28 +39,14 @@ body{
 
     
 #photo-row{
-    height: 25em;
+    height: 20em;
 }
     
-#form-photo{
-	display: inline-block;
-}   
-
 #photo-col{
-	display: block;
-	clear: both;
-	margin-left: 325px;
-    height: 17em;
+	margin-left: 295px;
+    height: 20em;
 }
-  
-#file{
-	margin-left: 290px;
-}  
-
-#change-photo-button{
-	margin-left: 380px;
-}
-
+    
 #img-tumbnail{
     border-radius: 5px;
 }

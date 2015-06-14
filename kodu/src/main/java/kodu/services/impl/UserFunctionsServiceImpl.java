@@ -30,9 +30,9 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 	}
 
 	@Override
-	public User follow(String currentUsername, String usernameId) {
+	public User follow(String currentUsername, String username) {
 		User currentUser= userRepository.findByUsername(currentUsername);
-		User userToFollow = userRepository.findByUsername(usernameId);
+		User userToFollow = userRepository.findByUsername(username);
 		// if already is following dont do anything
 		currentUser.addFollows(userToFollow.getUsername());
 		userToFollow.addFollower(currentUser.getUsername());
@@ -43,9 +43,9 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 
 		
 	@Override  //working
-	public User stopFollowing(String currentUserId, String usernameId) {
-		User current = userRepository.findById(currentUserId);
-		User user = userRepository.findById(usernameId);
+	public User stopFollowing(String currentUser, String username) {
+		User current = userRepository.findByUsername(currentUser);
+		User user = userRepository.findByUsername(username);
 		current.deleteFollow(user.getUsername());
 		user.deleteFollower(current.getUsername());
 		userRepository.save(user);
