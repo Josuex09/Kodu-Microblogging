@@ -17,5 +17,5 @@ public interface UserFunctionsService {
 	public Comment commentPublication(String postId,String userId,String comment);
 	public User follow(String currentUserId,String userId);
 	public User stopFollowing(String currentUserId,String userId);
-	public Post share(String userId,String postId);
+	public Post share(String userId,String postId,String newDescription);
 }

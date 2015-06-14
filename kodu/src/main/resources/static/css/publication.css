@@ -2,7 +2,7 @@ a{
 	cursor: pointer;
 }
 
-#post{
+.post{
 width: 620px;
 border: 1px solid;
 border-color:#c0c0c0;
@@ -18,15 +18,15 @@ margin-left:403px;
     float: right; 
 }
 
-#publisherPhoto{
+.publisherPhoto{
     margin-left: 0px;
 }
-#publisherName{
+.publisherName{
     margin-left: -2px;
     text-align: center;
 }
 
-#description{
+.description{
 	padding-left: 5px;
     border: 1px solid;
     border-radius: 3px;
@@ -66,7 +66,6 @@ margin-left:403px;
     margin-left: 127px;
     margin-top: 20px;
     margin-right:60px; 
-    max-height: 170px;
     overflow: hidden;
 }
 .comments-closed{
@@ -108,7 +107,39 @@ margin-left:403px;
 }
 
 
+li{
+list-style-type: none;
+}
+
+.shared-by{
+	padding-bottom:40px;
+	padding-top: 10px;
+	border-top: 1px solid #c0c0c0;
+}
+.shared-by-ref{
+   margin-left: 50px;
+}
 
 
+.share-img{
+	margin-left: 20px;
+}
+.share-submit{	
+	margin-top:20px;
+	background-color : #f58214;
+	margin-left: 532px;
+	color: #fff;
+	margin-bottom: 5px;
+}
 
+.share-description{
+    margin-top: -10px;
+    width: 450px;
+    height: 64px;
+    margin-left:48px;
+}
+.share-username{
+	margin-left: 20px;
+	text-align: center;
+}
 

@@ -40,7 +40,12 @@ public class HomeController {
 		return "redirect:/home";		
 	}
 
-	
+	@RequestMapping(method= RequestMethod.POST,params={"shareDescription","postId"})
+	public String doShare(@RequestParam String shareDescription,@RequestParam String postId,Principal principal){
+		User sharer = sessionService.getCurrentUser(principal);
+		ufservice.share(sharer.getUsername(), postId,shareDescription);
+		return "redirect:/home";		
+	}	
 
 	
 	

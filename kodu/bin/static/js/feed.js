@@ -28,7 +28,19 @@ $(document).ready(function(){
     	}
     	else{
     		$(this).parent().closest("div").parent().closest("div").find(".comment-list").removeClass("comments-opened");
-    		$(this).parent().closest("div").parent().closest("div").find(".comment-list").addClass("comments-closed");
+    		$(this).parent().closest("div").parent().closest("div").find(".comment-list").addClass("comments-closed	");
     	}
     });
+    
+    $(".shared-count").on("click",function (){
+    	$(this).parent().closest("div").find(".shared-users").modal("show");
+    });
+    
+    $(".share-post").on("click",function (){
+        $(this).parent().closest("div").find(".share-form").modal("show");
+    
+    
+    });
+    
+    
 });
