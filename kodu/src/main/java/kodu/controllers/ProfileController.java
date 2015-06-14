@@ -40,7 +40,7 @@ public class ProfileController {
 		model.addAttribute("totalFollowers", user.getFollowers().size());
 		model.addAttribute("totalFollows", user.getFollows().size());
 		model.addAttribute("totalPosts",user.getPosts().size());
-	    model.addAttribute("lenguages", user.getLanguages());
+	    model.addAttribute("languages", user.getLanguages());
 	    model.addAttribute("location", user.getLocatedOn());
 	    model.addAttribute("totalMedals",user.getMedals().size());
 	    

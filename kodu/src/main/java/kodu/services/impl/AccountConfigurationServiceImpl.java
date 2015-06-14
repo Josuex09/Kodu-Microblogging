@@ -2,6 +2,7 @@ package kodu.services.impl;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import kodu.data.FileRepository;
 import kodu.data.UserRepository;
@@ -31,8 +32,9 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
 		return user;
 	} 
 	
+	/*
 	@Override
-	public User editAccount(String userId,ArrayList<String> languages,
+	public User editAccount(String userId,List<String> languages,
 		String password,String location){
 		User user = userRepository.findById(userId);
 		user.setLanguages(languages);
@@ -41,6 +43,7 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
 		userRepository.save(user);
 		return user;
 	}
+	*/
 
 	@Override
 	public String updateProfilePhoto(String userId, String photoFilename,InputStream photo) {
@@ -57,6 +60,27 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
         userRepository.save(user);
         return newPhotoFilename;
 
+	}
+	
+	@Override
+	public User editPassword(String userId, String password,
+			String confirmationPassword) {
+		User user = userRepository.findById(userId);
+		if(password.equals(confirmationPassword)){
+			user.setPassword(password);
+			userRepository.save(user);
+		}
+		return user;
+	}
+	
+	@Override
+	public User editInformation(String userId, String localization,
+			List<String> languages) {
+		User user = userRepository.findById(userId);
+		user.setLanguages(languages);
+		user.setLocatedOn(localization);
+		userRepository.save(user);
+		return user;
 	}
 
 
