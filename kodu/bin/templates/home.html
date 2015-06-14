@@ -51,9 +51,9 @@
 		</tr>
 		<tr>
 			<td id="userNameTumbnail" class="tumbnail-border" colspan="2"><a
-				id="userNameTumbnailText" th:text="'@'+${user.username}"></a></td>
+				id="userNameTumbnailText" th:href="@{'/profile/'+${user.username}}" th:text="'@'+${user.username}"></a></td>
 		</tr>
-		<tr>
+		<tr>	
 			<td class="relation tumbnail-border" colspan="1"><a>Followers<br />
 					<p th:text="${totalFollowers}"></p></a></td>
 

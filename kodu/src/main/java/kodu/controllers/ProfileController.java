@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import kodu.data.UserRepository;
 import kodu.model.mongo.Post;
 import kodu.model.mongo.User;
 import kodu.services.AccountConfigurationService;
@@ -32,10 +33,9 @@ public class ProfileController {
 	@Autowired
 	AccountConfigurationService accountConfigurationService;
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value={"/{username}","/"},method=RequestMethod.GET)
 	public String profile( Principal principal,Model model) {	
 		User user = sessionService.getCurrentUser(principal);
-		String userId = user.getId();
 		model.addAttribute("user", user);
 		model.addAttribute("totalFollowers", user.getFollowers().size());
 		model.addAttribute("totalFollows", user.getFollows().size());
