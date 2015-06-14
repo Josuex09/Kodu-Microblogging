@@ -14,15 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LogInController {
 
 	@Autowired
-	// <<<<<<< HEAD:kodu/src/main/java/kodu/controllers/SignUpController.java
 	private SessionService sessionService;
 
-	//@Autowired
-	// FileRepository fr;
-	// =======
-	// private SessionService sessionService ;
-	// >>>>>>>
-	// 5e04c3931ce20bd072b5991cb3a73d3f0af8eb9f:kodu/src/main/java/kodu/controllers/LogInController.java
 	@RequestMapping(method = RequestMethod.GET)
 	public String show() {
 		return "login";
@@ -32,7 +25,7 @@ public class LogInController {
 	public String doSignup(@RequestParam String username,
 			@RequestParam String email, @RequestParam String password,
 			@RequestParam String confirm) {
-
+		System.out.println("se desea crear el usuario: "+username+" "+email+" "+password+" "+confirm);
 		if (!password.equals(confirm)) {
 			System.out.println("contraseña diferente");
 			return "redirect:/login?passwordMismatch";
