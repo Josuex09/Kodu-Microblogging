@@ -10,7 +10,8 @@
 }
 
 #imgn-logo{
-    height: 50px;
+	max-width: 65px;
+	max-height: 65px;
 }
 
 #search{
@@ -28,27 +29,29 @@
 }
 
 #nav{
-    background-color: #ff9225;
+    background-color: #f58214;
+    height: 72px;  
 }
 
 #notificationContent{
 	text-align: center;
 }
+
 #profileOptions{
-	margin-top: -15px;
+	margin-top: -14px;
 	border-radius: 100%;
 }
+
 .navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
-background-color: #ff9225;
+	background-color: #f58214;
 }
 
 #notification_count {
     z-index: 10000;
 	padding: 3px 7px 3px 7px;
-	background: #cc0000;
 	color: #ffffff;
 	font-weight: bold;
-	margin-left: 3em;;
+	margin-left: 3em;
 	border-radius: 9px;
 	position: absolute;
 	margin-top: -11px;

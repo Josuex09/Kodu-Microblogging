@@ -1,5 +1,6 @@
 body{
 	background-color: #f4f7f8;
+	font-family: "Arial Black", Gadget, sans-serif;
 }
 
 .boton{ 
@@ -9,19 +10,25 @@ body{
     height: 2.5em;
 }
 
+.boton:hover{
+	background: #FFB56E;
+	color: #fff;	
+}
+
 input{
-    border: 1px solid #c0c0c0;
+    border: 1px solid #E9E9E9;
     height: 2em;
     width: 100%;
-    color: #000;
+    color: #958E88;
 }
 
 #menu{
+	display: inline-block;
 	background: #fff;
-    margin-top: 6em;
+    margin: 20px 40px 0 0;
     width: 25em;
     float: right;
-    border: 1px solid #c0c0c0;
+    border: 1px solid #E9E9E9;
     border-radius: 5px;
     padding: 0;
 }
@@ -53,7 +60,22 @@ input{
 }
 
 #cuerpo{
-    margin-top: 15px;
+	margin-top: 30px;	
+}
+#error{
+	display: inline-block;
+    margin: 60px 40px 0 0;
+    width: 25em;
+    float: right;
+	width: 25em;
+	height: 40px;	
+}
+
+#error p{
+}
+
+.alert{
+	color: red;
 }
 
 .img-peq{
@@ -63,7 +85,7 @@ input{
 }
 
 #pestaña label{
-	margin-top: 5px;
+	margin: 5px 0 0 0;
 }
 
 #formulario label{
@@ -71,7 +93,31 @@ input{
 }
 
 #lenguajes{
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
+	margin-right: 140px;
+}
+
+#logoDiv, #menuDiv{
+	display: inline-block;
+	float: left;
+}
+
+#logoDiv{
+	width: 700px;
+}
+
+#menuDiv{
+	width: 400px;
+}
+
+#logo{
+	display: inline-block;
+	float: left;
+	margin-top: 70px;
+	width: 700px;
+}
+
+#imgLogo{
+	opacity: 0.7;
+	max-height: 500px;
+    max-width:  500px;
 }
