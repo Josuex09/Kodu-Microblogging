@@ -27,63 +27,82 @@ public class ProfileConfigurationController {
 	@Autowired
 	SessionService sessionService;
 
-	@RequestMapping(method=RequestMethod.GET)
-	public String profileConfiguration( Principal principal,Model model) {	
+	@RequestMapping(method = RequestMethod.GET)
+	public String profileConfiguration(Principal principal, Model model) {
 		User user = sessionService.getCurrentUser(principal);
 		model.addAttribute("user", user);
-		return "profileConfiguration";	
+		return "profileConfiguration";
 	}
-	
+
 	@RequestMapping(value = "photo", method = RequestMethod.POST)
-    public String doUpdateProfilePhoto(Principal principal, @RequestParam MultipartFile file) {
-        try {
-            String username = ControllerUtils.getCurrentUsername(principal);
-            accountService.updateProfilePhoto(username, file.getOriginalFilename(), file.getInputStream());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+	public String doUpdateProfilePhoto(Principal principal,
+			@RequestParam MultipartFile file) {
+		try {
+			String username = ControllerUtils.getCurrentUsername(principal);
+			accountService.updateProfilePhoto(username,
+					file.getOriginalFilename(), file.getInputStream());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        return "redirect:/profileConfiguration";
-    }
-
-	@RequestMapping(method = RequestMethod.POST, params={"localization", "languages"})
-	public String configureInformation(@RequestParam String localization, @RequestParam String languages , Principal principal) {
-		User user = sessionService.getCurrentUser(principal);
-		//String[] language = languages.split(" ");
-		List<String> lang = new ArrayList<String>();
-		//for (int i = 0; i < language.length; i++) {
-		//	lang.add(language[i]);
-		//}
-		lang.add(languages);
-		accountService.editInformation(user.getId(), localization, lang);
 		return "redirect:/profileConfiguration";
 	}
 
-	@RequestMapping(method = RequestMethod.POST, params={"current", "newPassword", "confirm"})
-	public String configureEditPassword(@RequestParam String current,
-			@RequestParam String newPassword,
-			@RequestParam String confirm, Principal principal) {
+	@RequestMapping(method = RequestMethod.POST, params = { "localization",
+			"languages" })
+	public String configureInformation(@RequestParam String localization,
+			@RequestParam String languages, Principal principal) {
 		User user = sessionService.getCurrentUser(principal);
+		String loc = user.getLocatedOn();
+		List<String> lan = user.getLanguages();
+				
+		String[] language = languages.split(" ");
+		List<String> lang = new ArrayList<String>();
+		for (int i = 0; i < language.length; i++) {
+			lang.add(language[i]);
+		}
 		
+		System.out.println("lenguajes ingresados " + lang);
+		if(!lang.isEmpty()){
+			for (int i = 0; i<lang.size();i++){
+				String temp = lang.get(i);
+				lan.add(temp);
+			}
+		}
+		
+		if(!localization.equals("")){
+			loc = localization;
+		}
+		System.out.println("localizacion a insertar "+loc);
+		System.out.println("lenguajes a insertar " + lan);
+		accountService.editInformation(user.getId(), loc, lan);
+		return "redirect:/profileConfiguration";
+	}
+
+	@RequestMapping(method = RequestMethod.POST, params = { "current",
+			"newPassword", "confirm" })
+	public String configureEditPassword(@RequestParam String current,
+			@RequestParam String newPassword, @RequestParam String confirm,
+			Principal principal) {
+		User user = sessionService.getCurrentUser(principal);
+
 		if (newPassword.equals(confirm) && current.equals(user.getPassword())) {
 			accountService.editPassword(user.getId(), newPassword, confirm);
-		} 
-		
+		}
+
 		else {
 			System.out.println("Las contraseñas no coinciden");
 			return ("redirect:/?passwordMismatch");
 		}
-		
+
 		return "redirect:/profileConfiguration";
 	}
 
-	
 	@RequestMapping(method = RequestMethod.POST)
 	public String deleteAccount(Principal principal) {
 		User user = sessionService.getCurrentUser(principal);
 		accountService.deleteAccount(user.getId());
 		return "redirect:/login";
 	}
-	
-	 
+
 }
