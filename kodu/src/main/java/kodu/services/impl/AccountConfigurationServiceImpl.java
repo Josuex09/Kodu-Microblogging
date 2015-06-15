@@ -32,18 +32,6 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
 		return user;
 	} 
 	
-	/*
-	@Override
-	public User editAccount(String userId,List<String> languages,
-		String password,String location){
-		User user = userRepository.findById(userId);
-		user.setLanguages(languages);
-		user.setPassword(password);
-		user.setLocatedOn(location);
-		userRepository.save(user);
-		return user;
-	}
-	*/
 
 	@Override
 	public String updateProfilePhoto(String username, String photoFilename,InputStream photo) {

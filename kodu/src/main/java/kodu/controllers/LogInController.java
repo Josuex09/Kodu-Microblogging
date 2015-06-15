@@ -1,12 +1,5 @@
 package kodu.controllers;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
-import kodu.data.FileRepository;
-import kodu.data.UserRepository;
-import kodu.data.impl.MongoUserRepository;
-import kodu.model.mongo.PersistedFile;
 import kodu.model.mongo.User;
 import kodu.services.SessionService;
 
@@ -24,7 +17,7 @@ public class LogInController {
 	private SessionService sessionService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String show() {			
+	public String show() {
 		return "login";
 	}
 

@@ -1,5 +1,13 @@
 #
+<<<<<<< HEAD
+#Mon Jun 15 13:45:37 CDT 2015
+=======
+<<<<<<< HEAD
+#Mon Jun 15 13:33:55 CST 2015
+=======
 #Mon Jun 15 13:10:24 CST 2015
+>>>>>>> a673ee8dbff03d26367dc012667cfa5b1c6d2b77
+>>>>>>> 0248143373f5ec89e4f04cf4677ca93a5182a4de
 org.eclipse.jdt.core.compiler.debug.localVariable=generate
 org.eclipse.jdt.core.compiler.compliance=1.7
 org.eclipse.jdt.core.compiler.codegen.unusedLocal=preserve

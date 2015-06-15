@@ -1,4 +1,4 @@
-package kodu.data.impl;
+package kodu.data.impl.mongo;
 
 import kodu.data.NotificationRepository;
 
