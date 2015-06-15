@@ -31,7 +31,7 @@
 </head>
 <body>
 	<div th:include="navigationBar"></div>
-	
+
 	<div class="container" id="configuration-tab">
 
 		<div class="jumbotron">
@@ -40,27 +40,42 @@
 				<div class="thumbnail navigation-tab" id="password-information">Contraseña</div>
 				<div class="thumbnail navigation-tab" id="delete-account">Cuenta</div>
 			</div>
-			
+
+			<div class="row" id="photo-row">
+				<div class="center-block" id="photo-col">
+					<img id="img-tumbnail"
+						th:attr="src=@{/home/photo(username=${user.username})}"
+						class="img-grande" />
+				</div>
+				<form class="form-horizontal" role="form" id="form-photo"
+					name='thumbnail-form' action='/profileConfiguration/photo'
+					method='POST' enctype="multipart/form-data">
+					<fieldset>
+						<input type="file" name='file' id="file" />
+						<button type="submit" class="btn btn-default"
+							name="change-photo-button" id="change-photo-button">Guardar
+							foto</button>
+					</fieldset>
+				</form>
+			</div>
+
 			<div class="container" id="full-information">
-				<form method="post" role="form" class="form-horizontal" th:action="@{/profileConfiguration}" action="/profileConfiguration">
-					<div class="row" id="photo-row">
-						<div class="center-block" id="photo-col">
-							<img id="img-tumbnail"
-								th:attr="src=@{/home/photo(username=${user.username})}"
-								class="img-grande" />
-						</div>
-					</div>
+
+
+
+				<form method="post" role="form" class="form-horizontal"
+					th:action="@{/profileConfiguration}" action="/profileConfiguration">
 
 					<div class="ui-widget">
 						<h4>Localización</h4>
-						<input type="text" class="form-control" name="localization" id="localization"
-							style="width: 50%" />
+						<input type="text" class="form-control" name="localization"
+							id="localization" style="width: 50%" />
 					</div>
 
 					<div class="ui-widget">
 						<h4>Idiomas</h4>
-						<input type="text" class="form-control" name="languages" id="languages"
-							style="width: 50%" />
+						<input type="text" class="form-control" name="languages"
+							id="languages" style="width: 50%" />
 					</div>
 
 
@@ -72,24 +87,25 @@
 			</div>
 
 			<div class="container" id="change-password">
-				<form method="post" role="form" class="form-horizontal" th:action="@{/profileConfiguration}" action="/profileConfiguration">
+				<form method="post" role="form" class="form-horizontal"
+					th:action="@{/profileConfiguration}" action="/profileConfiguration">
 					<div>
 						<h4>Contraseña actual</h4>
-						<input type="password" class="form-control" name="current" id="current"
-							style="width: 50%" />
+						<input type="password" class="form-control" name="current"
+							id="current" style="width: 50%" />
 					</div>
 					<div>
 
 						<h4>Nueva contraseña</h4>
-						<input type="password" class="form-control" name="newPassword" id="newPassword"
-							style="width: 50%" />
+						<input type="password" class="form-control" name="newPassword"
+							id="newPassword" style="width: 50%" />
 
 					</div>
 
 					<div>
 						<h4>Confirme la contraseña</h4>
-						<input type="password" class="form-control" name="confirm" id="confirm"
-							style="width: 50%" />
+						<input type="password" class="form-control" name="confirm"
+							id="confirm" style="width: 50%" />
 					</div>
 
 					<div class="">
@@ -103,33 +119,19 @@
 			</div>
 
 			<div class="container" id="delete-profile">
-				<form method="post" role="form" class="form-horizontal" th:action="@{/profileConfiguration}" action="/profileConfiguration">
+				<form method="post" role="form" class="form-horizontal"
+					th:action="@{/profileConfiguration}" action="/profileConfiguration">
 					<div>
 						<h4>Puedes eliminar la cuenta en cualquier momento!</h4>
 					</div>
-	
+
 					<div>
 						<button type="submit" class="btn btn-default"
 							id="delete-account-button">Eliminar cuenta</button>
 					</div>
 				</form>
 			</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 		</div>
-
-
 	</div>
 </body>
 </html>

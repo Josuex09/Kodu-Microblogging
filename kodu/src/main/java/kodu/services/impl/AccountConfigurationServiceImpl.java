@@ -46,11 +46,11 @@ public class AccountConfigurationServiceImpl implements AccountConfigurationServ
 	*/
 
 	@Override
-	public String updateProfilePhoto(String userId, String photoFilename,InputStream photo) {
-        User user = userRepository.findByUsername(userId);
+	public String updateProfilePhoto(String username, String photoFilename,InputStream photo) {
+        User user = userRepository.findByUsername(username);
 
         String currentPhoto = user.getProfilePhoto();
-        if (StringUtils.isNotBlank(currentPhoto)) {
+        if (StringUtils.isNotBlank(currentPhoto) && !StringUtils.equals(currentPhoto, "noPhoto")) {
             fileRepository.delete(currentPhoto);
         }
 

@@ -8,30 +8,18 @@
     float: left;
 }
 
-#options{
-    width: 850px;
-    height: 80px;
-    margin-left: 334px;
-    margin-top: 20px;
-}
-
 #profile{
+	border: 1px solid;
+	border-color: #c0c0c0;
+	 width : 270px; 	
     text-align: center;
     display: inline-block;
     float: left;
     margin: 20px 0 0 20px;
-}
+} 
 
 #img-tumbnail{
     border-radius: 5px;
-}
-
-#recuadro {
-    border: 1px solid;
-    border-color: #c0c0c0;
-    width: 850px;
-    margin-left: 334px;
-    margin-top: 1em;
 }
 
 #follow, #follower{
@@ -54,4 +42,22 @@ padding-left: 30px;
 padding-right: 18px;
 margin-top : 20px;
 margin-left: 115px;
+}
+
+#options{
+    height: 80px;
+} 
+
+#recuadro {
+    border: 1px solid;
+    border-color: #c0c0c0;
+    width: 850px;
+    margin-top: 20px;
+}
+
+#cont-body{
+	display: inline-block;
+	margin-left: 84px;
+    margin-top: 20px;
+	width: 880px;
 }

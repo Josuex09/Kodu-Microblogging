@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 
 <link rel="stylesheet" th:href="@{/css/tumbnail.css}"
-	href="../../css/tumbnail.css"/> 
+	href="../../css/tumbnail.css" />
 <link rel="stylesheet" th:href="@{/css/profilePhotoEdit.css}"
 	href="../../css/profilePhotoEdit.css" />
 <link rel="stylesheet" th:href="@{/css/jquery-linedtextarea.css}"
 	href="../../css/jquery-linedtextarea.css" />
 <link rel="stylesheet" th:href="@{/css/profile.css}"
-	href="../../css/profile.css" />	
+	href="../../css/profile.css" />
 <link rel="stylesheet" th:href="@{/css/publish.css}"
 	href="../../css/publish.css" />
 <link rel="stylesheet" th:href="@{/css/publication.css}"
@@ -27,218 +27,282 @@
 <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script th:src="@{/js/profile.js}" src="../../js/profile.js" ></script>
-<script th:src="@{/js/feed.js}" src="../../js/feed.js"></script> <!-- Para los posts -->
+<script th:src="@{/js/profile.js}" src="../../js/profile.js"></script>
+<script th:src="@{/js/feed.js}" src="../../js/feed.js"></script>
+<!-- Para los posts -->
 
 
 </head>
 <body>
 	<div th:include="navigationBar"></div>
-    <div id="profile">
-        <table>
-            <tr>
-                <td >
-                    <img id="img-tumbnail" th:attr="src=@{/home/photo(username=${user.username})}" class="img-grande"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a id="userNameTumbnailText" th:text="'@'+${user.username}"></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br><strong>Location</strong></br><p th:text="${user.locatedOn}"></p>
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <br><strong>Languages</strong></br><p th:each="language : ${user.languages}"
-                     th:text="${language}+' '"></p>
-                </td>
-            </tr>
-
-        </table>
-    </div>    
-
-    <div id="options">
-        <table>
+	<div id="profile">
+		<table>
 			<tr>
-				<td id="option"><a id="option-posts">Posts<br />
-						<p th:text="${#lists.size(user.posts)}"></p></a></td>
-
-				<td id="option"><a id="option-followers">Followers<br />
-						<p th:text="${#lists.size(user.followers)}"></p></a></td>
-
-				<td id="option"><a id="option-follows">Follows<br />
-						<p th:text="${#lists.size(user.follows)}"></p>
-				</a></td>
-				<td id="option"><a id="option-medals">Medals<br />
-						<p th:text="${#lists.size(user.medals)}"></p>
-				</a></td>
+				<td><img id="img-tumbnail"
+					th:attr="src=@{/home/photo(username=${user.username})}"
+					class="img-grande" /></td>
 			</tr>
+			<tr>
+				<td><a id="userNameTumbnailText" th:text="'@'+${user.username}"></a>
+				</td>
+			</tr>
+			<tr>
+				<td><br>Location</br>
+				<p th:text="${user.locatedOn}"></p></td>
+			</tr>
+			<tr>
+				<td><br>Languages</br>
+				<br>
+				<p th:each="language : ${user.languages}" th:text="${language}+' ' "></p>
+					</br></td>
+			</tr>
+
 		</table>
-    </div>
-    
-    <div id="recuadro">
-    	<div id="list-follows">
-	    	<tr th:each="follow : ${follows}">
-				<table id="follow">
-					<tr>
-						<td><img th:attr="src=@{/home/photo(username=${follow.username})}"
-							class="img-follow" /></td>
-					</tr>
-					<tr>
-						<td><a th:text="${follow.username}"></a></td>
-					</tr>
-					<tr>
-						<td><br>
-						<a class="btn btn-default" role="button"
-							data-localize="Seguir">Seguir</a></br></td>
-					</tr>
-				</table>
-	
-	    	</tr>
-    	</div>
-    	
-    	<div id="list-followers">
-	    	<tr th:each="follower : ${followers}">
-				<table id="follower">
-					<tr>
-						<td><img th:attr="src=@{/home/photo(username=${follower.username})}"
-							class="img-follow" /></td>
-					</tr>
-					<tr>
-						<td><a th:text="${follower.username}"></a></td>
-					</tr>
-					<tr>
-						<td><br>
-						<a class="btn btn-default" role="button"
-							data-localize="Seguir">Seguido</a></br></td>
-					</tr>
-				</table>
-	
-	    	</tr> 
-    	 </div>
-    	 
-    	 
-    	 <!--  lista de los posts hechos-->
-    	<div id="list-posts">
-    	 	<tr th:each="post : ${posts}">
-			<div id="user-post" class="container">
-				<div class="row">
+	</div>
 
-					<p th:if="${user.username} != ${post.createdBy}" class="created-by"
-						th:text="'Created by '+ ${post.createdBy}"></p>
-				</div>
-				<div class="row">
-					<table>
-						<tr>
-							<td><img class="img-med circle"
-								th:attr="src=@{/home/photo(username=${user.username})}" /></td>
-							<td>
-								<p id="description" th:text="${post.description}"></p>
-							</td>
-						</tr>
-						<tr>
-							<td><a id="publisherName" th:text="'@'+${post.user}"></a></td>
-						</tr>
+	<div id="cont-body">
+		<div id="options">
+			<table>
+				<tr>
+					<td id="option"><a id="option-posts">Posts<br />
+							<p th:text="${#lists.size(user.posts)}"></p></a></td>
 
-					</table>
-				</div>
-				<div class="row">
-					<pre id="code-lines" class="prettyprint linenums closed"
-						th:text="${post.code.code}"></pre>
-				</div>
+					<td id="option"><a id="option-followers">Followers<br />
+							<p th:text="${#lists.size(user.followers)}"></p></a></td>
 
-				<div class="row">
-					<a class="post-options show-hide">Show</a>
-					<table class="post-icons">
-						<tr>
-							<td>
-								<table>
-									<tr>
-										<td><img src="../../imagenes/shareIcon.png" /></td>
-										<td>Share</td>
-									</tr>
-								</table>
-							</td>
-							<td>
-								<table>
-									<tr>
-										<td><img src="../../imagenes/commentIcon.png" /></td>
-										<td><a class="comment-ref"
-											th:text="'Comments'+' ('+${#lists.size(post.comments)}+')'"></a></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
+					<td id="option"><a id="option-follows">Follows<br />
+							<p th:text="${#lists.size(user.follows)}"></p>
+					</a></td>
+					<td id="option"><a id="option-medals">Medals<br />
+							<p th:text="${#lists.size(user.medals)}"></p>
+					</a></td>
+				</tr>
+			</table>
+		</div>
 
-					</table>
-				</div>
-
-
-				<!--                 comment lists                  -->
-				<div class="row">
-					<div class="comment-list comments-closed">
-						<tr th:each="comment : ${post.comments}">
-							<div class="comment">
-								<table>
-									<tr>
-										<td><img
-											th:attr="src=@{/home/photo(username=${comment.user})}"
-											class="img-peq circle  " /></td>
-										<td><a class="commenter" href=""
-											th:text="'@'+${comment.user}"></a>
-											<p class="comment-content" th:text="${comment.content}"></p></td>
-									</tr>
-								</table>
-
-							</div>
-
-						</tr>
-					</div>
-				</div>
-
-
-
-				<!--                 comment lists end              -->
-
-
-				<!--                    make new comment                      -->
-
-
-				<div class="row">
-					<table class="new-comment">
+		<div id="recuadro">
+			<div id="list-follows">
+				<tr th:each="follow : ${follows}">
+					<table id="follow">
 						<tr>
 							<td><img
-								th:attr="src=@{/home/photo(username=${user.username})}"
-								class="img-peq circle" /></td>
-							<td>
-								<form method="POST">
-									<input type="hidden" name="postId" th:value="${post.Id}"></input>
-									<input name="commentContent" placeholder="Comment..."
-										class="new-comment-input"></input>
-								</form>
+								th:attr="src=@{/home/photo(username=${follow.username})}"
+								class="img-follow" /></td>
+						</tr>
+						<tr>
+							<td><a th:text="${follow.username}"></a></td>
+						</tr>
+						<tr>
+							<td><br> <a class="btn btn-default" role="button"
+								data-localize="Seguir">Seguir</a></br></td>
+						</tr>
+					</table>
+				</tr>
+			</div>
 
-							</td>
+			<div id="list-followers">
+				<tr th:each="follower : ${followers}">
+					<table id="follower">
+						<tr>
+							<td><img
+								th:attr="src=@{/home/photo(username=${follower.username})}"
+								class="img-follow" /></td>
+						</tr>
+						<tr>
+							<td><a th:text="${follower.username}"></a></td>
+						</tr>
+						<tr>
+							<td><br> <a class="btn btn-default" role="button"
+								data-localize="Seguir">Seguido</a></br></td>
 						</tr>
 					</table>
 
-				</div>
-
-
-				<!--                make new comment  end     -->
-				<div class="row">
-					<a class="shared-count"
-						th:text="'Shared '+ ${#lists.size(post.shared)} +' times'"> </a>
-				</div>
+				</tr>
 			</div>
 
-		</tr>
-    	 
-    	 </div> 
-    </div>
+
+			<!--  lista de los posts hechos-->
+			<div id="list-posts">
+				<tr th:each="post : ${posts}">
+					<div class="container" id="user-post">
+						<div class="row">
+
+							<p th:if="${user.username} != ${post.createdBy}"
+								class="created-by" th:text="'Created by '+ ${post.createdBy}"></p>
+						</div>
+						<div class="row">
+							<table>
+								<tr>
+									<td><img class="img-med circle"
+										th:attr="src=@{/home/photo(username=${post.user})}" /></td>
+									<td>
+										<p class="description" th:text="${post.description}"></p>
+									</td>
+								</tr>
+								<tr>
+									<td><a class="publisherName" th:text="'@'+${post.user}"></a></td>
+								</tr>
+
+							</table>
+						</div>
+						<div class="row">
+							<pre id="code-lines" class="prettyprint linenums closed"
+								th:text="${post.code.code}"></pre>
+						</div>
+
+						<div class="row">
+							<a class="post-options show-hide">Show</a>
+							<table class="post-icons">
+								<tr>
+									<td>
+										<table>
+											<tr>
+												<td><img src="../../imagenes/shareIcon.png" /></td>
+												<td><a class="share-post">Share</a></td>
+											</tr>
+										</table>
+									</td>
+									<td>
+										<table>
+											<tr>
+												<td><img src="../../imagenes/commentIcon.png" /></td>
+												<td><a class="comment-ref"
+													th:text="'Comments'+' ('+${#lists.size(post.comments)}+')'"></a></td>
+											</tr>
+										</table>
+										<div class="modal fade bs-example-modal-sm share-form"
+											tabindex="-1" role="dialog"
+											aria-labelledby="mySmallModalLabel" aria-hidden="true">
+											<div class="modal-dialog modal-md">
+												<div class="modal-content">
+													<h4 class="modal-title">&nbsp;&nbsp;Share...</h4>
+													<form method="POST">
+														<div class="container">
+															<div class="row">
+
+																<p class="created-by"
+																	th:text="'Created by '+ ${post.createdBy}"></p>
+															</div>
+															<div class="row">
+																<table>
+																	<tr>
+																		<td><img class="img-med circle share-img"
+																			th:attr="src=@{/home/photo(username=${user.username})}" /></td>
+																		<td><textarea maxlength="199"
+																				name="shareDescription" type="text"
+																				class="form-control share-description"></textarea></td>
+																	</tr>
+																	<tr>
+																		<td><a class="share-username"
+																			th:text="'@'+${user.username}"></a></td>
+																	</tr>
+
+																</table>
+															</div>
+															<div class="row">
+																<pre id="code-lines" class="prettyprint linenums closed"
+																	th:text="${post.code.code}"></pre>
+															</div>
+														</div>
+														<div class="row">
+															<input type="hidden" name="postId" th:value="${post.id}" />
+															<input class="share-submit btn btn-default" type="submit"
+																value="Share" />
+														</div>
+													</form>
+
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+
+							</table>
+
+
+
+
+						</div>
+
+
+						<!--                 comment lists                  -->
+						<div class="row">
+							<div class="comment-list comments-closed">
+								<tr th:each="comment : ${post.comments}">
+									<div class="comment">
+										<table>
+											<tr>
+												<td><img
+													th:attr="src=@{/home/photo(username=${comment.user})}"
+													class="img-peq circle  " /></td>
+												<td><a class="commenter" href=""
+													th:text="'@'+${comment.user}"></a>
+													<p class="comment-content" th:text="${comment.content}"></p></td>
+											</tr>
+										</table>
+
+									</div>
+
+								</tr>
+							</div>
+						</div>
+
+
+
+						<!--                 comment lists end              -->
+
+
+						<!--                    make new comment                      -->
+
+
+						<div class="row">
+							<table class="new-comment">
+								<tr>
+									<td><img
+										th:attr="src=@{/home/photo(username=${user.username})}"
+										class="img-peq circle" /></td>
+									<td>
+										<form method="POST">
+											<input type="hidden" name="postId" th:value="${post.Id}"></input>
+											<input name="commentContent" placeholder="Comment..."
+												class="new-comment-input"></input>
+										</form>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<!--                make new comment  end     -->
+						<div class="row">
+							<a class="shared-count"
+								th:text="'Shared '+ ${#lists.size(post.shared)} +' times'">
+							</a>
+
+							<div class="modal fade bs-example-modal-sm shared-users"
+								tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog modal-md">
+									<div class="modal-content">
+										<h4 class="modal-title">&nbsp;&nbsp;Shared by</h4>
+										<li>
+											<tr th:each="sharer : ${post.shared}">
+												<ul class="shared-by">
+													<img th:attr="src=@{/home/photo(username=${sharer})}"
+														class="img-med circle" />
+													<a th:text="'@'+${sharer}"></a>
+												</ul>
+											</tr>
+										</li>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</tr>
+
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

@@ -7,7 +7,7 @@ $(document).ready(function(){
     $("#option-follows").click(function(){
         $("#list-follows").show();
         $("#list-followers").hide();
-//        $("#list-posts").hide();
+        $("#list-posts").hide();
 //        $("#list-medals").hide();
     });
     
