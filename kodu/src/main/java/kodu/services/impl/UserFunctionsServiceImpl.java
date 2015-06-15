@@ -2,8 +2,10 @@ package kodu.services.impl;
 
 import java.util.List;
 
-import kodu.data.impl.MongoPostRepository;
-import kodu.data.impl.MongoUserRepository;
+import kodu.data.impl.es.ElasticSearchPostRepository;
+import kodu.data.impl.mongo.MongoPostRepository;
+import kodu.data.impl.mongo.MongoUserRepository;
+import kodu.model.elasticsearch.PostES;
 import kodu.model.mongo.Code;
 import kodu.model.mongo.Comment;
 import kodu.model.mongo.Post;
@@ -21,6 +23,10 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 
 	@Autowired
 	private MongoPostRepository postRepository;
+	
+	@Autowired
+	private ElasticSearchPostRepository esPostRepository;
+	
 	
 	@Override
 	public List<Object> search(String value) {
@@ -60,6 +66,7 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 		Code postCode = new Code(code, language);
 		Post newPost = new Post(description, postCode, publisherUser.getUsername());
 		postRepository.save(newPost);
+		esPostRepository.save(new PostES(newPost.getId(), newPost.getDescription()));
 		publisherUser.setPost(newPost.getId());
 		userRepository.save(publisherUser);
 		return newPost;
@@ -82,6 +89,7 @@ public class UserFunctionsServiceImpl implements UserFunctionsService {
 		Post newPost = new Post(newDescription, post.getCode(), sharer.getUsername());
 		newPost.setCreatedBy(post.getCreatedBy());
 		postRepository.save(newPost);
+		esPostRepository.save(new PostES(newPost.getId(),newPost.getDescription()));
 		post.addShared(sharer.getUsername());
 		postRepository.save(post);
 		sharer.setPost(newPost.getId());
