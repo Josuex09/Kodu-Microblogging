@@ -1,7 +1,18 @@
+body{
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
 .center-block {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+input, textarea:focus, input:focus{
+	color: #958E88;
+	border: 1px solid #E9E9E9;
+    outline: 0;
+    border: none;
 }
 
 // Usage as a mixin
@@ -26,8 +37,8 @@
 
 #notification_count{
     float: left;
-
 }
+
 #nav{
     background-color: #f58214;
     height: 72px;  

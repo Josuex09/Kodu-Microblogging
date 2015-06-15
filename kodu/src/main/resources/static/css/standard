@@ -1,6 +1,12 @@
 gray: #E9E9E9
-background: #f4f7f8
+body background: #f4f7f8
 font: "Arial Black", Gadget, sans-serif
 app orange: #f58214
 input text color: #958E88
+
+button style hover:
+	background: #FFB56E;
+	color: #fff;
+
+
 
