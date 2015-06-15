@@ -14,8 +14,6 @@ $(document).ready(function(){
         $("#delete-profile").hide();
     });
     
-    
-    
     $("#password-information").click(function(){
         $("#password-information").css("background-color","#A6570C");
         $("#edit-information").css("background-color","#f58214");
