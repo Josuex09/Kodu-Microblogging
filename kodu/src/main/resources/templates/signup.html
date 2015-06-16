@@ -37,20 +37,29 @@
 
 		<div id="menuDiv">
 			<div id="error">
-				<p th:if="${param.error}" class="alert">Usuario o contraseña incorrecto</p>
+				<p th:if="${param.passwordMismatch}" class="alert">La nueva contraseña no coincide</p>
+				<p th:if="${param.usernameAlreadyExists}" class="alert">Ya existe el usuario</p>
 			</div>
-			
 			<div id="menu" class="col-md-4">
+
 				<div id="cuerpo" class="col-md-12">
-					<!--  Cudro de inicio de Sesion -->
-					<div id="datos-iniciar">
-						<form class="form-horizontal" role="form" th:action="@{/login}"
-							action="/login" method="POST">
+
+					<!-- Cuadro de registro  -->
+					<div id="datos-registro">
+						<form class="form-horizontal" role="form" th:action="@{/signup}"
+							action="/signup" method="POST">
 							<fieldset>
 								<div id="formulario" class="form-group">
-									<label class="col-md-12" for="username" data-localize="Usuario"></label>
+									<label class="col-md-12" for="username"
+										data-localize="nombreDeUsuario"></label>
 									<div class="col-sm-12">
 										<input type="text" id="username" name="username" />
+									</div>
+								</div>
+								<div id="formulario" class="form-group">
+									<label class="col-md-12" for="email" data-localize="Correo"></label>
+									<div class="col-sm-12">
+										<input type="text" id="email" name="email" />
 									</div>
 								</div>
 								<div id="formulario" class="form-group">
@@ -60,15 +69,23 @@
 										<input type="password" id="password" name="password" />
 									</div>
 								</div>
+								<div id="formulario" class="form-group">
+									<label class="col-md-12" for="confirm"
+										data-localize="Contraseña2"></label>
+									<div class="col-sm-12">
+										<input type="password" id="confirm" name="confirm" />
+									</div>
+								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-4 col-sm-4">
 										<input class="btn btn-default boton" type="submit"
-											data-localize="IniciarSesion"></input>
+											data-localize="Registrarse"></input>
 									</div>
 								</div>
 							</fieldset>
 						</form>
 					</div>
+					
 				</div>
 			</div>
 
@@ -81,10 +98,9 @@
 				</select> <img id="img-mundo" class="img-peq" src="../../imagenes/mundo.png"></img>
 
 			</div>
-			<div id="register">
-					<label class="col-md-12">¿Todavía no tiene una cuenta?</label>
+			<div id="signin">
 				<p>
-					<a href="/signup" th:href="@{/signup}">Regístrese</a>
+					<a href="/login" th:href="@{/login}">Iniciar sesión</a>
 				</p>
 			</div>
 

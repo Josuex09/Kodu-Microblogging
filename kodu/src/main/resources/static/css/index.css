@@ -8,6 +8,7 @@ body{
     background-color: #f58214;
     width: 8em;
     height: 2.5em;
+    margin-left: -15px;
 }
 
 .boton:hover{
@@ -99,7 +100,7 @@ input, textarea:focus, input:focus{
 }
 
 #lenguajes{
-	margin-right: 140px;
+	margin-right: 160px;
 }
 
 #logoDiv, #menuDiv{
@@ -127,3 +128,11 @@ input, textarea:focus, input:focus{
 	max-height: 500px;
     max-width:  500px;
 }
+
+#register, #signin{
+	width: 25em;
+	text-align: center;
+	display: inline-block;
+	margin-top: 20px;
+}
+
