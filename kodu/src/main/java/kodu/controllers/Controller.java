@@ -11,6 +11,7 @@ import kodu.model.mongo.Post;
 import kodu.model.mongo.User;
 import kodu.services.AccountConfigurationService;
 import kodu.services.SessionService;
+import kodu.services.UserFunctionsService;
 import kodu.services.VisualizationService;
 
 import org.apache.commons.io.IOUtils;
@@ -31,6 +32,9 @@ public class Controller {
 
 	@Autowired
 	AccountConfigurationService accountConfigurationService;
+
+	@Autowired
+	UserFunctionsService ufservice;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/home")
 	public String showHome(Principal principal, Model model) {
@@ -109,7 +113,7 @@ public class Controller {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET,value="/profileConfiguration")
+	@RequestMapping(method = RequestMethod.GET, value = "/profileConfiguration")
 	public String showProfileConfiguration(Principal principal, Model model) {
 		User user = sessionService.getCurrentUser(principal);
 		String userId = user.getId();
@@ -128,7 +132,8 @@ public class Controller {
 		return "profileConfiguration";
 	}
 
-	@RequestMapping(value ={"/home/photo","/profile/{username}/photo","/profileConfiguration/photo"}, method = RequestMethod.GET)
+	@RequestMapping(value = { "/home/photo", "/profile/{username}/photo",
+			"/profileConfiguration/photo" }, method = RequestMethod.GET)
 	public void showProfilePhoto(HttpServletResponse response,
 			@RequestParam String username) {
 		try {
@@ -145,4 +150,20 @@ public class Controller {
 		}
 	}
 
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String showSearch(@RequestParam String value, Model model,Principal principal) {
+		User user = sessionService.getCurrentUser(principal);
+		model.addAttribute("user",user);
+		List<Object> result = ufservice.search(value);
+		if (result.get(0) instanceof User) {
+			model.addAttribute("type", "user");
+			List<User> userResult = (List<User>) (Object) result;
+			model.addAttribute("result", userResult);
+		} else {
+			model.addAttribute("type", "post");
+			List<Post> postResult = (List<Post>) (Object) result;
+			model.addAttribute("result", postResult);
+		}
+		return "search";
+	}
 }

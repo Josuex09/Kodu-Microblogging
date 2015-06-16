@@ -2,11 +2,9 @@ package kodu.controllers;
 
 import java.io.InputStream;
 import java.security.Principal;
-import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import kodu.model.mongo.Post;
 import kodu.model.mongo.User;
 import kodu.services.SessionService;
 import kodu.services.UserFunctionsService;
@@ -15,7 +13,6 @@ import kodu.services.VisualizationService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

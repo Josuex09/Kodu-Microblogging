@@ -15,8 +15,8 @@
 			</ul>
 
 			<!-- Barra de Busqueda    -->
-			<form class="navbar-form navbar-nav" id="search" role="search">
-				<input type="text" id="barra-busqueda" class="form-control"
+			<form class="navbar-form navbar-nav" id="search" role="search" th:action="@{/search?value}" action="/search?value">
+				<input type="text" id="barra-busqueda" name="value" class="form-control"
 					placeholder="#YOLO #NASM @LinuxL0v3r" />
 			</form>
 
