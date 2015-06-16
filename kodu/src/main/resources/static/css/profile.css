@@ -40,8 +40,17 @@ border: 1px solid;
 border-color:#c0c0c0;
 padding-left: 30px;
 padding-right: 18px;
-margin-top : 20px;
+margin-top : 25px;
 margin-left: 115px;
+}
+
+#nueva-publicacion-user{
+    border: 1px solid; 
+    border-color: #c0c0c0;
+    margin-top: 20px;
+    height: 21em;
+    width: 620px;  
+    margin-left: 115px;
 }
 
 #options{
@@ -61,3 +70,4 @@ margin-left: 115px;
     margin-top: 20px;
 	width: 880px;
 }
+
