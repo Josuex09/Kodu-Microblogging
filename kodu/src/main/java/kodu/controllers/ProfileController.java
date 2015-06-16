@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import kodu.model.mongo.Post;
 import kodu.model.mongo.User;
-import kodu.services.AccountConfigurationService;
 import kodu.services.SessionService;
 import kodu.services.UserFunctionsService;
 import kodu.services.VisualizationService;
@@ -33,49 +32,8 @@ public class ProfileController {
 
 	@Autowired
 	UserFunctionsService userFunctionsService;
-
-	@RequestMapping(value = { "/{username}"}, method = RequestMethod.GET)
-	public String profile(Principal principal, Model model,@PathVariable String username) {
-		
-		User user = sessionService.getCurrentUser(principal);
-		model.addAttribute("user", user);
-		if (user.getUsername().equals(username)) {
-
-			List<Post> posts = visualizationService.showUserPost(user
-					.getUsername());
-			model.addAttribute("posts", posts);
-
-			List<User> followers = visualizationService.showFollowers(user
-					.getUsername());
-			model.addAttribute("followers", followers);
-
-			List<User> follows = visualizationService.showFollowing(user
-					.getUsername());
-			model.addAttribute("follows", follows);
-			return "profile";
-		}
-		else{
-			User person = sessionService.getUser(username);
-			model.addAttribute("person",person);
-			boolean follow = user.getFollows().contains(person.getUsername());
-			
-			model.addAttribute("ifollow", follow);
-			
-			List<Post> posts = visualizationService.showUserPost(person
-					.getUsername());
-			model.addAttribute("posts", posts);
-
-			List<User> followers = visualizationService.showFollowers(person
-					.getUsername());
-			model.addAttribute("followers", followers);
-
-			List<User> follows = visualizationService.showFollowing(person
-					.getUsername());
-			model.addAttribute("follows", follows);
-			return "userprofile";	
-		}
-	}
-
+	
+	
 	
 	@RequestMapping(value = { "/{username}"},params={"follow"},method=RequestMethod.POST)
 	public String follow(@RequestParam String follow,Principal principal,@PathVariable String username){

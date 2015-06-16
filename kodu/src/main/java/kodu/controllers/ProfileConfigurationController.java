@@ -11,7 +11,6 @@ import kodu.services.SessionService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,13 +25,6 @@ public class ProfileConfigurationController {
 
 	@Autowired
 	SessionService sessionService;
-
-	@RequestMapping(method = RequestMethod.GET)
-	public String profileConfiguration(Principal principal, Model model) {
-		User user = sessionService.getCurrentUser(principal);
-		model.addAttribute("user", user);
-		return "profileConfiguration";
-	}
 
 	@RequestMapping(value = "photo", method = RequestMethod.POST)
 	public String doUpdateProfilePhoto(Principal principal,

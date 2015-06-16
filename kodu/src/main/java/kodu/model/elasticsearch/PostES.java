@@ -9,12 +9,23 @@ public class PostES {
 	@Id
 	private String Id;
 	private String description;	
+	private String user;
 	
-	public PostES(String id, String description) {
-		Id = id;
+	public PostES(String id, String description,String user) {
+		this.Id = id;
+		this.user=user;
 		this.description = description;
 	}
-	
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
+	}
+	public void setId(String id) {
+		Id = id;
+	}
+	public PostES(){}
 	
 	
 	public String getDescription() {

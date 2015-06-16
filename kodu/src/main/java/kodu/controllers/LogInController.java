@@ -1,7 +1,11 @@
 package kodu.controllers;
 
+import java.util.List;
+
+import kodu.model.mongo.Post;
 import kodu.model.mongo.User;
 import kodu.services.SessionService;
+import kodu.services.UserFunctionsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,30 +19,30 @@ public class LogInController {
 
 	@Autowired
 	private SessionService sessionService;
-	
+
+	@Autowired
+	private UserFunctionsService ufservice;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String show() {
-		return "login";
-	}
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String doSignup(@RequestParam String username,
-			@RequestParam String email, @RequestParam String password,
-			@RequestParam String confirm) {
-		System.out.println("se desea crear el usuario: "+username+" "+email+" "+password+" "+confirm);
-		if (!password.equals(confirm)) {
-			System.out.println("contraseña diferente");
-			return "redirect:/login?passwordMismatch";
-		}
-		
-		User newUser = sessionService.signUp(username, email, password, confirm);
-
-		if (newUser == null) {
-			return "redirect:/login?usernameAlreadyExists";
+		// sessionService.signUp("luis", "123", "123", "123");
+		/*List<Object> result = ufservice.search("elastic");
+		if (result.get(0) instanceof User) {
+			for (int i = 0; i < result.size(); i++) {
+				User u = (User) result.get(i);
+				System.out.println(u.getUsername());
+			}
 		} else {
-			return "login";
+			for (int i = 0; i < result.size(); i++) {
+				Post u = (Post) result.get(i);
+				System.out.println(u.getDescription());
+			}
 
 		}
+*/
+		return "login";
+		
 	}
 
 }

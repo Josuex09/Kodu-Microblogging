@@ -3,7 +3,6 @@ package kodu.services.impl;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -82,17 +81,9 @@ public class VisualizationServiceImpl implements VisualizationService {
 		//add own post
 		List <String> postsIds = user.getPosts();
 		List<Post>  posts = new ArrayList<Post>();
-		for(int i=0;i<postsIds.size();i++){ posts.add(postRepository.findById(postsIds.get(i)));}
+		for(int i=0;i<postsIds.size();i++) posts.add(postRepository.findById(postsIds.get(i)));
 		feed.addAll(posts);
-		if(feed.size()>0){
-			Collections.sort(feed, new Comparator<Post>() {
-				  public int compare(Post p1, Post p2) {
-				      return p1.getCreatedDate().compareTo(p2.getCreatedDate());
-				  }
-				});
-		}
 		Collections.reverse(feed);
-		System.out.println("elementos feed"+feed.size());
 		return feed;
 	}
 	
@@ -122,7 +113,6 @@ public class VisualizationServiceImpl implements VisualizationService {
 		if(StringUtils.isNotBlank(filename)){
 			PersistedFile profilePhoto = fileRepository.findById(filename);
 			if(profilePhoto != null){
-				System.out.println(profilePhoto.getFilename());
 				return profilePhoto.getInputStream();
 			}
 		}

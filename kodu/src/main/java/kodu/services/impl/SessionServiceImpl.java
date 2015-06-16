@@ -60,7 +60,6 @@ public class SessionServiceImpl implements SessionService,UserDetailsService {
 	                User user = new User(username,password,email); // encode password 
 	                mongoUserRepository.save(user);
 	                esUserRepository.save(new UserES(user.getId(),user.getUsername()));
-	                
 	                return mongoUserRepository.save(user);
 	            } else {
 	            	System.out.println("User already exists");
@@ -82,7 +81,6 @@ public class SessionServiceImpl implements SessionService,UserDetailsService {
 			throws UsernameNotFoundException {
         /*Here add user data layer fetching from the MongoDB.
         I have used mongoUserRepository*/
-		System.out.println("SE DESEA LOGUEAR CON EL USERNAME: "+username);
       User user = mongoUserRepository.findByUsername(username);
       if(user == null){
           throw new UsernameNotFoundException(username);

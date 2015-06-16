@@ -14,6 +14,13 @@ public class UserES {
 		this.username = username;
 
 	}
+	public void setId(String id) {
+		Id = id;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public UserES(){}
 
 	public String getId() {
 		return Id;
