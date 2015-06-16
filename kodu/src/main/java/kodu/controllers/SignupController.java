@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/login")
-public class LogInController {
+@RequestMapping("/signup")
+public class SignupController {
 
 	@Autowired
 	private SessionService sessionService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String show() {
-		return "login";
+		return "signup";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -28,13 +28,13 @@ public class LogInController {
 		System.out.println("se desea crear el usuario: "+username+" "+email+" "+password+" "+confirm);
 		if (!password.equals(confirm)) {
 			System.out.println("contraseña diferente");
-			return "redirect:/login?passwordMismatch";
+			return "redirect:/signup?passwordMismatch";
 		}
 		
 		User newUser = sessionService.signUp(username, email, password, confirm);
 
 		if (newUser == null) {
-			return "redirect:/login?usernameAlreadyExists";
+			return "redirect:/signup?usernameAlreadyExists";
 		} else {
 			return "login";
 

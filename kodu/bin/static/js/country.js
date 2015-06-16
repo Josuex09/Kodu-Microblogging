@@ -5,12 +5,10 @@ $(function(){
     $("#localization").autocomplete({ 
       source: availableTags
     });
-});
 
-$(function() {
 	var availableTags2 = [ "Italiano", "Español", "Portugués", "Japonés",
 			"Alemán", "Ruso", "Árabe", "Francés", "Mandarín", "Inglés" ];
-	$("#lenguages").autocomplete({
+	$("#languages").autocomplete({
 		source : availableTags2
 	});
 

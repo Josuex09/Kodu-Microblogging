@@ -2,7 +2,9 @@ package kodu.services.impl;
 
 import java.security.Principal;
 
-import kodu.data.impl.MongoUserRepository;
+import kodu.data.impl.es.ElasticSearchUserRepository;
+import kodu.data.impl.mongo.MongoUserRepository;
+import kodu.model.elasticsearch.UserES;
 import kodu.model.mongo.User;
 import kodu.services.SessionService;
 
@@ -19,9 +21,10 @@ import org.springframework.stereotype.Service;
 public class SessionServiceImpl implements SessionService,UserDetailsService {
 
 	@Autowired
-	private MongoUserRepository userRepository;
-
-
+	private MongoUserRepository mongoUserRepository;
+	@Autowired
+	private ElasticSearchUserRepository esUserRepository;
+	
     @Autowired
     private PasswordEncoder passwordEncoder;
 	
@@ -45,17 +48,20 @@ public class SessionServiceImpl implements SessionService,UserDetailsService {
 	
 	@Override  //working
 	public User getUser(String username){
-		return userRepository.findByUsername(username);
+		return mongoUserRepository.findByUsername(username);
 	}
 
 	@Override  //working
 	public User signUp(String username, String email, String password,
 			String passwordConfirm) {
 	       if (password.equals(passwordConfirm)) {
-	            User existingUser = userRepository.findByUsername(username);
+	            User existingUser = mongoUserRepository.findByUsername(username);
 	            if (existingUser == null) {
 	                User user = new User(username,password,email); // encode password 
-	                return userRepository.save(user);
+	                mongoUserRepository.save(user);
+	                esUserRepository.save(new UserES(user.getId(),user.getUsername()));
+	                
+	                return mongoUserRepository.save(user);
 	            } else {
 	            	System.out.println("User already exists");
 	                return null;
@@ -68,16 +74,16 @@ public class SessionServiceImpl implements SessionService,UserDetailsService {
 	@Override
 	public User getCurrentUser(Principal principal) {
         String username = ((UserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUsername();
-        return userRepository.findByUsername(username);
+        return mongoUserRepository.findByUsername(username);
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
         /*Here add user data layer fetching from the MongoDB.
-        I have used userRepository*/
+        I have used mongoUserRepository*/
 		System.out.println("SE DESEA LOGUEAR CON EL USERNAME: "+username);
-      User user = userRepository.findByUsername(username);
+      User user = mongoUserRepository.findByUsername(username);
       if(user == null){
           throw new UsernameNotFoundException(username);
       }else{
