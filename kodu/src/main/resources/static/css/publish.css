@@ -9,12 +9,13 @@
 }
 
 #nueva-publicacion{
+	background-color:#FAFAFA;
     border: 1px solid; 
     border-color: #c0c0c0;
-    margin-top: -330px;
+    margin-top: 40px;
     height: 21em;
     width: 620px;  
-    margin-left: 28.8em;
+    margin-left: 372px;
 }
 
 #informacion{

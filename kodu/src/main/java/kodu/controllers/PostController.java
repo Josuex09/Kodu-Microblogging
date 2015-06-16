@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping({"/home","/profile/{username}"})
+@RequestMapping({"/home","/profile/{username}","/search?value"})
 
 public class PostController {
 	

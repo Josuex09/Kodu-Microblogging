@@ -1,10 +1,12 @@
 
 #img-tumbnail{
-	margin-left:20px;
-    border-radius: 10px;
+    margin: 40px 0 0 20px;
+    border-radius: 5px;
 }
 
-
+#profile{
+	background-color:#FAFAFA;
+}
 #userNameTumbnail{
     text-align:center;
     padding-top: 10px;

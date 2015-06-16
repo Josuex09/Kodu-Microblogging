@@ -6,7 +6,7 @@ body{
 .boton{ 
     color: white;
     background-color: #f58214;
-    width: 8em;
+    width: auto;
     height: 2.5em;
     margin-left: -15px;
 }
@@ -17,10 +17,7 @@ body{
 }
 
 input{
-    border: 1px solid #E9E9E9;
-    height: 2em;
-    width: 100%;
-    color: #958E88;
+
 }
 
 input, textarea:focus, input:focus{

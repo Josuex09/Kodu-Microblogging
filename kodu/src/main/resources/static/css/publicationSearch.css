@@ -3,16 +3,33 @@ a{
 }
 
 .post{
-	background-color:#FAFAFA;
 width: 620px;
 border: 1px solid;
 border-color:#c0c0c0;
 padding-left: 30px;
 padding-right: 18px;
 margin-top : 20px;
-margin-left:372px;
+margin-left:373px;
 }
 
+#feed,#recuadro{
+	margin-top: 200px;
+}
+
+#recuadro{
+	margin-left: 372px;
+}
+
+#list-follows{
+	margin-top:0px;
+	margin-left: 0px;
+	width: 900px;
+}
+.result-text{
+	margin-top: -70px;
+	margin-left: 373px;
+	color: #f58214;
+}
 .created-by{
 	margin-top: 2px;
 	margin-right: 2px;

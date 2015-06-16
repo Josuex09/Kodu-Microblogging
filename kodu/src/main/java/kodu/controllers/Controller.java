@@ -154,8 +154,12 @@ public class Controller {
 	public String showSearch(@RequestParam String value, Model model,Principal principal) {
 		User user = sessionService.getCurrentUser(principal);
 		model.addAttribute("user",user);
+		model.addAttribute("value",value);
 		List<Object> result = ufservice.search(value);
-		if (result.get(0) instanceof User) {
+		if(result.size()==0) {
+			model.addAttribute("type", "empty");
+		}
+		else if (result.get(0) instanceof User) {
 			model.addAttribute("type", "user");
 			List<User> userResult = (List<User>) (Object) result;
 			model.addAttribute("result", userResult);

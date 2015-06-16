@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	 prettyPrint();
 	//DELETE ALL SHOWS IN LITTLE SNIPPET
 	$("pre").each(function(index){
 		if($(this).height()<120){

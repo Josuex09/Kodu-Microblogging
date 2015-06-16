@@ -7,8 +7,8 @@
     height: 80px;
     float: left;
 }
-
 #profile{
+	background-color: #fafafa;
 	border: 1px solid;
 	border-color: #c0c0c0;
 	 width : 270px; 	
@@ -23,6 +23,7 @@
 }
 
 #follow, #follower{
+	
     margin-top: 12px;
     margin-left: 7px;
     border: 1px solid;
@@ -35,6 +36,7 @@
 }
 
 #user-post{
+	
 width: 620px;
 border: 1px solid;
 border-color:#c0c0c0;
@@ -45,6 +47,7 @@ margin-left: 115px;
 }
 
 #nueva-publicacion-user{
+    background-color: #fafafa;
     border: 1px solid; 
     border-color: #c0c0c0;
     margin-top: 20px;
@@ -54,17 +57,22 @@ margin-left: 115px;
 }
 
 #options{
+    background-color: #fafafa;
+    width:850px;
     height: 80px;
 } 
 
 #recuadro {
+	
     border: 1px solid;
     border-color: #c0c0c0;
     width: 850px;
+    background-color: #fafafa;
     margin-top: 20px;
 }
 
 #cont-body{
+	
 	display: inline-block;
 	margin-left: 84px;
     margin-top: 20px;

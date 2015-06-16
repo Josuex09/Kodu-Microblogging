@@ -9,9 +9,10 @@
 <link
 	href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css"
 	rel="stylesheet" />
-<link rel="stylesheet" th:href="@{/css/publication.css}"
-	href="../../css/publication.css" />
-
+<link rel="stylesheet" th:href="@{/css/publicationSearch.css}"
+	href="../../css/publicationSearch.css" />
+<link rel="stylesheet" th:href="@{/css/profile.css}"
+	href="../../css/profile.css" />
 <link rel="stylesheet" th:href="@{/css/profilePhotoEdit.css}"
 	href="../../css/profilePhotoEdit.css" />
 <link rel="stylesheet" th:href="@{/css/prettify.css}"
@@ -34,7 +35,13 @@
 	<div th:include="navigationBar"></div>
 
 
+	<div th:if="${type} == 'empty'">
+		<h2 class="result-text" >No results found</h2>
+	</div>
+
 	<div th:if="${type} == 'post' " id="feed">
+		<h2 class="result-text" th:text="'Results for ' + ${value}+ ' :'"></h2>
+		
 		<tr th:each="post : ${result}">
 			<div class="container post">
 				<div class="row">
@@ -213,13 +220,10 @@
 					</div>
 				</div>
 			</div>
-
 		</tr>
-
 	</div>
-
-
 	<div th:if="${type} == 'user' " id="recuadro">
+			<h2 class="result-text" th:text="'Results for ' + ${value}+ ' :'"></h2>
 		<div id="list-follows">
 			<tr th:each="person : ${result}">
 				<table id="follow">
@@ -229,15 +233,11 @@
 							class="img-follow" /></td>
 					</tr>
 					<tr>
-						<td><a th:text="${person.username}"></a></td>
-					</tr>
-					<tr>
-						<td><br> <a class="btn btn-default" role="button"
-							data-localize="Seguir">Seguir</a></br></td>
+						<td><a th:href="'/profile/'+${person.username}" th:text="${person.username}"></a></td>
 					</tr>
 				</table>
 			</tr>
 		</div>
-		</div>
+	</div>
 </body>
 </html>
